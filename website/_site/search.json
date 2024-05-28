@@ -2,15 +2,121 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Website",
+    "title": "Welcome to the CRAN Cookbook",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Authors\n\n\nCitation\n\n\nAcknowledgement",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "common.html#problem-1",
+    "href": "common.html#problem-1",
+    "title": "Common Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Common Issues",
+      "Common Issues"
+    ]
+  },
+  {
+    "objectID": "common.html#solution-1",
+    "href": "common.html#solution-1",
+    "title": "Common Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Common Issues",
+      "Common Issues"
+    ]
+  },
+  {
+    "objectID": "common.html#problem-2",
+    "href": "common.html#problem-2",
+    "title": "Common Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Common Issues",
+      "Common Issues"
+    ]
+  },
+  {
+    "objectID": "common.html#solution-2",
+    "href": "common.html#solution-2",
+    "title": "Common Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Common Issues",
+      "Common Issues"
+    ]
+  },
+  {
+    "objectID": "occasional.html#problem-1",
+    "href": "occasional.html#problem-1",
+    "title": "Occasional Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "occasional.html#solution-1",
+    "href": "occasional.html#solution-1",
+    "title": "Occasional Issues",
+    "section": "Solution",
+    "text": "Solution"
+  },
+  {
+    "objectID": "occasional.html#problem-2",
+    "href": "occasional.html#problem-2",
+    "title": "Occasional Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "occasional.html#solution-2",
+    "href": "occasional.html#solution-2",
+    "title": "Occasional Issues",
+    "section": "Solution",
+    "text": "Solution"
+  },
+  {
+    "objectID": "infrequent.html#problem-1",
+    "href": "infrequent.html#problem-1",
+    "title": "Infrequent Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "infrequent.html#solution-1",
+    "href": "infrequent.html#solution-1",
+    "title": "Infrequent Issues",
+    "section": "Solution",
+    "text": "Solution"
+  },
+  {
+    "objectID": "infrequent.html#problem-2",
+    "href": "infrequent.html#problem-2",
+    "title": "Infrequent Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "infrequent.html#solution-2",
+    "href": "infrequent.html#solution-2",
+    "title": "Infrequent Issues",
+    "section": "Solution",
+    "text": "Solution"
   }
 ]

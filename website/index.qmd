@@ -1,7 +1,22 @@
 ---
-title: "Website"
+title: "Welcome to the CRAN Cookbook"
+subtitle: "A complementary self-service guide to discover solutions to common CRAN submission issues"
 ---
+
+
+# Quick Start
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+# Introduction
+
+
+# Prerequisites
+
+
+# Additional Resources
+
+
+- [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html)
