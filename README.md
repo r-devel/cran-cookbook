@@ -1,2 +1,2 @@
 # cran-cookbook
-Problem and solution documentation for common CRAN issues
+Problem and solution documentation for common CRAN issues.
