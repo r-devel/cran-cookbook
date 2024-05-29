@@ -4,10 +4,25 @@ title: "About"
 
 # Authors
 
+## Writers
+
+- [Jasmine Daly (@jasdumas)](https://github.com/jasdumas): Principal Consultant & Founder of [Daly Analytics](https://dalyanalytics.com/), maintainer of 2 CRAN packages.
+
+- [Beni Altmann (@Baltmann01)](https://github.com/Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions. 
+
+## Steering Committee 
+
+- [Heather Turner (@hturner)](https://github.com/hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.
+ - [Bettina Grün (@bettinagruen)](https://github.com/bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.
+ - [Gwynn Gebeyehu (@nzgwynn)](https://github.com/nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.
 
 
-# Citation 
+# Citation
 
+[TBD]
 
 # Acknowledgement
 
+Thank you to the [R Consortium](https://www.r-consortium.org/) for funding and sponsoring this project!
+
+![](https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg){fig-align="left"}
