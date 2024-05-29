@@ -24,14 +24,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,24 +65,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"light",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
-</script> 
-  
 
 
 <link rel="stylesheet" href="styles.css">
@@ -150,7 +129,7 @@ cookieconsent.run({
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started</span></a>
+ <span class="menu-text">Welcome to the CRAN Cookbook</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -220,7 +199,11 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#authors" id="toc-authors" class="nav-link active" data-scroll-target="#authors">Authors</a></li>
+  <li><a href="#authors" id="toc-authors" class="nav-link active" data-scroll-target="#authors">Authors</a>
+  <ul class="collapse">
+  <li><a href="#writers" id="toc-writers" class="nav-link" data-scroll-target="#writers">Writers</a></li>
+  <li><a href="#steering-committee" id="toc-steering-committee" class="nav-link" data-scroll-target="#steering-committee">Steering Committee</a></li>
+  </ul></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
   <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
   </ul>
@@ -250,12 +233,34 @@ cookieconsent.run({
 
 <section id="authors" class="level1">
 <h1>Authors</h1>
+<section id="writers" class="level2">
+<h2 class="anchored" data-anchor-id="writers">Writers</h2>
+<ul>
+<li><p><a href="https://github.com/jasdumas">Jasmine Daly (<span class="citation" data-cites="jasdumas">@jasdumas</span>)</a>: Principal Consultant &amp; Founder of <a href="https://dalyanalytics.com/">Daly Analytics</a>, maintainer of 2 CRAN packages.</p></li>
+<li><p><a href="https://github.com/Baltmann01">Beni Altmann (<span class="citation" data-cites="Baltmann01">@Baltmann01</span>)</a>: Student, assistant member of the CRAN Team working on CRAN submissions.</p></li>
+</ul>
+</section>
+<section id="steering-committee" class="level2">
+<h2 class="anchored" data-anchor-id="steering-committee">Steering Committee</h2>
+<ul>
+<li><a href="https://github.com/hturner">Heather Turner (<span class="citation" data-cites="hturner">@hturner</span>)</a>: member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.</li>
+<li><a href="https://github.com/bettinagruen">Bettina Grün (<span class="citation" data-cites="bettinagruen">@bettinagruen</span>)</a>: member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.</li>
+<li><a href="https://github.com/nzgwynn">Gwynn Gebeyehu (<span class="citation" data-cites="nzgwynn">@nzgwynn</span>)</a> data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.</li>
+</ul>
+</section>
 </section>
 <section id="citation" class="level1">
 <h1>Citation</h1>
+<p>[TBD]</p>
 </section>
 <section id="acknowledgement" class="level1">
 <h1>Acknowledgement</h1>
+<p>Thank you to the <a href="https://www.r-consortium.org/">R Consortium</a> for funding and sponsoring this project!</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
+</figure>
+</div>
 
 
 </section>
@@ -671,19 +676,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-
-<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
