@@ -25,3 +25,5 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 # Additional Resources
 
 - [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html)
+
+- [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html)
