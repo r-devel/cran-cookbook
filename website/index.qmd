@@ -1,0 +1,29 @@
+---
+title: "Welcome to the CRAN Cookbook"
+subtitle: "A complementary self-service guide to discover solutions to common CRAN submission issues"
+---
+
+
+# Quick Start
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+# Introduction
+
+The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: **Improving the Skills of R Package Maintainers**. The goals of the project are:
+
+1. Educate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.
+2. Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.
+3. Identify common CRAN submission issues and create a framework of "problems" and "solutions" that are easy to implement and discover.
+
+
+# Prerequisites
+
+
+# Additional Resources
+
+- [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html)
+
+- [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html)
