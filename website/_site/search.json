@@ -1,174 +1,114 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the CRAN Cookbook",
-    "section": "",
-    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy",
-    "crumbs": [
-      "Welcome to the CRAN Cookbook"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
     "objectID": "common.html#problem-1",
     "href": "common.html#problem-1",
     "title": "Common Issues",
     "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
+    "text": "Problem"
   },
   {
     "objectID": "common.html#solution-1",
     "href": "common.html#solution-1",
     "title": "Common Issues",
     "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
+    "text": "Solution"
   },
   {
     "objectID": "common.html#problem-2",
     "href": "common.html#problem-2",
     "title": "Common Issues",
     "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
+    "text": "Problem"
   },
   {
     "objectID": "common.html#solution-2",
     "href": "common.html#solution-2",
     "title": "Common Issues",
     "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
+    "text": "Solution"
   },
   {
-    "objectID": "occasional.html#problem-1",
-    "href": "occasional.html#problem-1",
-    "title": "Occasional Issues",
-    "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Occasional Issues",
-      "Occasional Issues"
-    ]
-  },
-  {
-    "objectID": "occasional.html#solution-1",
-    "href": "occasional.html#solution-1",
-    "title": "Occasional Issues",
-    "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Occasional Issues",
-      "Occasional Issues"
-    ]
-  },
-  {
-    "objectID": "occasional.html#problem-2",
-    "href": "occasional.html#problem-2",
-    "title": "Occasional Issues",
-    "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Occasional Issues",
-      "Occasional Issues"
-    ]
-  },
-  {
-    "objectID": "occasional.html#solution-2",
-    "href": "occasional.html#solution-2",
-    "title": "Occasional Issues",
-    "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Occasional Issues",
-      "Occasional Issues"
-    ]
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the CRAN Cookbook",
+    "section": "",
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy"
   },
   {
     "objectID": "infrequent.html#problem-1",
     "href": "infrequent.html#problem-1",
     "title": "Infrequent Issues",
     "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Infrequent Issues",
-      "Infrequent Issues"
-    ]
+    "text": "Problem"
   },
   {
     "objectID": "infrequent.html#solution-1",
     "href": "infrequent.html#solution-1",
     "title": "Infrequent Issues",
     "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Infrequent Issues",
-      "Infrequent Issues"
-    ]
+    "text": "Solution"
   },
   {
     "objectID": "infrequent.html#problem-2",
     "href": "infrequent.html#problem-2",
     "title": "Infrequent Issues",
     "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Infrequent Issues",
-      "Infrequent Issues"
-    ]
+    "text": "Problem"
   },
   {
     "objectID": "infrequent.html#solution-2",
     "href": "infrequent.html#solution-2",
     "title": "Infrequent Issues",
     "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Infrequent Issues",
-      "Infrequent Issues"
-    ]
+    "text": "Solution"
+  },
+  {
+    "objectID": "occasional.html#problem-1",
+    "href": "occasional.html#problem-1",
+    "title": "Occasional Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "occasional.html#solution-1",
+    "href": "occasional.html#solution-1",
+    "title": "Occasional Issues",
+    "section": "Solution",
+    "text": "Solution"
+  },
+  {
+    "objectID": "occasional.html#problem-2",
+    "href": "occasional.html#problem-2",
+    "title": "Occasional Issues",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "occasional.html#solution-2",
+    "href": "occasional.html#solution-2",
+    "title": "Occasional Issues",
+    "section": "Solution",
+    "text": "Solution"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
   },
   {
     "objectID": "about.html#writers",
     "href": "about.html#writers",
     "title": "About",
     "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
-    "crumbs": [
-      "About"
-    ]
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions."
   },
   {
     "objectID": "about.html#steering-committee",
     "href": "about.html#steering-committee",
     "title": "About",
     "section": "",
-    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
-    ]
+    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
   }
 ]
