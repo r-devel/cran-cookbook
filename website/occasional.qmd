@@ -3,7 +3,8 @@ title: "Occasional Issues"
 editor: visual
 ---
 
-# Issue 1
+# Re-Render .Rd-files with 'roxygen' 
+<!-- If we change the Section name -> also change crossref in common.qmd under \value-tags --> 
 
 ## Problem
 

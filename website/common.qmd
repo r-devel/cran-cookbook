@@ -3,12 +3,34 @@ title: "Common Issues"
 editor: visual
 ---
 
-# Issue 1
+# Missing `\value`-tags in .Rd-files
 
 ## Problem
 
+Every .Rd file should have an `\value`-tag stating what the output of the function is. Even if nothing is returned, the `\value`-tag is necessary for CRAN.
+
 ## Solution
 
+Often it is enough to simply add the missing `\value`-tags. If the function doesn't return anything, write that as your `\value`-tag.
+
+### Details
+
+CRAN wants a `\value`-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means. 
+The only exception are .Rd-files for data sets, marked with the `\docType{data}`-tag.
+
+Sometimes functions don't return one specific value but are rather called for their side effects. In that case the `\value`-tag should state this.
+
+```{r, eval=FALSE}
+\value{No return value, called for side effects}
+```
+
+When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\value`-tag automatically when rendering.
+
+```{r}
+#' @return What your function returns.
+```
+
+For more details on 'roxygen' check the ['roxygen'](occasional.qmd#Re-Render .Rd-files with 'roxygen') section.
 
 # Issue 2
 
