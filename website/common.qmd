@@ -16,7 +16,10 @@ Often it is enough to simply add the missing `\value`-tags. If the function does
 ### Details
 
 CRAN wants a `\value`-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means. 
-The only exception are .Rd-files for data sets, marked with the `\docType{data}`-tag.
+
+Adding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function. 
+
+The only exception are .Rd-files for data sets, marked with the `\docType{data}`-tag. Since these are no functions, no `\value`-tag is necessary. 
 
 Sometimes functions don't return one specific value but are rather called for their side effects. In that case the `\value`-tag should state this.
 
@@ -30,7 +33,7 @@ When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in 
 #' @return What your function returns.
 ```
 
-For more details on 'roxygen' check the ['roxygen'](occasional.qmd#Re-Render .Rd-files with 'roxygen') section.
+For more details on 'roxygen2' check the ['roxygen2'](occasional.qmd#Re-Render .Rd-files with 'roxygen2') section.
 
 # Issue 2
 

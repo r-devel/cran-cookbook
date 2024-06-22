@@ -3,7 +3,7 @@ title: "Occasional Issues"
 editor: visual
 ---
 
-# Re-Render .Rd-files with 'roxygen' 
+# Re-Render .Rd-files with 'roxygen2' 
 <!-- If we change the Section name -> also change crossref in common.qmd under \value-tags --> 
 
 ## Problem
