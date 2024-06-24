@@ -3,7 +3,9 @@ project:
 
 website:
   title: CRAN Cookbook
-  #cookie-consent: true
+  page-footer:
+    center: "<b>This cookbook is currently in development - Please use with caution!</b>"
+    background: info
   sidebar:
     style: "docked"
     background: light
@@ -21,11 +23,7 @@ website:
         contents:
           - infrequent.qmd
       - about.qmd
-          
-          
 
-    
-    
     tools:
       - icon: github
         menu:
@@ -35,7 +33,7 @@ website:
             href:  https://github.com/r-devel/cran-cookbook/issues
           - text: Provide Feedback
             href:  https://github.com/r-devel/cran-cookbook/discussions
-           
+
 
 format:
   html:
