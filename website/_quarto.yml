@@ -13,13 +13,13 @@ website:
     pinned: true
     contents:
       - index.qmd
-      - section: "Common Issues"
+      - section: "Manuals & Documentation Issues"
         contents:
           - common.qmd
-      - section: "Occasional Issues"
+      - section: "Code Issues"
         contents:
           - occasional.qmd
-      - section: "Infrequent Issues"
+      - section: "Description file Issues"
         contents:
           - infrequent.qmd
       - about.qmd
