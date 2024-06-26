@@ -13,6 +13,7 @@ website:
     pinned: true
     contents:
       - index.qmd
+      - general_issues.qmd
       - section: "Manuals & Documentation Issues"
         contents:
           - common.qmd
