@@ -16,13 +16,13 @@ website:
       - general_issues.qmd
       - section: "Manuals & Documentation Issues"
         contents:
-          - common.qmd
+          - docs_issues.qmd
       - section: "Code Issues"
         contents:
-          - occasional.qmd
+          - code_issues.qmd
       - section: "Description file Issues"
         contents:
-          - infrequent.qmd
+          - description_issues.qmd
       - about.qmd
 
     tools:

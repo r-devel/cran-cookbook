@@ -1,5 +1,5 @@
 ---
-title: "Occasional Issues"
+title: "Description file Issues"
 editor: visual
 ---
 
@@ -9,13 +9,11 @@ editor: visual
 
 ## Solution
 
-
 # Issue 2
 
 ## Problem
 
 ## Solution
-
 
 # Issue 3
 
