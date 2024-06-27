@@ -1,8 +1,7 @@
 ---
-title: "Infrequent Issues"
+title: "Code Issues"
 editor: visual
 ---
-
 
 # Issue 1
 
@@ -10,13 +9,11 @@ editor: visual
 
 ## Solution
 
-
 # Issue 2
 
 ## Problem
 
 ## Solution
-
 
 # Issue 3
 
