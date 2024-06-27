@@ -109,68 +109,6 @@
     "href": "about.html#steering-committee",
     "title": "About",
     "section": "",
-<<<<<<< Updated upstream
     "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
-=======
-    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "common.html",
-    "href": "common.html",
-    "title": "Common Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means. The only exception are .Rd-files for data sets, marked with the \\docType{data}-tag.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\n\\value{No return value, called for side effects}\n\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n\n#' @return What your function returns.\n\nFor more details on ‘roxygen’ check the ‘roxygen’ section.",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
-  },
-  {
-    "objectID": "common.html#problem",
-    "href": "common.html#problem",
-    "title": "Common Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
-  },
-  {
-    "objectID": "common.html#solution",
-    "href": "common.html#solution",
-    "title": "Common Issues",
-    "section": "",
-    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means. The only exception are .Rd-files for data sets, marked with the \\docType{data}-tag.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\n\\value{No return value, called for side effects}\n\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n\n#' @return What your function returns.\n\nFor more details on ‘roxygen’ check the ‘roxygen’ section.",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
-  },
-  {
-    "objectID": "common.html#details",
-    "href": "common.html#details",
-    "title": "Common Issues",
-    "section": "",
-    "text": "CRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means. The only exception are .Rd-files for data sets, marked with the \\docType{data}-tag.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\n\\value{No return value, called for side effects}\n\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n\n#' @return What your function returns.\n\nFor more details on ‘roxygen’ check the ‘roxygen’ section.",
-    "crumbs": [
-      "Common Issues",
-      "Common Issues"
-    ]
-  },
-  {
-    "objectID": "occasional.html",
-    "href": "occasional.html",
-    "title": "Occasional Issues",
-    "section": "",
-    "text": "% asds",
-    "crumbs": [
-      "Occasional Issues",
-      "Occasional Issues"
-    ]
->>>>>>> Stashed changes
   }
 ]
