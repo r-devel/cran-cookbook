@@ -20,7 +20,7 @@ website:
       - section: "Code Issues"
         contents:
           - code_issues.qmd
-      - section: "Description file Issues"
+      - section: "DESCRIPTION file Issues"
         contents:
           - description_issues.qmd
       - about.qmd

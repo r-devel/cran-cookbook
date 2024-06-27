@@ -1,5 +1,5 @@
 ---
-title: "Description file Issues"
+title: "DESCRIPTION file Issues"
 editor: visual
 ---
 
