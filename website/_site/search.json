@@ -110,5 +110,15 @@
     "title": "About",
     "section": "",
     "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
+  },
+  {
+    "objectID": "general_issues.html",
+    "href": "general_issues.html",
+    "title": "General Issues",
+    "section": "",
+    "text": "tbd",
+    "crumbs": [
+      "General Issues"
+    ]
   }
 ]
