@@ -1,5 +1,5 @@
 ---
-title: "Common Issues"
+title: "Code Issues"
 editor: visual
 ---
 
@@ -9,13 +9,11 @@ editor: visual
 
 ## Solution
 
-
 # Issue 2
 
 ## Problem
 
 ## Solution
-
 
 # Issue 3
 
