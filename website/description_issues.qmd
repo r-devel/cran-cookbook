@@ -3,20 +3,25 @@ title: "DESCRIPTION file Issues"
 editor: visual
 ---
 
-# Issue 1
+# Formatting Software Names
 
 ## Problem
 
-## Solution
-
-# Issue 2
-
-## Problem
+The automatic spell check has flagged a software name as incorrect and results in a NOTE.
 
 ## Solution
 
-# Issue 3
+All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: 'ggplot2', 'python', etc.
 
-## Problem
+The description section in the [DESCRIPTION file](https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION) of the 'ggplot2' package provides an example:
 
-## Solution
+```         
+Description: A system for 'declaratively' creating graphics, based on "The
+    Grammar of Graphics". You provide the data, tell 'ggplot2' how to map
+    variables to aesthetics, what graphical primitives to use, and it
+    takes care of the details. 
+```
+
+### Details
+
+Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names. It may also be useful and necessary to document non-obvious acronyms which can produce a NOTE in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
