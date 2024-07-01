@@ -1,0 +1,15 @@
+{
+  "hash": "f40ec0094b1db00d090732a55d6c9d65",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Manuals & Documentation Issues\"\neditor: visual\n---\n\n\n# Missing `\\value`-tags in .Rd-files\n\n## Problem\n\nEvery .Rd file should have an `\\value`-tag stating what the output of the function is. Even if nothing is returned, the `\\value`-tag is necessary for CRAN.\n\n## Solution\n\nOften it is enough to simply add the missing `\\value`-tags. If the function doesn't return anything, write that as your `\\value`-tag.\n\n### Details\n\nCRAN wants a `\\value`-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\n\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\n\nThe only exception are .Rd-files for data sets, marked with the `\\docType{data}`-tag. Since these are no functions, no `\\value`-tag is necessary.\n\nSometimes functions don't return one specific value but are rather called for their side effects. In that case the `\\value`-tag should state this.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n\\value{No return value, called for side effects}\n```\n:::\n\n\nWhen using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\\value`-tag automatically when rendering.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#' @return What your function returns.\n```\n:::\n\n\nFor more details on 'roxygen2' check the 'roxygen2' section.\n\n\n\n# Issue 2\n\n## Problem\n\n## Solution\n\n# Issue 3\n\n## Problem\n\n## Solution\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

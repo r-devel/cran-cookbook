@@ -1,115 +1,134 @@
 [
   {
-    "objectID": "common.html#problem-1",
-    "href": "common.html#problem-1",
-    "title": "Common Issues",
+    "objectID": "docs_issues.html",
+    "href": "docs_issues.html",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\n\\value{No return value, called for side effects}\n\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n\n#' @return What your function returns.\n\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem",
+    "href": "docs_issues.html#problem",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution",
+    "href": "docs_issues.html#solution",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\n\\value{No return value, called for side effects}\n\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n\n#' @return What your function returns.\n\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-1",
+    "href": "docs_issues.html#problem-1",
+    "title": "Manuals & Documentation Issues",
     "section": "Problem",
-    "text": "Problem"
+    "text": "Problem",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
   },
   {
-    "objectID": "common.html#solution-1",
-    "href": "common.html#solution-1",
-    "title": "Common Issues",
+    "objectID": "docs_issues.html#solution-1",
+    "href": "docs_issues.html#solution-1",
+    "title": "Manuals & Documentation Issues",
     "section": "Solution",
-    "text": "Solution"
+    "text": "Solution",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
   },
   {
-    "objectID": "common.html#problem-2",
-    "href": "common.html#problem-2",
-    "title": "Common Issues",
+    "objectID": "docs_issues.html#problem-2",
+    "href": "docs_issues.html#problem-2",
+    "title": "Manuals & Documentation Issues",
     "section": "Problem",
-    "text": "Problem"
+    "text": "Problem",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
   },
   {
-    "objectID": "common.html#solution-2",
-    "href": "common.html#solution-2",
-    "title": "Common Issues",
+    "objectID": "docs_issues.html#solution-2",
+    "href": "docs_issues.html#solution-2",
+    "title": "Manuals & Documentation Issues",
     "section": "Solution",
-    "text": "Solution"
+    "text": "Solution",
+    "crumbs": [
+      "Manuals & Documentation Issues",
+      "Manuals & Documentation Issues"
+    ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to the CRAN Cookbook",
     "section": "",
-    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy"
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
   },
   {
-    "objectID": "infrequent.html#problem-1",
-    "href": "infrequent.html#problem-1",
-    "title": "Infrequent Issues",
+    "objectID": "description_issues.html#problem-1",
+    "href": "description_issues.html#problem-1",
+    "title": "DESCRIPTION file Issues",
     "section": "Problem",
-    "text": "Problem"
+    "text": "Problem",
+    "crumbs": [
+      "DESCRIPTION file Issues",
+      "DESCRIPTION file Issues"
+    ]
   },
   {
-    "objectID": "infrequent.html#solution-1",
-    "href": "infrequent.html#solution-1",
-    "title": "Infrequent Issues",
+    "objectID": "description_issues.html#solution-1",
+    "href": "description_issues.html#solution-1",
+    "title": "DESCRIPTION file Issues",
     "section": "Solution",
-    "text": "Solution"
+    "text": "Solution",
+    "crumbs": [
+      "DESCRIPTION file Issues",
+      "DESCRIPTION file Issues"
+    ]
   },
   {
-    "objectID": "infrequent.html#problem-2",
-    "href": "infrequent.html#problem-2",
-    "title": "Infrequent Issues",
+    "objectID": "description_issues.html#problem-2",
+    "href": "description_issues.html#problem-2",
+    "title": "DESCRIPTION file Issues",
     "section": "Problem",
-    "text": "Problem"
+    "text": "Problem",
+    "crumbs": [
+      "DESCRIPTION file Issues",
+      "DESCRIPTION file Issues"
+    ]
   },
   {
-    "objectID": "infrequent.html#solution-2",
-    "href": "infrequent.html#solution-2",
-    "title": "Infrequent Issues",
+    "objectID": "description_issues.html#solution-2",
+    "href": "description_issues.html#solution-2",
+    "title": "DESCRIPTION file Issues",
     "section": "Solution",
-    "text": "Solution"
-  },
-  {
-    "objectID": "occasional.html#problem-1",
-    "href": "occasional.html#problem-1",
-    "title": "Occasional Issues",
-    "section": "Problem",
-    "text": "Problem"
-  },
-  {
-    "objectID": "occasional.html#solution-1",
-    "href": "occasional.html#solution-1",
-    "title": "Occasional Issues",
-    "section": "Solution",
-    "text": "Solution"
-  },
-  {
-    "objectID": "occasional.html#problem-2",
-    "href": "occasional.html#problem-2",
-    "title": "Occasional Issues",
-    "section": "Problem",
-    "text": "Problem"
-  },
-  {
-    "objectID": "occasional.html#solution-2",
-    "href": "occasional.html#solution-2",
-    "title": "Occasional Issues",
-    "section": "Solution",
-    "text": "Solution"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
-  },
-  {
-    "objectID": "about.html#writers",
-    "href": "about.html#writers",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions."
-  },
-  {
-    "objectID": "about.html#steering-committee",
-    "href": "about.html#steering-committee",
-    "title": "About",
-    "section": "",
-    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience."
+    "text": "Solution",
+    "crumbs": [
+      "DESCRIPTION file Issues",
+      "DESCRIPTION file Issues"
+    ]
   },
   {
     "objectID": "general_issues.html",
@@ -119,6 +138,80 @@
     "text": "tbd",
     "crumbs": [
       "General Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-1",
+    "href": "code_issues.html#problem-1",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Code Issues",
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-1",
+    "href": "code_issues.html#solution-1",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Code Issues",
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-2",
+    "href": "code_issues.html#problem-2",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Code Issues",
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-2",
+    "href": "code_issues.html#solution-2",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Code Issues",
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#writers",
+    "href": "about.html#writers",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#steering-committee",
+    "href": "about.html#steering-committee",
+    "title": "About",
+    "section": "",
+    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
     ]
   }
 ]
