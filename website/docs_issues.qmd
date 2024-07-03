@@ -23,17 +23,17 @@ The only exception are .Rd-files for data sets, marked with the `\docType{data}`
 
 Sometimes functions don't return one specific value but are rather called for their side effects. In that case the `\value`-tag should state this.
 
-```{r, eval=FALSE}
+```default
 \value{No return value, called for side effects}
 ```
 
 When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\value`-tag automatically when rendering.
 
-```{r}
+```default
 #' @return What your function returns.
 ```
 
-For more details on 'roxygen2' check the 'roxygen2' section.
+For more details on 'roxygen2' check the ['roxygen2' section](#repeated-rejections-of-issues-in-manuals-if-using-roxygen2).
 
 
 
