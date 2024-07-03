@@ -24,4 +24,4 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
 
 ### Details
 
-Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names **only**. It may also be useful to document non-obvious acronyms, file extensions, or author names which can produce a NOTE in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file to facilitate the CRAN team review.
+Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names **only**. 
