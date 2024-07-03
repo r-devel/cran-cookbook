@@ -13,7 +13,7 @@ The automatic spell check has flagged a software name as incorrect and results i
 
 All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: 'ggplot2', 'python', etc.
 
-The description section in the [DESCRIPTION file](https://github.com/tidyverse/readr/blob/main/DESCRIPTION) of the 'readr' package provides an example:
+The description section in the [DESCRIPTION file](https://github.com/tidyverse/readr/blob/main/DESCRIPTION) of the 'readr' package provides an example which uses single quotes around the package name and file extensions:
 
 ```         
 Description: The goal of 'readr' is to provide a fast and friendly way to
@@ -24,4 +24,4 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
 
 ### Details
 
-Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names. It may also be useful and necessary to document non-obvious acronyms which can produce a NOTE in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
+Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names **only**. It may also be useful to document non-obvious acronyms, file extensions, or author names which can produce a NOTE in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file to facilitate the CRAN team review.
