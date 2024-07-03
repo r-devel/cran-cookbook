@@ -13,13 +13,13 @@ The automatic spell check has flagged a software name as incorrect and results i
 
 All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: 'ggplot2', 'python', etc.
 
-The description section in the [DESCRIPTION file](https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION) of the 'ggplot2' package provides an example:
+The description section in the [DESCRIPTION file](https://github.com/tidyverse/readr/blob/main/DESCRIPTION) of the 'readr' package provides an example:
 
 ```         
-Description: A system for 'declaratively' creating graphics, based on "The
-    Grammar of Graphics". You provide the data, tell 'ggplot2' how to map
-    variables to aesthetics, what graphical primitives to use, and it
-    takes care of the details. 
+Description: The goal of 'readr' is to provide a fast and friendly way to
+    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed
+    to flexibly parse many types of data found in the wild, while still
+    cleanly failing when data unexpectedly changes.
 ```
 
 ### Details
