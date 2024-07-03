@@ -37,11 +37,29 @@ For more details on 'roxygen2' check the 'roxygen2' section.
 
 
 
-# Issue 2
+
+# Repeated Rejections of Issues in Manuals If Using 'roxygen2' {#repeated-rejections-of-issues-in-manuals-if-using-roxygen2}
 
 ## Problem
 
+The CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.
+
 ## Solution
+
+Implement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using `roxygenize()`.
+
+### Details
+
+If you decide to render your manuals with ['roxygen2'](https://cran.r-project.org/web/packages/roxygen2/index.html), the .Rd-files can be render using the function [`roxygenize()`](https://roxygen2.r-lib.org/reference/roxygenize.html). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render.
+Similarly, changes in the 'roxygen2'-section of .R-files will not transfer to the .Rd-files without a re-rendering. 
+
+::: {.callout-tip}
+To avoid this mistake, make sure to **always** call `roxygenize()` before submitting your package.
+:::
+
+If you want to know more on how to use 'roxygen2' to crerate your manuals, take a look at their [website](https://roxygen2.r-lib.org/index.html).
+
+
 
 # Issue 3
 
