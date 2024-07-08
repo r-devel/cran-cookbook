@@ -3,20 +3,25 @@ title: "DESCRIPTION file Issues"
 editor: visual
 ---
 
-# Issue 1
+# Formatting Software Names
 
 ## Problem
 
-## Solution
-
-# Issue 2
-
-## Problem
+The automatic spell check has flagged a software name as incorrect and results in a NOTE.
 
 ## Solution
 
-# Issue 3
+All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: 'ggplot2', 'python', etc.
 
-## Problem
+### Details
 
-## Solution
+Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names **only**.
+
+The description section in the [DESCRIPTION file](https://github.com/tidyverse/readr/blob/main/DESCRIPTION) of the 'readr' package provides an example which uses single quotes around the package name and file extensions:
+
+```         
+Description: The goal of 'readr' is to provide a fast and friendly way to
+    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed
+    to flexibly parse many types of data found in the wild, while still
+    cleanly failing when data unexpectedly changes.
+```
