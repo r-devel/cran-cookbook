@@ -39,4 +39,4 @@ Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-li
 
 ### Details
 
-Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*
+Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
