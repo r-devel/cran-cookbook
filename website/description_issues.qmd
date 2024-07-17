@@ -26,7 +26,6 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
     cleanly failing when data unexpectedly changes.
 ```
 
-------------------------------------------------------------------------
 
 # Explaining Acronyms
 
