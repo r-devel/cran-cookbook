@@ -23,25 +23,43 @@ The only exception are .Rd-files for data sets, marked with the `\docType{data}`
 
 Sometimes functions don't return one specific value but are rather called for their side effects. In that case the `\value`-tag should state this.
 
-```{r, eval=FALSE}
+``` default
 \value{No return value, called for side effects}
 ```
 
 When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\value`-tag automatically when rendering.
 
-```{r}
+``` default
 #' @return What your function returns.
 ```
 
-For more details on 'roxygen2' check the 'roxygen2' section.
+For more details on 'roxygen2' check the ['roxygen2' section](#repeated-rejections-of-issues-in-manuals-if-using-roxygen2).
 
+--------------------------------------------------------------
 
-
-# Issue 2
+# Repeated Rejections of Issues in Manuals If Using 'roxygen2' {#repeated-rejections-of-issues-in-manuals-if-using-roxygen2}
 
 ## Problem
 
+The CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.
+
 ## Solution
+
+Implement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using `roxygenize()`.
+
+### Details
+
+If you decide to render your manuals with ['roxygen2'](https://cran.r-project.org/web/packages/roxygen2/index.html), the .Rd-files can be render using the function [`roxygenize()`](https://roxygen2.r-lib.org/reference/roxygenize.html). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the 'roxygen2'-section of .R-files will not transfer to the .Rd-files without a re-rendering.
+
+::: callout-tip
+To avoid this mistake, make sure to **always** call `roxygenize()` before submitting your package.
+:::
+
+If you want to know more on how to use 'roxygen2' to create your manuals, take a look at their [website](https://roxygen2.r-lib.org/index.html).
+
+::: callout-note
+When using 'devtools', the function [`devtools::document()`](https://www.rdocumentation.org/packages/devtools/versions/2.4.5/topics/document) acts as a wrapper for `roxygenize()` and can be used to render the .Rd-files.
+:::
 
 # Issue 3
 
