@@ -31,7 +31,7 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
 
 ## Problem
 
-You are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check..
+You are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.
 
 ## Solution
 
