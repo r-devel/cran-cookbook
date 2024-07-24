@@ -25,3 +25,18 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
     to flexibly parse many types of data found in the wild, while still
     cleanly failing when data unexpectedly changes.
 ```
+
+
+# Explaining Acronyms
+
+## Problem
+
+You are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.
+
+## Solution
+
+Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file to facilitate the CRAN team review.
+
+### Details
+
+Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
