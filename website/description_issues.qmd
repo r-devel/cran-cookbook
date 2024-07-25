@@ -1,9 +1,11 @@
 ---
 title: "DESCRIPTION file Issues"
-editor: visual
+format: 
+  html:
+    css: style.css
 ---
 
-# Formatting Software Names
+# Formatting Software Names 
 
 ## Problem
 
@@ -26,6 +28,7 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
     cleanly failing when data unexpectedly changes.
 ```
 
+---
 
 # Explaining Acronyms
 
