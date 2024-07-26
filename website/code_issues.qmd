@@ -1,6 +1,8 @@
 ---
 title: "Code Issues"
-editor: visual
+format: 
+  html:
+    css: style.css
 ---
 
 # Issue 1
