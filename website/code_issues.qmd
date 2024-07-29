@@ -5,45 +5,43 @@ format:
     css: style.css
 ---
 
-# `T`/`F` Instead of `TRUE`/`FALSE` 
+# `T`/`F` Instead of `TRUE`/`FALSE`
 
 ## Problem
+
 You are writing the abbreviated forms of `TRUE` and `FALSE`, `T` and `F` or you are using `T` or `F` as names.
 
 ## Solution
-Change the abbreviation to the full words or use a different variable name. 
 
-## Details
+Change the abbreviation to the full words or use a different variable name.
 
-In R, `T` and `F` are variables being set to `TRUE` and `FALSE`, respectively. However, those variables can be redefined by the user since these are not reserved words as `TRUE` and `FALSE` are (see the [R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Reserved-words) for more details).
-This can result in weird code behavior as users of your package might have variables named `T`/`F`. 
+### Details
+
+In R, `T` and `F` are variables being set to `TRUE` and `FALSE`, respectively. However, those variables can be redefined by the user since these are not reserved words as `TRUE` and `FALSE` are (see the [R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Reserved-words) for more details). This can result in unexpected code behavior as users of your package might have variables named `T`/`F`.
 
 ### Examples
 
 The first example shows that you cannot overwrite `TRUE`:
+
 ```{r, error=TRUE}
 TRUE <- "Not TRUE anymore"
 
 print(TRUE)
 ```
 
-This throws an error as `TRUE` is a reserved word and the value of `TRUE` does not change. 
+This throws an error as `TRUE` is a reserved word and the value of `TRUE` does not change.
 
 `T` (and `F`) on the other hand can be set to a different value:
+
 ```{r}
 T <- "Not TRUE anymore"
 
 print(T)
 ```
 
+To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, `TRUE` and `FALSE` instead of their abbreviated forms. For the same reason, `T` or `F` should not be used as variable names in your code, examples, tests or vignettes.
 
-To avoid any weird behaviors and inconsistencies, CRAN reviews will ask you to write the reserved words, `TRUE` and `FALSE` instead of their abbreviated forms. For the same reason, `T` and `F` should not be used as variable names in your code, examples, tests or vignettes.  
-
-
-
-
-
-----------------------------------
+------------------------------------------------------------------------
 
 # Issue 2
 
