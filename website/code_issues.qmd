@@ -41,7 +41,7 @@ print(T)
 
 To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, `TRUE` and `FALSE` instead of their abbreviated forms. For the same reason, `T` or `F` should not be used as variable names in your code, examples, tests or vignettes.
 
-------------------------------------------------------------------------
+--------------------------------------------------------------------
 
 # Issue 2
 
