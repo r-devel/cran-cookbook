@@ -1,12 +1,12 @@
 hr {
     border: none;
     height: 5px;
-    color: #08F;
-    background-color: #08F;
+    color: blue;
+    background-color: blue;
 }
 
 
 .cell-output {
-    background-color: #08F4;
+    background-color: rgba(128, 128, 128, 0.3);
     border-radius: 4px;
   }
