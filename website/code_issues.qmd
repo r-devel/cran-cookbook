@@ -49,6 +49,8 @@ To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask y
 
 ## Solution
 
+### Details
+
 # Issue 3
 
 ## Problem
