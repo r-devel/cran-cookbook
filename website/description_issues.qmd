@@ -40,3 +40,26 @@ Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-li
 ### Details
 
 Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
+
+
+# LICENSE files
+
+Same goes for MIT-License files with wrongly specified copyright holders. Surprisingly often, package authors write “[packagename] authors” (which is fine) but still list an old/outdated packagename.
+
+## Problem
+
+A file is referenced in the DESCRIPTION for License.
+
+## Solution
+
+Remove the reference `+ file LICENSE` 
+
+### Details
+
+Most licenses don’t need an additional file as these are part of R.
+
+::: {.callout-tip}
+## Tip
+
+All licenses must be [FOSS](https://svn.r-project.org/R/trunk/share/licenses/license.db).
+:::
