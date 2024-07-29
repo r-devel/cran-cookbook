@@ -11,8 +11,6 @@ format:
 
 ## Solution
 
-### Details
-
 # Issue 2
 
 ## Problem
