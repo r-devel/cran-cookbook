@@ -4,3 +4,9 @@ hr {
     color: blue;
     background-color: blue;
 }
+
+
+.cell-output {
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
+  }
