@@ -1,8 +1,8 @@
 on:
-  workflow_dispatch:
   push:
-    branches: 
+    branches:
       - main
+  workflow_dispatch:
 
 name: Quarto Publish
 
