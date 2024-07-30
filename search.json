@@ -1,0 +1,242 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the CRAN Cookbook",
+    "section": "",
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html",
+    "href": "docs_issues.html",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem",
+    "href": "docs_issues.html#problem",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution",
+    "href": "docs_issues.html#solution",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-1",
+    "href": "docs_issues.html#problem-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem\nThe CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-1",
+    "href": "docs_issues.html#solution-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-2",
+    "href": "docs_issues.html#problem-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-2",
+    "href": "docs_issues.html#solution-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html",
+    "href": "code_issues.html",
+    "title": "Code Issues",
+    "section": "",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.\n\n\n\nChange the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem",
+    "href": "code_issues.html#problem",
+    "title": "Code Issues",
+    "section": "",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution",
+    "href": "code_issues.html#solution",
+    "title": "Code Issues",
+    "section": "",
+    "text": "Change the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-1",
+    "href": "code_issues.html#problem-1",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-1",
+    "href": "code_issues.html#solution-1",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\n\nDetails",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-2",
+    "href": "code_issues.html#problem-2",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-2",
+    "href": "code_issues.html#solution-2",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#writers",
+    "href": "about.html#writers",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#steering-committee",
+    "href": "about.html#steering-committee",
+    "title": "About",
+    "section": "",
+    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "description_issues.html",
+    "href": "description_issues.html",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem",
+    "href": "description_issues.html#problem",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution",
+    "href": "description_issues.html#solution",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-1",
+    "href": "description_issues.html#problem-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-1",
+    "href": "description_issues.html#solution-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "general_issues.html",
+    "href": "general_issues.html",
+    "title": "General Issues",
+    "section": "",
+    "text": "tbd",
+    "crumbs": [
+      "General Issues"
+    ]
+  }
+]
