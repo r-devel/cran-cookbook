@@ -52,7 +52,7 @@ Most acronyms that are not widely known should be explained. For example, you do
 
 ## Problem
 
-A file is referenced in the DESCRIPTION field for License when it's not required or the full license has been copied and submitted in the LICENSE file.
+Some licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the [CRAN website](https://cran.r-project.org/web/licenses/).
 
 ## Solution
 
