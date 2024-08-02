@@ -63,7 +63,7 @@ Remove the reference `+ file LICENSE` and delete the LICENSE file.
 Most licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within _R_ by searching for **Note: this is a template, needs + file LICENSE**:
 
 ```r
-path_licenses <- RShowDoc("license.db")
+path_licenses <- list.files(path = R.home(), "license.db", full.names = TRUE, recursive = TRUE)
 licenses_doc <- as.data.frame(read.dcf(path_licenses))
 ```
 
