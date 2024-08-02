@@ -72,7 +72,7 @@ If an additional file is needed, it should only specify the author and year.
 ::: callout-tip
 ## Tip
 
-All licenses must be [FOSS](https://svn.r-project.org/R/trunk/share/licenses/license.db). 
+Licenses should be FOSS, or allowed by [R](https://svn.r-project.org/R/trunk/share/licenses/license.db). 
 
 :::
 
