@@ -43,13 +43,41 @@ To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask y
 
 --------------------------------------------------------------------
 
-# Issue 2
+# Setting a Specific Seed
 
 ## Problem
 
+You are setting a specific seed in your functions which cannot be changed.
+
 ## Solution
 
+Remove lines that set the seed. If you want to set a specific seed in your functions, users should be able to set no seed if they want. 
+
 ### Details
+
+Changing the seed per se is not forbidden. However, users should be able to control which seed to use. Code that changes the seed (e.g.: `set.seed(123)`) should therefore be avoided. A good solution, if you want to set a seed per default is to add an argument `seed` to your function and set it conditionally. 
+
+```{r, eval = FALSE}
+function(... , seed = NULL){
+  if(!is.null(seed)){
+    set.seed(seed)
+  }
+  
+  #the rest of your function can be written here.
+  
+}
+```
+This allows users to avoid setting a seed if they change the argument to `NULL`.
+
+<!--# IDEA: Add a paragraph about messing with the .Random.seed... 
+      Then referenced to the .GlobalEnv Issue. -->
+
+::: {.callout-note}
+
+In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results. 
+
+:::
+
 
 # Issue 3
 
