@@ -55,7 +55,7 @@ Remove lines that set the seed. If you want to set a specific seed in your funct
 
 ### Details
 
-Changing the seed per se is not forbidden. However, users should be able to control which seed to use. Code that changes the seed (e.g.: `set.seed(123)`) should therefore be avoided. A good solution, if you want to set a seed per default is to add an argument `seed` to your function and set it conditionally. 
+Changing the seed per se is not forbidden. However, users should be able to control which seed to use. Code that changes the seed (e.g.: `set.seed(123)`) should therefore be avoided. A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
 
 ```{r, eval = FALSE}
 function(... , seed = NULL){
@@ -67,7 +67,7 @@ function(... , seed = NULL){
   
 }
 ```
-This allows users to avoid setting a seed if they change the argument to `NULL`.
+This allows users to avoid setting a seed if they change the argument to `NULL`. Ideally the argument is already set to `NULL` as default. 
 
 <!--# IDEA: Add a paragraph about messing with the .Random.seed... 
       Then referenced to the .GlobalEnv Issue. -->
