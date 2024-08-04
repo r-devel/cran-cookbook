@@ -47,15 +47,15 @@ To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask y
 
 ## Problem
 
-n your functions, you are setting a the random seed to a specific number which cannot be changed.
+In your functions, you are setting a the random seed to a specific number which cannot be changed.
 
 ## Solution
 
-Remove lines that set the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want. 
+Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want. 
 
 ### Details
 
-Changing the seed per se is not forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
+Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
 
 ```{r, eval = FALSE}
 function(... , seed = NULL){
