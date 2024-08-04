@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#issue-2" id="toc-issue-2" class="nav-link" data-scroll-target="#issue-2">Issue 2</a>
+  <li><a href="#setting-a-specific-seed" id="toc-setting-a-specific-seed" class="nav-link" data-scroll-target="#setting-a-specific-seed">Setting a Specific Seed</a>
   <ul class="collapse">
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem</a></li>
   <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a>
@@ -295,15 +295,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="issue-2" class="level1">
-<h1>Issue 2</h1>
+<section id="setting-a-specific-seed" class="level1">
+<h1>Setting a Specific Seed</h1>
 <section id="problem-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1">Problem</h2>
+<p>In your functions, you are setting a the random seed to a specific number which cannot be changed.</p>
 </section>
 <section id="solution-1" class="level2">
 <h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
+<p>Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.</p>
 <section id="details-1" class="level3">
 <h3 class="anchored" data-anchor-id="details-1">Details</h3>
+<p>Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: <code>set.seed(123)</code>). A good solution for allowing to set a seed is to add an argument <code>seed</code> to your function and set it conditionally.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(... , <span class="at">seed =</span> <span class="cn">NULL</span>){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(seed)){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set.seed</span>(seed)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#the rest of your function can be written here.</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This allows users to avoid setting a seed if they change the argument to <code>NULL</code>. Ideally, the argument is already set to <code>NULL</code> per default.</p>
+<!--# IDEA: Add a paragraph about messing with the .Random.seed... 
+      Then referenced to the .GlobalEnv Issue. -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
 </section>

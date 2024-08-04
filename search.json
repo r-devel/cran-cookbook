@@ -114,7 +114,7 @@
     "href": "code_issues.html#problem-1",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem",
+    "text": "Problem\nIn your functions, you are setting a the random seed to a specific number which cannot be changed.",
     "crumbs": [
       "Code Issues"
     ]
@@ -124,7 +124,7 @@
     "href": "code_issues.html#solution-1",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\n\nDetails",
+    "text": "Solution\nRemove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.\n\nDetails\nChanging the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: set.seed(123)). A good solution for allowing to set a seed is to add an argument seed to your function and set it conditionally.\n\nfunction(... , seed = NULL){\n  if(!is.null(seed)){\n    set.seed(seed)\n  }\n  \n  #the rest of your function can be written here.\n  \n}\n\nThis allows users to avoid setting a seed if they change the argument to NULL. Ideally, the argument is already set to NULL per default.\n\n\n\n\n\n\n\nNote\n\n\n\nIn your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.",
     "crumbs": [
       "Code Issues"
     ]
