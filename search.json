@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the CRAN Cookbook",
-    "section": "",
-    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
-    "crumbs": [
-      "Welcome to the CRAN Cookbook"
-    ]
-  },
-  {
     "objectID": "docs_issues.html",
     "href": "docs_issues.html",
     "title": "Manuals & Documentation Issues",
@@ -77,6 +67,116 @@
     "text": "Solution",
     "crumbs": [
       "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the CRAN Cookbook",
+    "section": "",
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
+  },
+  {
+    "objectID": "description_issues.html",
+    "href": "description_issues.html",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem",
+    "href": "description_issues.html#problem",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution",
+    "href": "description_issues.html#solution",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-1",
+    "href": "description_issues.html#problem-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-1",
+    "href": "description_issues.html#solution-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-2",
+    "href": "description_issues.html#problem-2",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-2",
+    "href": "description_issues.html#solution-2",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-3",
+    "href": "description_issues.html#problem-3",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-3",
+    "href": "description_issues.html#solution-3",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "general_issues.html",
+    "href": "general_issues.html",
+    "title": "General Issues",
+    "section": "",
+    "text": "tbd",
+    "crumbs": [
+      "General Issues"
     ]
   },
   {
@@ -177,66 +277,6 @@
     "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
     "crumbs": [
       "About"
-    ]
-  },
-  {
-    "objectID": "description_issues.html",
-    "href": "description_issues.html",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem",
-    "href": "description_issues.html#problem",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution",
-    "href": "description_issues.html#solution",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-1",
-    "href": "description_issues.html#problem-1",
-    "title": "DESCRIPTION file Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-1",
-    "href": "description_issues.html#solution-1",
-    "title": "DESCRIPTION file Issues",
-    "section": "Solution",
-    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "general_issues.html",
-    "href": "general_issues.html",
-    "title": "General Issues",
-    "section": "",
-    "text": "tbd",
-    "crumbs": [
-      "General Issues"
     ]
   }
 ]
