@@ -30,6 +30,7 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
 
 ------------------------------------------------------------------------
 
+
 # Explaining Acronyms
 
 ## Problem
@@ -43,6 +44,39 @@ Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-li
 ### Details
 
 Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
+
+
+------------------------------------------------------------------------
+
+
+# LICENSE files
+
+## Problem
+
+Some licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the [CRAN website](https://cran.r-project.org/web/licenses/).
+
+## Solution
+
+Remove the reference `+ file LICENSE` and delete the LICENSE file.
+
+### Details
+
+Most licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within _R_ by searching for **Note: this is a template, needs + file LICENSE**:
+
+```r
+path_licenses <- list.files(path = R.home(), "license.db", full.names = TRUE, recursive = TRUE)
+licenses_doc <- as.data.frame(read.dcf(path_licenses))
+```
+
+If an additional file is needed, it should only specify the **author** and **year** for a MIT file or **year**, **copyright holder**, and **organization** for a BSD file. 
+
+::: callout-tip
+## Tip
+
+Licenses should be FOSS, or allowed by [R](https://svn.r-project.org/R/trunk/share/licenses/license.db). 
+
+:::
+
 
 ------------------------------------------------------------------------
 
@@ -69,3 +103,6 @@ There are some exceptions to using Title Case for quoting longer works like book
 
 It is also not recommended to [mention package names](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file) in the Title.
 :::
+
+------------------------------------------------------------------------
+
