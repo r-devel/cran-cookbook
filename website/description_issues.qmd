@@ -67,7 +67,7 @@ path_licenses <- list.files(path = R.home(), "license.db", full.names = TRUE, re
 licenses_doc <- as.data.frame(read.dcf(path_licenses))
 ```
 
-If an additional file is needed, it should only specify the author and year. 
+If an additional file is needed, it should only specify the **author** and **year** for a MIT file or **year**, **copyright holder**, and **organization** for a BSD file. 
 
 ::: callout-tip
 ## Tip
