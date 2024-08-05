@@ -65,5 +65,7 @@ tools::toTitleCase("web application framework for R")
 ```
 
 ::: callout-note
-There are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers - [Learn more](https://www.scribbr.com/academic-writing/title-case/#:~:text=In%20title%20case%2C%20the%20first,title%2C%20subtitle%2C%20or%20heading.).
+There are some exceptions to using Title Case for quoting longer works like book titles and shorter works like [research papers](https://www.scribbr.com/academic-writing/title-case/#:~:text=In%20title%20case%2C%20the%20first,title%2C%20subtitle%2C%20or%20heading.). 
+
+It is also not recommended to [mention package names](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file) in the Title.
 :::
