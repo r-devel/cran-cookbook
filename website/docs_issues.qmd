@@ -1,6 +1,8 @@
 ---
 title: "Manuals & Documentation Issues"
-editor: visual
+format: 
+  html:
+    css: style.css
 ---
 
 # Missing `\value`-tags in .Rd-files
@@ -35,7 +37,7 @@ When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in 
 
 For more details on 'roxygen2' check the ['roxygen2' section](#repeated-rejections-of-issues-in-manuals-if-using-roxygen2).
 
---------------------------------------------------------------
+------------------------------------------------------------------------
 
 # Repeated Rejections of Issues in Manuals If Using 'roxygen2' {#repeated-rejections-of-issues-in-manuals-if-using-roxygen2}
 

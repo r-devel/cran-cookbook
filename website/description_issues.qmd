@@ -1,6 +1,8 @@
 ---
 title: "DESCRIPTION file Issues"
-editor: visual
+format: 
+  html:
+    css: style.css
 ---
 
 # Formatting Software Names
@@ -26,8 +28,7 @@ Description: The goal of 'readr' is to provide a fast and friendly way to
     cleanly failing when data unexpectedly changes.
 ```
 
-
----
+------------------------------------------------------------------------
 
 
 # Explaining Acronyms
@@ -45,7 +46,7 @@ Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-li
 Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
 
 
----
+------------------------------------------------------------------------
 
 
 # LICENSE files
@@ -77,4 +78,31 @@ Licenses should be FOSS, or allowed by [R](https://svn.r-project.org/R/trunk/sha
 :::
 
 
----
+------------------------------------------------------------------------
+
+# Title Case
+
+## Problem
+
+The package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.
+
+## Solution
+
+The package Title field in the DESCRIPTION file must be in Title Case, except words like "a", "the" or "of".
+
+### Details
+
+Determining Title Case automatically can be challenging due to word significance being only known by the package author. The function `toTitleCase()` can assist with transforming sentences into Title Case from the 'tools' package.
+
+```{r}
+tools::toTitleCase("web application framework for R")
+```
+
+::: callout-note
+There are some exceptions to using Title Case for quoting longer works like book titles and shorter works like [research papers](https://www.scribbr.com/academic-writing/title-case/#:~:text=In%20title%20case%2C%20the%20first,title%2C%20subtitle%2C%20or%20heading.). 
+
+It is also not recommended to [mention package names](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file) in the Title.
+:::
+
+------------------------------------------------------------------------
+

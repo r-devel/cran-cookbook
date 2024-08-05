@@ -1,19 +1,84 @@
 ---
 title: "Code Issues"
-editor: visual
+format: 
+  html:
+    css: style.css
 ---
 
-# Issue 1
+# `T`/`F` Instead of `TRUE`/`FALSE`
 
 ## Problem
 
+You are writing the abbreviated forms of `TRUE` and `FALSE`, `T` and `F` or you are using `T` or `F` as names.
+
 ## Solution
 
-# Issue 2
+Change the abbreviation to the full words or use a different variable name.
+
+### Details
+
+In R, `T` and `F` are variables being set to `TRUE` and `FALSE`, respectively. However, those variables can be redefined by the user since these are not reserved words as `TRUE` and `FALSE` are (see the [R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Reserved-words) for more details). This can result in unexpected code behavior as users of your package might have variables named `T`/`F`.
+
+### Examples
+
+The first example shows that you cannot overwrite `TRUE`:
+
+```{r, error=TRUE}
+TRUE <- "Not TRUE anymore"
+
+print(TRUE)
+```
+
+This throws an error as `TRUE` is a reserved word and the value of `TRUE` does not change.
+
+`T` (and `F`) on the other hand can be set to a different value:
+
+```{r}
+T <- "Not TRUE anymore"
+
+print(T)
+```
+
+To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, `TRUE` and `FALSE` instead of their abbreviated forms. For the same reason, `T` or `F` should not be used as variable names in your code, examples, tests or vignettes.
+
+--------------------------------------------------------------------
+
+# Setting a Specific Seed
 
 ## Problem
 
+In your functions, you are setting a the random seed to a specific number which cannot be changed.
+
 ## Solution
+
+Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want. 
+
+### Details
+
+Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
+
+```{r, eval = FALSE}
+function(... , seed = NULL){
+  if(!is.null(seed)){
+    set.seed(seed)
+  }
+  
+  #the rest of your function can be written here.
+  
+}
+```
+This allows users to avoid setting a seed if they change the argument to `NULL`. Ideally, the argument is already set to `NULL` per default. 
+
+<!--# IDEA: Add a paragraph about messing with the .Random.seed... 
+      Then referenced to the .GlobalEnv Issue. -->
+
+::: {.callout-note}
+
+In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results. 
+
+:::
+
+-----------------------------------------------------------
 
 # Issue 3
 

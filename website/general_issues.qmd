@@ -1,6 +1,9 @@
 ---
 title: "General Issues"
 subtitle: "General issues and helpful notes around CRAN submission best practices."
+format: 
+  html:
+    css: style.css
 ---
 
 # tbd

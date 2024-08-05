@@ -14,15 +14,9 @@ website:
     contents:
       - index.qmd
       - general_issues.qmd
-      - section: "Manuals & Documentation Issues"
-        contents:
-          - docs_issues.qmd
-      - section: "Code Issues"
-        contents:
-          - code_issues.qmd
-      - section: "DESCRIPTION file Issues"
-        contents:
-          - description_issues.qmd
+      - docs_issues.qmd
+      - code_issues.qmd
+      - description_issues.qmd
       - about.qmd
 
     tools:
