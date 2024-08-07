@@ -5,31 +5,6 @@ format:
     css: style.css
 ---
 
-
-# Example wrappers: \\dontrun{} and \\donttest{}
-
-## Problem 
-
-Your examples are wrapped incorrectly. 
-
-## Solution
-
-Wrap your examples according to this list:
-
-* **\\donttest{}:** 
-  + Lengthy examples, with execution times longer than 5 seconds
-  + Examples that download data
-  
-* **\\dontrun{}:**
-  + Unexecutable examples (e.g. API calls where a password is needed)
-  + Examples which require additional software
-  
-All other examples should either be not wrapped or marked differently (see the [list] below for more detailed wrappers).
-
-### Details
-
-
-
 # Missing `\value`-tags in .Rd-files
 
 ## Problem
