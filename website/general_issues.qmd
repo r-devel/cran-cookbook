@@ -6,4 +6,63 @@ format:
     css: style.css
 ---
 
-# tbd
+# Structure of CRAN-Submissions
+
+<!-- I would add a section about the path of packages when they are submitted to CRAN.
+Where do they end up and who will look at them etc... -->
+
+# Fields the DESCRIPTION File
+
+<!-- I suggest writing a short overview of the most common and important fields of the DESCRIPTION -->
+
+# Structuring of Examples 
+
+As part their documentation most functions have example code in their .Rd-files marked by the `\examples{}` tag. 
+Examples serve two major purposes for packages on CRAN.
+
+1. Show users how to implement the function correctly and what to expect as outcome.
+2. Allow the CRAN team to perform test on the code.
+
+For several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.
+
+* **Unwrapper:**
+  + Short examples to show the functionality of the code
+  + CRAN recommends the use of toy examples on small data sets
+  + Ideally, also cover some edge cases
+
+
+* **\\donttest{}:** 
+  + Lengthy examples, with execution times longer than 5 seconds
+  + Examples that download data
+  + They are tested infrequently on CRAN as well and are also executed when calling example()
+  
+* **\\dontrun{}:**
+  + Unexecutable examples due to missing information (e.g. API calls where a password is needed)
+  + Examples which require additional software
+  + Never executed, are automatically marked with a comment ("# Not run:") in the Help file. 
+  
+* **if(interactive){}:**
+  + Functions which only run interactively and cannot be used in scripts
+  + Most commonly, examples for Shiny Apps and interactive plots
+  
+* **try():**
+  + Examples which are supposed to fail and throw an error
+  + try() shows the error message but won't halt the execution
+  
+* **if(requireNamespace("packagename")){}**
+  + Used for examples which need particular packages to run
+  + Those packages should be listed in the Suggests filed of the DESCRIPTION file
+  
+* **\\dontshow{}:**
+  + Treated similarly to unwrapped examples but are not shown to the user
+  + Great for setting and resetting options or code purely for tests 
+  
+
+
+:::{.callout-important}
+
+All wrappers must still be placed inside the `\examples{}` tag. 
+
+:::
+
+
