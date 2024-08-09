@@ -61,10 +61,8 @@ For several reasons, some examples cannot be run as tests. Therefore, CRAN has s
 
 :::{.callout-important}
 
-All wrappers must be placed inside the `\examples{}` tag.
+All wrappers must still be placed inside the `\examples{}` tag. 
 
 :::
 
-### Details and Example Code
 
-TBD
