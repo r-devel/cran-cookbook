@@ -80,8 +80,56 @@ In your examples, vignettes, demos and tests setting a seed is not only allowed 
 
 -----------------------------------------------------------
 
-# Issue 3
+# Using print()/cat()
 
 ## Problem
 
+You are using functions, like print() or cat(), to print unsuppressable output to the console.
+
 ## Solution
+
+Change print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.
+
+### Details
+
+The use of printing functions and console output is generally not forbidden on CRAN. However, this output must be suppressable by users.
+
+:::{.callout-note}
+
+Printing in special functions like print, summary, interactive functions or methods for generic functions is accepted. 
+
+:::
+
+To allow users to suppress the console output CRAN recommends two different ways: 
+
+  * exchanging cat()/print() with other generics
+    - [message()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/message): for information messages and status updates 
+    - [warning()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/warning): for warning, will print a "Warning: " before the output
+    - [stop()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop): for error messages, will print an "Error: " before the output and halt the execution
+    
+This allows users to use functions like suppressMessages() to suppress the output.  
+
+  * using an additional function argument
+    - create one argument in your function to turn off the console output
+    - CRAN suggests using `verbose`, other names are accepted
+    
+This example code shows the use of a `verbose` argument to allow users to suppress printing
+
+```{r, eval = FALSE}
+foo <- function(..., verbose = TRUE){
+  # your code
+  if(verbose){
+    print("Whatever you want to say!")
+  }
+  # your code
+}
+
+```
+
+Functions can print per default, like the example above, as long as the printing can be turned off, by setting `verbose = FALSE`.
+
+
+
+---------------------------------------------------------
+
+# Change of options() and par() 
