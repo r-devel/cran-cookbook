@@ -91,8 +91,7 @@ You are using functions, like print() or cat(), to print unsuppressable output t
 Change print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.
 
 ### Details
-
-The use of printing functions and console output is generally not forbidden on CRAN. However, this output must be suppressable by users.
+Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.
 
 :::{.callout-note}
 
@@ -107,7 +106,7 @@ To allow users to suppress the console output CRAN recommends two different ways
     - [warning()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/warning): for warning, will print a "Warning: " before the output
     - [stop()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop): for error messages, will print an "Error: " before the output and halt the execution
     
-This allows users to use functions like suppressMessages() to suppress the output.  
+This allows to use functions like suppressMessages() to avoid unwanted output.  
 
   * using an additional function argument
     - create one argument in your function to turn off the console output
@@ -126,7 +125,7 @@ foo <- function(..., verbose = TRUE){
 
 ```
 
-Functions can print per default, like the example above, as long as the printing can be turned off, by setting `verbose = FALSE`.
+Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting `verbose = FALSE`).
 
 
 
