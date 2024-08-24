@@ -146,7 +146,7 @@ Reset the changed options, in your functions by using `on.exit()` or in examples
 
 Restoring the previous values of user options is mandatory for CRAN packages. There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
 
-`par()`, `options()` or `setwd()` all invisibly return their previous values and therefore those can be stored in variables using `<-`.
+`par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function. 
 
 
 **For functions**:
@@ -169,7 +169,7 @@ foo <- function(x){
   oldwd <- setwd(".")
   on.exit(setwd(oldwd))
   
-  # your code which changes the options
+  # your code which requires a changed option
   
 }
 
@@ -177,7 +177,7 @@ foo <- function(x){
 
 ```
 
-This will reset the `par()`, `options()` and `setwd()`. The expression inside of `on.exit()` is executed when the function exits, including errors.  
+This will reset the `par()`, `options()` and `setwd()`. The use of `on.exit()` makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
 
 
 **For demos, examples and vignettes**:
@@ -187,16 +187,19 @@ Since no function is exited, `on.exit()` cannot be used. CRAN recommends the fol
 
 oldpar <- par(mfrow = c(2,2))
 
-# your code
+# your code which requires a changed option
 
 par(oldpar)
 
+
+
 ```
 
+Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the `options()` and `setwd()` can be done using the same principle as for `par()` shown above.  
 
 :::{.callout-tip}
 
-If you change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. 
+If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. Saving the entire 
 Note, that for `par()` the `no.readonly` argument must be set to `TRUE`, else warnings will be produced.
 
 :::
