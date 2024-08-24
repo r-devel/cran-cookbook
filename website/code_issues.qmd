@@ -132,4 +132,77 @@ Functions can print per default, like the example above, as long as the printing
 
 ---------------------------------------------------------
 
-# Change of options() and par() 
+# Change of `options()` and `par()` 
+
+## Problem
+
+You are changing the `par()`, `options()` or `setwd()` in your functions, examples, demos or vignettes without resetting them.
+
+## Solution 
+
+Reset the changed options, in your functions by using `on.exit()` or in examples, demos and vignettes with additional lines of code.
+
+### Details
+
+Restoring the previous values of user options is mandatory for CRAN packages. There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
+
+`par()`, `options()` or `setwd()` all invisibly return their previous values and therefore those can be stored in variables using `<-`.
+
+
+**For functions**:
+
+Here you can use the [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) function. 
+
+```{r, eval = FALSE}
+
+foo <- function(x){
+  
+  # par():
+  oldpar <- par(mfrow = c(2,2))
+  on.exit(par(oldpar))
+  
+  # options():
+  oldop <- options(digits = 3)
+  on.exit(options(oldop))
+  
+  # setwd():
+  oldwd <- setwd(".")
+  on.exit(setwd(oldwd))
+  
+  # your code which changes the options
+  
+}
+
+
+
+```
+
+This will reset the `par()`, `options()` and `setwd()`. The expression inside of `on.exit()` is executed when the function exits, including errors.  
+
+
+**For demos, examples and vignettes**:
+Since no function is exited, `on.exit()` cannot be used. CRAN recommends the following way for restoring options:
+
+```{r, eval = FALSE}
+
+oldpar <- par(mfrow = c(2,2))
+
+# your code
+
+par(oldpar)
+
+```
+
+
+:::{.callout-tip}
+
+If you change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. 
+Note, that for `par()` the `no.readonly` argument must be set to `TRUE`, else warnings will be produced.
+
+:::
+
+
+
+
+
+
