@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CRAN Cookbook - General Issues</title>
+<title>General Issues – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,13 +77,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./general_issues.html">General Issues</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -173,7 +173,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tbd" id="toc-tbd" class="nav-link active" data-scroll-target="#tbd">tbd</a></li>
+  <li><a href="#structure-of-cran-submissions" id="toc-structure-of-cran-submissions" class="nav-link active" data-scroll-target="#structure-of-cran-submissions">Structure of CRAN-Submissions</a></li>
+  <li><a href="#fields-the-description-file" id="toc-fields-the-description-file" class="nav-link" data-scroll-target="#fields-the-description-file">Fields the DESCRIPTION File</a></li>
+  <li><a href="#structuring-of-examples" id="toc-structuring-of-examples" class="nav-link" data-scroll-target="#structuring-of-examples">Structuring of Examples</a></li>
   </ul>
 </nav>
     </div>
@@ -200,8 +202,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="tbd" class="level1">
-<h1>tbd</h1>
+<section id="structure-of-cran-submissions" class="level1">
+<h1>Structure of CRAN-Submissions</h1>
+<!-- I would add a section about the path of packages when they are submitted to CRAN.
+Where do they end up and who will look at them etc... -->
+</section>
+<section id="fields-the-description-file" class="level1">
+<h1>Fields the DESCRIPTION File</h1>
+<!-- I suggest writing a short overview of the most common and important fields of the DESCRIPTION -->
+</section>
+<section id="structuring-of-examples" class="level1">
+<h1>Structuring of Examples</h1>
+<p>As part their documentation most functions have example code in their .Rd-files marked by the <code>\examples{}</code> tag. Examples serve two major purposes for packages on CRAN.</p>
+<ol type="1">
+<li>Show users how to implement the function correctly and what to expect as outcome.</li>
+<li>Allow the CRAN team to perform test on the code.</li>
+</ol>
+<p>For several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.</p>
+<ul>
+<li><strong>Unwrapper:</strong>
+<ul>
+<li>Short examples to show the functionality of the code</li>
+<li>CRAN recommends the use of toy examples on small data sets</li>
+<li>Ideally, also cover some edge cases</li>
+</ul></li>
+<li><strong>\donttest{}:</strong>
+<ul>
+<li>Lengthy examples, with execution times longer than 5 seconds</li>
+<li>Examples that download data</li>
+<li>They are tested infrequently on CRAN as well and are also executed when calling example()</li>
+</ul></li>
+<li><strong>\dontrun{}:</strong>
+<ul>
+<li>Unexecutable examples due to missing information (e.g.&nbsp;API calls where a password is needed)</li>
+<li>Examples which require additional software</li>
+<li>Never executed, are automatically marked with a comment (“# Not run:”) in the Help file.</li>
+</ul></li>
+<li><strong>if(interactive){}:</strong>
+<ul>
+<li>Functions which only run interactively and cannot be used in scripts</li>
+<li>Most commonly, examples for Shiny Apps and interactive plots</li>
+</ul></li>
+<li><strong>try():</strong>
+<ul>
+<li>Examples which are supposed to fail and throw an error</li>
+<li>try() shows the error message but won’t halt the execution</li>
+</ul></li>
+<li><strong>if(requireNamespace(“packagename”)){}</strong>
+<ul>
+<li>Used for examples which need particular packages to run</li>
+<li>Those packages should be listed in the Suggests filed of the DESCRIPTION file</li>
+</ul></li>
+<li><strong>\dontshow{}:</strong>
+<ul>
+<li>Treated similarly to unwrapped examples but are not shown to the user</li>
+<li>Great for setting and resetting options or code purely for tests</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All wrappers must still be placed inside the <code>\examples{}</code> tag.</p>
+</div>
+</div>
 
 
 </section>
@@ -242,18 +312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -285,7 +344,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
@@ -293,7 +374,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

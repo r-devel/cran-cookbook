@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the CRAN Cookbook",
+    "section": "",
+    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
+  },
+  {
     "objectID": "docs_issues.html",
     "href": "docs_issues.html",
     "title": "Manuals & Documentation Issues",
@@ -70,13 +80,103 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the CRAN Cookbook",
+    "objectID": "code_issues.html",
+    "href": "code_issues.html",
+    "title": "Code Issues",
     "section": "",
-    "text": "Quick Start\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nIntroduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.\n\n\n\nChange the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
     "crumbs": [
-      "Welcome to the CRAN Cookbook"
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem",
+    "href": "code_issues.html#problem",
+    "title": "Code Issues",
+    "section": "",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution",
+    "href": "code_issues.html#solution",
+    "title": "Code Issues",
+    "section": "",
+    "text": "Change the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-1",
+    "href": "code_issues.html#problem-1",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nIn your functions, you are setting a the random seed to a specific number which cannot be changed.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-1",
+    "href": "code_issues.html#solution-1",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.\n\nDetails\nChanging the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: set.seed(123)). A good solution for allowing to set a seed is to add an argument seed to your function and set it conditionally.\n\nfunction(... , seed = NULL){\n  if(!is.null(seed)){\n    set.seed(seed)\n  }\n  \n  #the rest of your function can be written here.\n  \n}\n\nThis allows users to avoid setting a seed if they change the argument to NULL. Ideally, the argument is already set to NULL per default.\n\n\n\n\n\n\n\nNote\n\n\n\nIn your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-2",
+    "href": "code_issues.html#problem-2",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using functions, like print() or cat(), to print unsuppressable output to the console.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-2",
+    "href": "code_issues.html#solution-2",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nChange print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.\n\nDetails\nInformation messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.\n\n\n\n\n\n\nNote\n\n\n\nPrinting in special functions like print, summary, interactive functions or methods for generic functions is accepted.\n\n\nTo allow users to suppress the console output CRAN recommends two different ways:\n\nexchanging cat()/print() with other generics\n\nmessage(): for information messages and status updates\nwarning(): for warning, will print a “Warning:” before the output\nstop(): for error messages, will print an “Error:” before the output and halt the execution\n\n\nThis allows to use functions like suppressMessages() to avoid unwanted output.\n\nusing an additional function argument\n\ncreate one argument in your function to turn off the console output\nCRAN suggests using verbose, other names are accepted\n\n\nThis example code shows the use of a verbose argument to allow users to suppress printing\n\nfoo &lt;- function(..., verbose = TRUE){\n  # your code\n  if(verbose){\n    print(\"Whatever you want to say!\")\n  }\n  # your code\n}\n\nFunctions can print per default, like the example above, as long as the printing can be turned off (here, by setting verbose = FALSE).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#writers",
+    "href": "about.html#writers",
+    "title": "About",
+    "section": "",
+    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#steering-committee",
+    "href": "about.html#steering-committee",
+    "title": "About",
+    "section": "",
+    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "About"
     ]
   },
   {
@@ -174,109 +274,9 @@
     "href": "general_issues.html",
     "title": "General Issues",
     "section": "",
-    "text": "tbd",
+    "text": "Structure of CRAN-Submissions\n\n\n\nFields the DESCRIPTION File\n\n\n\nStructuring of Examples\nAs part their documentation most functions have example code in their .Rd-files marked by the \\examples{} tag. Examples serve two major purposes for packages on CRAN.\n\nShow users how to implement the function correctly and what to expect as outcome.\nAllow the CRAN team to perform test on the code.\n\nFor several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.\n\nUnwrapper:\n\nShort examples to show the functionality of the code\nCRAN recommends the use of toy examples on small data sets\nIdeally, also cover some edge cases\n\n\\donttest{}:\n\nLengthy examples, with execution times longer than 5 seconds\nExamples that download data\nThey are tested infrequently on CRAN as well and are also executed when calling example()\n\n\\dontrun{}:\n\nUnexecutable examples due to missing information (e.g. API calls where a password is needed)\nExamples which require additional software\nNever executed, are automatically marked with a comment (“# Not run:”) in the Help file.\n\nif(interactive){}:\n\nFunctions which only run interactively and cannot be used in scripts\nMost commonly, examples for Shiny Apps and interactive plots\n\ntry():\n\nExamples which are supposed to fail and throw an error\ntry() shows the error message but won’t halt the execution\n\nif(requireNamespace(“packagename”)){}\n\nUsed for examples which need particular packages to run\nThose packages should be listed in the Suggests filed of the DESCRIPTION file\n\n\\dontshow{}:\n\nTreated similarly to unwrapped examples but are not shown to the user\nGreat for setting and resetting options or code purely for tests\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll wrappers must still be placed inside the \\examples{} tag.",
     "crumbs": [
       "General Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html",
-    "href": "code_issues.html",
-    "title": "Code Issues",
-    "section": "",
-    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.\n\n\n\nChange the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem",
-    "href": "code_issues.html#problem",
-    "title": "Code Issues",
-    "section": "",
-    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution",
-    "href": "code_issues.html#solution",
-    "title": "Code Issues",
-    "section": "",
-    "text": "Change the abbreviation to the full words or use a different variable name.\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-1",
-    "href": "code_issues.html#problem-1",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nIn your functions, you are setting a the random seed to a specific number which cannot be changed.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-1",
-    "href": "code_issues.html#solution-1",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nRemove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.\n\nDetails\nChanging the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: set.seed(123)). A good solution for allowing to set a seed is to add an argument seed to your function and set it conditionally.\n\nfunction(... , seed = NULL){\n  if(!is.null(seed)){\n    set.seed(seed)\n  }\n  \n  #the rest of your function can be written here.\n  \n}\n\nThis allows users to avoid setting a seed if they change the argument to NULL. Ideally, the argument is already set to NULL per default.\n\n\n\n\n\n\n\nNote\n\n\n\nIn your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-2",
-    "href": "code_issues.html#problem-2",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-2",
-    "href": "code_issues.html#solution-2",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#writers",
-    "href": "about.html#writers",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#steering-committee",
-    "href": "about.html#steering-committee",
-    "title": "About",
-    "section": "",
-    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
     ]
   }
 ]
