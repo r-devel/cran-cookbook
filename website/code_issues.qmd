@@ -80,18 +80,18 @@ In your examples, vignettes, demos and tests setting a seed is not only allowed 
 
 -----------------------------------------------------------
 
-# Using print()/cat()
+# Using `print()`/`cat()`
 
 ## Problem
 
-You are using functions, like print() or cat(), to print unsuppressable output to the console.
+You are using functions, like `print()` or `cat()`, to print unsuppressable output to the console.
 
 ## Solution
 
-Change print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.
+Change `print()`/`cat()` to `message()`, `warning()`, `stop()`, or wrap them in `if(verbose){}`.
 
 ### Details
-Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.
+Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users. 
 
 :::{.callout-note}
 
@@ -99,14 +99,15 @@ Printing in special functions like print, summary, interactive functions or meth
 
 :::
 
+
 To allow users to suppress the console output CRAN recommends two different ways: 
 
-  * exchanging cat()/print() with other generics
-    - [message()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/message): for information messages and status updates 
-    - [warning()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/warning): for warning, will print a "Warning: " before the output
-    - [stop()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop): for error messages, will print an "Error: " before the output and halt the execution
+  * exchanging `cat()`/`print()` with other generics
+    - [`message()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html): for information messages and status updates 
+    - [`warning()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html): for warning, will print a "Warning: " before the output
+    - [`stop()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html): for error messages, will print an "Error: " before the output and halt the execution
     
-This allows to use functions like suppressMessages() to avoid unwanted output.  
+This allows to use functions like `suppressMessages()` to avoid unwanted output.  
 
   * using an additional function argument
     - create one argument in your function to turn off the console output
