@@ -128,11 +128,18 @@ foo <- function(..., verbose = TRUE){
 
 Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting `verbose = FALSE`).
 
+:::{.callout-note}
+
+`print()` and `cat()` are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like `writeLines()`. 
+If you are using loggers to document your functions' process, make sure that users can set their log level such that not messages are displayed.
+
+:::
+
 
 
 ---------------------------------------------------------
 
-# Change of `options()` and `par()` 
+# Change of Options, Graphical Parameters and Working Directory
 
 ## Problem
 
@@ -140,18 +147,18 @@ You are changing the `par()`, `options()` or `setwd()` in your functions, exampl
 
 ## Solution 
 
-Reset the changed options, in your functions by using `on.exit()` or in examples, demos and vignettes with additional lines of code.
+Reset the changed options, in your functions by using [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) or in examples, demos and vignettes with an additional line of code after the example.
 
 ### Details
 
-Restoring the previous values of user options is mandatory for CRAN packages. There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
+Ideally, the user's options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
 
-`par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function. 
+Changing `par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function. 
 
 
 **For functions**:
 
-Here you can use the [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) function. 
+When changing options inside one of your package functions, you can use [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) for restoring. 
 
 ```{r, eval = FALSE}
 
@@ -177,11 +184,11 @@ foo <- function(x){
 
 ```
 
-This will reset the `par()`, `options()` and `setwd()`. The use of `on.exit()` makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
+This will reset the `par()`, `options()` and `setwd()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.  
 
 
 **For demos, examples and vignettes**:
-Since no function is exited, `on.exit()` cannot be used. CRAN recommends the following way for restoring options:
+Since no function is exited when changing options in examples, [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) cannot be used. CRAN recommends the following way for restoring options:
 
 ```{r, eval = FALSE}
 
