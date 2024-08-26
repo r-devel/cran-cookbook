@@ -112,4 +112,4 @@ It is also not recommended to [mention package names](https://cran.r-project.org
 
 ## Solution
 
-### Details
+### Details 
