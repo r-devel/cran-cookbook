@@ -232,7 +232,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-2" id="toc-details-2" class="nav-link" data-scroll-target="#details-2">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#change-of-options-and-par" id="toc-change-of-options-and-par" class="nav-link" data-scroll-target="#change-of-options-and-par">Change of options() and par()</a></li>
+  <li><a href="#change-of-options-graphical-parameters-and-working-directory" id="toc-change-of-options-graphical-parameters-and-working-directory" class="nav-link" data-scroll-target="#change-of-options-graphical-parameters-and-working-directory">Change of Options, Graphical Parameters and Working Directory</a>
+  <ul class="collapse">
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem</a></li>
+  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-3" id="toc-details-3" class="nav-link" data-scroll-target="#details-3">Details</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -394,14 +401,103 @@ Note
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting <code>verbose = FALSE</code>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>print()</code> and <code>cat()</code> are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like <code>writeLines()</code>. If you are using loggers to document your functions’ process, make sure that users can set their log level such that not messages are displayed.</p>
+</div>
+</div>
 <hr>
 </section>
 </section>
 </section>
-<section id="change-of-options-and-par" class="level1">
-<h1>Change of options() and par()</h1>
+<section id="change-of-options-graphical-parameters-and-working-directory" class="level1">
+<h1>Change of Options, Graphical Parameters and Working Directory</h1>
+<section id="problem-3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3">Problem</h2>
+<p>You are changing the <code>par()</code>, <code>options()</code> or <code>setwd()</code> in your functions, examples, demos or vignettes without resetting them.</p>
+</section>
+<section id="solution-3" class="level2">
+<h2 class="anchored" data-anchor-id="solution-3">Solution</h2>
+<p>Reset the changed options, in your functions by using <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> or in examples, demos and vignettes with an additional line of code after the example.</p>
+<section id="details-3" class="level3">
+<h3 class="anchored" data-anchor-id="details-3">Details</h3>
+<p>Ideally, the user’s options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. The reason for this rule is this line stated in the <a href="https://cran.r-project.org/web/packages/policies.html">CRAN Repository Policy</a>:</p>
+<blockquote class="blockquote">
+<p>The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.</p>
+</blockquote>
+<p>Resetting options is therefore mainly a Quality-of-Life feature for users of your package.</p>
+<p>There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN.</p>
+<p>Changing <code>par()</code>, <code>options()</code> or <code>setwd()</code> all invisibly return the previous values and therefore these can be stored in variables using the assignment operator <code>&lt;-</code> and later be restored by calling the variable name as argument in the respective function.</p>
+<p><strong>For functions</strong>:</p>
+<p>When changing options inside one of your package functions, you can use <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> for restoring.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># par():</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  oldpar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">par</span>(oldpar))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># options():</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  oldop <span class="ot">&lt;-</span> <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">options</span>(oldop))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># setwd():</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  oldwd <span class="ot">&lt;-</span> <span class="fu">setwd</span>(<span class="st">"."</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">setwd</span>(oldwd))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># your code which requires a changed option</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will reset the <code>par()</code>, <code>options()</code> and <code>setwd()</code>. The use of <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. For more information, call <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>?on.exit()</code></a> in your console.</p>
+<p><strong>For demos, examples and vignettes</strong>: Since no function is exited when changing options in examples, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> cannot be used. CRAN recommends the following way for restoring options:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>oldpar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># your code which requires a changed option</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(oldpar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the <code>options()</code> and <code>setwd()</code> can be done using the same principle as for <code>par()</code> shown above.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you need to change more than one option in the same function, example, vignette or demo, you can use <code>oldpar &lt;- par(no.readonly = TRUE)</code> or <code>oldop &lt;- options()</code> to reset all parameters at once. Saving the entire Note, that for <code>par()</code> the <code>no.readonly</code> argument must be set to <code>TRUE</code> or else warnings will be produced.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The issue described in the recipe, also applies to the use of other function which change some parameters persistently, like <code>Sys.setLanguage</code>.</p>
+</div>
+</div>
+<hr>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
