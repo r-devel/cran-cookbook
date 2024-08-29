@@ -128,8 +128,103 @@ foo <- function(..., verbose = TRUE){
 
 Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting `verbose = FALSE`).
 
+:::{.callout-note}
+
+`print()` and `cat()` are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like `writeLines()`. 
+If you are using loggers to document your functions' process, make sure that users can set their log level such that not messages are displayed.
+
+:::
+
 
 
 ---------------------------------------------------------
 
-# Change of options() and par() 
+# Change of Options, Graphical Parameters and Working Directory
+
+## Problem
+
+You are changing the `par()`, `options()` or `setwd()` in your functions, examples, demos or vignettes without resetting them.
+
+## Solution 
+
+Reset the changed options, in your functions by using [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) or in examples, demos and vignettes with an additional line of code after the example.
+
+### Details
+
+Ideally, the user's options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. 
+The reason for this rule is this line stated in the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html):
+
+> The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.
+
+Resetting options is therefore mainly a Quality-of-Life feature for users of your package.
+
+There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
+
+Changing `par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function. 
+
+
+**For functions**:
+
+When changing options inside one of your package functions, you can use [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) for restoring. 
+
+```{r, eval = FALSE}
+
+foo <- function(x){
+  
+  # par():
+  oldpar <- par(mfrow = c(2,2))
+  on.exit(par(oldpar))
+  
+  # options():
+  oldop <- options(digits = 3)
+  on.exit(options(oldop))
+  
+  # setwd():
+  oldwd <- setwd(".")
+  on.exit(setwd(oldwd))
+  
+  # your code which requires a changed option
+  
+}
+
+
+
+```
+
+This will reset the `par()`, `options()` and `setwd()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
+For more information, call [`?on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) in your console. 
+
+
+**For demos, examples and vignettes**:
+Since no function is exited when changing options in examples, [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) cannot be used. CRAN recommends the following way for restoring options:
+
+```{r, eval = FALSE}
+
+oldpar <- par(mfrow = c(2,2))
+
+# your code which requires a changed option
+
+par(oldpar)
+
+
+
+```
+
+Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the `options()` and `setwd()` can be done using the same principle as for `par()` shown above.  
+
+:::{.callout-tip}
+
+If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. Saving the entire 
+Note, that for `par()` the `no.readonly` argument must be set to `TRUE` or else warnings will be produced.
+
+:::
+
+:::{.callout-note}
+
+The issue described in the recipe, also applies to the use of other function which change some parameters persistently, like `Sys.setLanguage`. 
+
+:::
+
+--------------------------
+
+
