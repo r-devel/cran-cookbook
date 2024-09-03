@@ -41,7 +41,7 @@ For several reasons, some examples cannot be run as tests. Therefore, CRAN has s
   + Examples which require additional software
   + Never executed, are automatically marked with a comment ("# Not run:") in the Help file. 
   
-* **if(interactive){}:**
+* **if(interactive()){}:**
   + Functions which only run interactively and cannot be used in scripts
   + Most commonly, examples for Shiny Apps and interactive plots
   
