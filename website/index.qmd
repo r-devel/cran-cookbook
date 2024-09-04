@@ -4,12 +4,6 @@ subtitle: "A complementary self-service guide to discover solutions to common CR
 ---
 
 
-# Quick Start
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
 # Introduction
 
 The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: **Improving the Skills of R Package Maintainers**. The goals of the project are:
