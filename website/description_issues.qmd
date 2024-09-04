@@ -106,10 +106,3 @@ It is also not recommended to [mention package names](https://cran.r-project.org
 
 ------------------------------------------------------------------------
 
-# Description Length
-
-## Problem
-
-## Solution
-
-### Details 
