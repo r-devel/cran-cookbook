@@ -26,3 +26,17 @@ title: "About"
 Thank you to the [R Consortium](https://www.r-consortium.org/) for funding and sponsoring this project!
 
 ![](https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg){fig-align="left"}
+
+## Technical details
+
+This cookbook is a Quarto website. To learn more about Quarto websites visit <https://quarto.org/docs/websites>. The cookbook is hosted on GitHub pages as part of the [Community R development resources](https://github.com/r-devel). The website is currently deployed with [local commands](Community R development resources).
+
+### Session info 
+
+```{r}
+library(devtools)
+
+devtools::session_info()
+```
+
+ 
