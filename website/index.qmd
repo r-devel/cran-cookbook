@@ -4,12 +4,6 @@ subtitle: "A complementary self-service guide to discover solutions to common CR
 ---
 
 
-# Quick Start
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
 # Introduction
 
 The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: **Improving the Skills of R Package Maintainers**. The goals of the project are:
@@ -21,6 +15,10 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 
 # Prerequisites
 
+1. **Beginner to intermediate knowledge of R Programming**: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a 'best practices' approach to resolving R package issues to facilitate a successful re-submission to CRAN.
+
+2. **Experience in debugging code**: Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.
+
 
 # Additional Resources
 
@@ -29,3 +27,5 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 - [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html)
 
 - [Checklist for CRAN submissions](https://cran.r-project.org/web/packages/submission_checklist.html)
+
+- ["R Packages" by Hadley Wickham and Jennifer Bryan](https://r-pkgs.org/)
