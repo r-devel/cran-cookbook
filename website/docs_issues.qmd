@@ -63,8 +63,4 @@ If you want to know more on how to use 'roxygen2' to create your manuals, take a
 When using 'devtools', the function [`devtools::document()`](https://www.rdocumentation.org/packages/devtools/versions/2.4.5/topics/document) acts as a wrapper for `roxygenize()` and can be used to render the .Rd-files.
 :::
 
-# Issue 3
-
-## Problem
-
-## Solution
+---------------------------------------------------------
