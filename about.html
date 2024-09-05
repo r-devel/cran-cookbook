@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – CRAN Cookbook</title>
+<title>CRAN Cookbook - About</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,13 +110,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./about.html">About</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -97,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -177,8 +211,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#writers" id="toc-writers" class="nav-link" data-scroll-target="#writers">Writers</a></li>
   <li><a href="#steering-committee" id="toc-steering-committee" class="nav-link" data-scroll-target="#steering-committee">Steering Committee</a></li>
   </ul></li>
+  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a>
+  <ul class="collapse">
+  <li><a href="#technical-details" id="toc-technical-details" class="nav-link" data-scroll-target="#technical-details">Technical details</a>
+  <ul class="collapse">
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info">Session info</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -222,6 +263,11 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
+<section id="contributors" class="level1">
+<h1>Contributors</h1>
+<p><em>Thanks to all contributors!</em></p>
+<p>Lluís Revilla (<a href="https://github.com/llrs"><span class="citation" data-cites="llrs">@llrs</span></a>)</p>
+</section>
 <section id="citation" class="level1">
 <h1>Citation</h1>
 <p>[TBD]</p>
@@ -234,8 +280,305 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
 </figure>
 </div>
+<section id="technical-details" class="level2">
+<h2 class="anchored" data-anchor-id="technical-details">Technical details</h2>
+<p>This cookbook is a Quarto website. To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>. The cookbook is hosted on GitHub pages as part of the <a href="https://github.com/r-devel">Community R development resources</a>. The website is currently deployed with <a href="https://github.com/r-devel/cran-cookbook/wiki/GitHub-Pages-Deployment">local commands</a>.</p>
+<section id="session-info" class="level3">
+<h3 class="anchored" data-anchor-id="session-info">Session info</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Downloading packages -------------------------------------------------------
+- Downloading devtools from CRAN ...            OK [424.4 Kb in 0.99s]
+- Downloading desc from CRAN ...                OK [325.2 Kb in 0.63s]
+- Downloading ellipsis from CRAN ...            OK [32.9 Kb in 0.57s]
+- Downloading miniUI from CRAN ...              OK [34.4 Kb in 0.83s]
+- Downloading shiny from CRAN ...               OK [4.8 Mb in 2.8s]
+- Downloading httpuv from CRAN ...              OK [607.2 Kb in 0.92s]
+- Downloading later from CRAN ...               OK [123.8 Kb in 0.72s]
+- Downloading Rcpp from CRAN ...                OK [2.1 Mb in 1.9s]
+- Downloading promises from CRAN ...            OK [1.6 Mb in 1.2s]
+- Downloading magrittr from CRAN ...            OK [218.7 Kb in 0.64s]
+- Downloading xtable from CRAN ...              OK [689.9 Kb in 0.79s]
+- Downloading sourcetools from CRAN ...         OK [42.3 Kb in 0.63s]
+- Downloading crayon from CRAN ...              OK [159.9 Kb in 0.64s]
+- Downloading withr from CRAN ...               OK [217.7 Kb in 0.64s]
+- Downloading commonmark from CRAN ...          OK [127.7 Kb in 0.85s]
+- Downloading pkgbuild from CRAN ...            OK [197.7 Kb in 0.85s]
+- Downloading callr from CRAN ...               OK [437.9 Kb in 0.95s]
+- Downloading processx from CRAN ...            OK [310.4 Kb in 1.5s]
+- Downloading ps from CRAN ...                  OK [309.6 Kb in 0.67s]
+- Downloading pkgdown from CRAN ...             OK [888.6 Kb in 1.3s]
+- Downloading downlit from CRAN ...             OK [109.7 Kb in 1.0s]
+- Downloading brio from CRAN ...                OK [33.4 Kb in 0.87s]
+- Downloading fansi from CRAN ...               OK [305.2 Kb in 0.99s]
+- Downloading vctrs from CRAN ...               OK [1.3 Mb in 1.8s]
+- Downloading httr2 from CRAN ...               OK [572.5 Kb in 1.8s]
+- Downloading curl from CRAN ...                OK [743 Kb in 1.5s]
+- Downloading openssl from CRAN ...             OK [3.1 Mb in 3.5s]
+- Downloading askpass from CRAN ...             OK [20.9 Kb in 0.63s]
+- Downloading sys from CRAN ...                 OK [39.2 Kb in 0.52s]
+- Downloading purrr from CRAN ...               OK [484.8 Kb in 0.96s]
+- Downloading ragg from CRAN ...                OK [2.3 Mb in 1.8s]
+- Downloading systemfonts from CRAN ...         OK [1.2 Mb in 1.2s]
+- Downloading cpp11 from CRAN ...               OK [264.5 Kb in 0.74s]
+- Downloading textshaping from CRAN ...         OK [1.1 Mb in 1.7s]
+- Downloading tibble from CRAN ...              OK [660.5 Kb in 1.1s]
+- Downloading pillar from CRAN ...              OK [637.5 Kb in 0.89s]
+- Downloading utf8 from CRAN ...                OK [141.8 Kb in 0.85s]
+- Downloading pkgconfig from CRAN ...           OK [17.9 Kb in 0.6s]
+- Downloading whisker from CRAN ...             OK [64.6 Kb in 0.52s]
+- Downloading xml2 from CRAN ...                OK [275.3 Kb in 0.57s]
+- Downloading pkgload from CRAN ...             OK [211.8 Kb in 0.73s]
+- Downloading rprojroot from CRAN ...           OK [102.9 Kb in 0.78s]
+- Downloading profvis from CRAN ...             OK [193 Kb in 0.93s]
+- Downloading htmlwidgets from CRAN ...         OK [792.8 Kb in 1.0s]
+- Downloading stringr from CRAN ...             OK [308.2 Kb in 0.66s]
+- Downloading stringi from CRAN ...             OK [14 Mb in 6.9s]
+- Downloading rcmdcheck from CRAN ...           OK [166.1 Kb in 0.83s]
+- Downloading prettyunits from CRAN ...         OK [149.4 Kb in 0.87s]
+- Downloading sessioninfo from CRAN ...         OK [177.1 Kb in 1.0s]
+- Downloading xopen from CRAN ...               OK [24.8 Kb in 0.65s]
+- Downloading remotes from CRAN ...             OK [425 Kb in 0.93s]
+- Downloading roxygen2 from CRAN ...            OK [708.7 Kb in 1.3s]
+- Downloading brew from CRAN ...                OK [75.5 Kb in 0.9s]
+- Downloading rversions from CRAN ...           OK [63.7 Kb in 0.52s]
+- Downloading testthat from CRAN ...            OK [1.8 Mb in 1.3s]
+- Downloading praise from CRAN ...              OK [16.3 Kb in 0.65s]
+- Downloading waldo from CRAN ...               OK [101.5 Kb in 0.64s]
+- Downloading diffobj from CRAN ...             OK [997.2 Kb in 1.2s]
+- Downloading rematch2 from CRAN ...            OK [45.1 Kb in 0.62s]
+- Downloading urlchecker from CRAN ...          OK [33.1 Kb in 0.6s]
+- Downloading usethis from CRAN ...             OK [890.7 Kb in 1.1s]
+- Downloading clipr from CRAN ...               OK [49.9 Kb in 0.7s]
+- Downloading gert from CRAN ...                OK [1.8 Mb in 2.0s]
+- Downloading credentials from CRAN ...         OK [214.6 Kb in 0.61s]
+- Downloading rstudioapi from CRAN ...          OK [307.5 Kb in 0.76s]
+- Downloading zip from CRAN ...                 OK [206.6 Kb in 0.78s]
+- Downloading gh from CRAN ...                  OK [115.8 Kb in 0.63s]
+- Downloading gitcreds from CRAN ...            OK [96.2 Kb in 0.86s]
+- Downloading ini from CRAN ...                 OK [13.4 Kb in 0.7s]
+Successfully downloaded 69 packages in 97 seconds.
+
+The following package(s) will be installed:
+- askpass     [1.2.0]
+- brew        [1.0-10]
+- brio        [1.1.5]
+- callr       [3.7.6]
+- clipr       [0.8.0]
+- commonmark  [1.9.1]
+- cpp11       [0.5.0]
+- crayon      [1.5.3]
+- credentials [2.0.1]
+- curl        [5.2.2]
+- desc        [1.4.3]
+- devtools    [2.4.5]
+- diffobj     [0.3.5]
+- downlit     [0.4.4]
+- ellipsis    [0.3.2]
+- fansi       [1.0.6]
+- gert        [2.1.1]
+- gh          [1.4.1]
+- gitcreds    [0.1.2]
+- htmlwidgets [1.6.4]
+- httpuv      [1.6.15]
+- httr2       [1.0.3]
+- ini         [0.3.1]
+- later       [1.3.2]
+- magrittr    [2.0.3]
+- miniUI      [0.1.1.1]
+- openssl     [2.2.1]
+- pillar      [1.9.0]
+- pkgbuild    [1.4.4]
+- pkgconfig   [2.0.3]
+- pkgdown     [2.1.0]
+- pkgload     [1.4.0]
+- praise      [1.0.0]
+- prettyunits [1.2.0]
+- processx    [3.8.4]
+- profvis     [0.3.8]
+- promises    [1.3.0]
+- ps          [1.7.7]
+- purrr       [1.0.2]
+- ragg        [1.3.2]
+- rcmdcheck   [1.4.0]
+- Rcpp        [1.0.13]
+- rematch2    [2.1.2]
+- remotes     [2.5.0]
+- roxygen2    [7.3.2]
+- rprojroot   [2.0.4]
+- rstudioapi  [0.16.0]
+- rversions   [2.1.2]
+- sessioninfo [1.2.2]
+- shiny       [1.9.1]
+- sourcetools [0.1.7-1]
+- stringi     [1.8.4]
+- stringr     [1.5.1]
+- sys         [3.4.2]
+- systemfonts [1.1.0]
+- testthat    [3.2.1.1]
+- textshaping [0.4.0]
+- tibble      [3.2.1]
+- urlchecker  [1.0.1]
+- usethis     [3.0.0]
+- utf8        [1.2.4]
+- vctrs       [0.6.5]
+- waldo       [0.5.3]
+- whisker     [0.4.1]
+- withr       [3.0.1]
+- xml2        [1.3.6]
+- xopen       [1.0.1]
+- xtable      [1.8-4]
+- zip         [2.3.1]
+These packages will be installed into "~/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20".
+
+# Installing packages --------------------------------------------------------
+- Installing desc ...                           OK [installed binary and cached in 0.65s]
+- Installing ellipsis ...                       OK [installed binary and cached in 0.55s]
+- Installing Rcpp ...                           OK [installed binary and cached in 1.4s]
+- Installing later ...                          OK [installed binary and cached in 0.48s]
+- Installing magrittr ...                       OK [installed binary and cached in 0.86s]
+- Installing promises ...                       OK [installed binary and cached in 0.62s]
+- Installing httpuv ...                         OK [installed binary and cached in 0.52s]
+- Installing xtable ...                         OK [installed binary and cached in 0.64s]
+- Installing sourcetools ...                    OK [installed binary and cached in 0.53s]
+- Installing crayon ...                         OK [installed binary and cached in 0.65s]
+- Installing withr ...                          OK [installed binary and cached in 0.89s]
+- Installing commonmark ...                     OK [installed binary and cached in 0.7s]
+- Installing shiny ...                          OK [installed binary and cached in 1.5s]
+- Installing miniUI ...                         OK [installed binary and cached in 0.87s]
+- Installing ps ...                             OK [installed binary and cached in 0.75s]
+- Installing processx ...                       OK [installed binary and cached in 0.49s]
+- Installing callr ...                          OK [installed binary and cached in 0.52s]
+- Installing pkgbuild ...                       OK [installed binary and cached in 0.45s]
+- Installing brio ...                           OK [installed binary and cached in 0.58s]
+- Installing fansi ...                          OK [installed binary and cached in 0.65s]
+- Installing vctrs ...                          OK [installed binary and cached in 0.96s]
+- Installing downlit ...                        OK [installed binary and cached in 0.82s]
+- Installing curl ...                           OK [installed binary and cached in 0.64s]
+- Installing sys ...                            OK [installed binary and cached in 0.47s]
+- Installing askpass ...                        OK [installed binary and cached in 0.49s]
+- Installing openssl ...                        OK [installed binary and cached in 0.66s]
+- Installing httr2 ...                          OK [installed binary and cached in 0.73s]
+- Installing purrr ...                          OK [installed binary and cached in 0.99s]
+- Installing cpp11 ...                          OK [installed binary and cached in 0.99s]
+- Installing systemfonts ...                    OK [installed binary and cached in 0.6s]
+- Installing textshaping ...                    OK [installed binary and cached in 0.67s]
+- Installing ragg ...                           OK [installed binary and cached in 0.61s]
+- Installing utf8 ...                           OK [installed binary and cached in 0.49s]
+- Installing pillar ...                         OK [installed binary and cached in 0.52s]
+- Installing pkgconfig ...                      OK [installed binary and cached in 0.47s]
+- Installing tibble ...                         OK [installed binary and cached in 0.56s]
+- Installing whisker ...                        OK [installed binary and cached in 0.51s]
+- Installing xml2 ...                           OK [installed binary and cached in 0.56s]
+- Installing pkgdown ...                        OK [installed binary and cached in 0.77s]
+- Installing rprojroot ...                      OK [installed binary and cached in 0.91s]
+- Installing pkgload ...                        OK [installed binary and cached in 0.96s]
+- Installing htmlwidgets ...                    OK [installed binary and cached in 0.83s]
+- Installing stringi ...                        OK [installed binary and cached in 1.5s]
+- Installing stringr ...                        OK [installed binary and cached in 0.61s]
+- Installing profvis ...                        OK [installed binary and cached in 0.52s]
+- Installing prettyunits ...                    OK [installed binary and cached in 1.3s]
+- Installing sessioninfo ...                    OK [installed binary and cached in 0.93s]
+- Installing xopen ...                          OK [installed binary and cached in 0.68s]
+- Installing rcmdcheck ...                      OK [installed binary and cached in 0.64s]
+- Installing remotes ...                        OK [installed binary and cached in 0.61s]
+- Installing brew ...                           OK [installed binary and cached in 0.46s]
+- Installing roxygen2 ...                       OK [installed binary and cached in 0.48s]
+- Installing rversions ...                      OK [installed binary and cached in 0.46s]
+- Installing praise ...                         OK [installed binary and cached in 0.46s]
+- Installing diffobj ...                        OK [installed binary and cached in 0.66s]
+- Installing rematch2 ...                       OK [installed binary and cached in 0.94s]
+- Installing waldo ...                          OK [installed binary and cached in 1.1s]
+- Installing testthat ...                       OK [installed binary and cached in 0.59s]
+- Installing urlchecker ...                     OK [installed binary and cached in 0.66s]
+- Installing clipr ...                          OK [installed binary and cached in 0.59s]
+- Installing credentials ...                    OK [installed binary and cached in 0.55s]
+- Installing rstudioapi ...                     OK [installed binary and cached in 0.48s]
+- Installing zip ...                            OK [installed binary and cached in 0.49s]
+- Installing gert ...                           OK [installed binary and cached in 0.56s]
+- Installing gitcreds ...                       OK [installed binary and cached in 0.47s]
+- Installing ini ...                            OK [installed binary and cached in 0.45s]
+- Installing gh ...                             OK [installed binary and cached in 0.5s]
+- Installing usethis ...                        OK [installed binary and cached in 0.53s]
+- Installing devtools ...                       OK [installed binary and cached in 0.59s]
+Successfully installed 69 packages in 50 seconds.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: usethis</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.0 (2024-04-24)
+ os       macOS Ventura 13.6.9
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       America/New_York
+ date     2024-09-05
+ pandoc   NA (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ ! package     * version date (UTC) lib source
+ P cachem        1.1.0   2024-05-16 [?] RSPM
+ P cli           3.6.3   2024-06-21 [?] RSPM
+ P devtools    * 2.4.5   2022-10-11 [?] RSPM
+ P digest        0.6.36  2024-06-23 [?] RSPM
+ P ellipsis      0.3.2   2021-04-29 [?] RSPM
+ P evaluate      0.24.0  2024-06-10 [?] RSPM
+ P fastmap       1.2.0   2024-05-15 [?] RSPM
+ P fs            1.6.4   2024-04-25 [?] RSPM
+ P glue          1.7.0   2024-01-09 [?] RSPM
+ P htmltools     0.5.8.1 2024-04-04 [?] RSPM
+ P htmlwidgets   1.6.4   2023-12-06 [?] RSPM
+ P httpuv        1.6.15  2024-03-26 [?] RSPM
+ P jsonlite      1.8.8   2023-12-04 [?] RSPM
+ P knitr         1.48    2024-07-07 [?] RSPM
+ P later         1.3.2   2023-12-06 [?] RSPM
+ P lifecycle     1.0.4   2023-11-07 [?] RSPM
+ P magrittr      2.0.3   2022-03-30 [?] RSPM
+ P memoise       2.0.1   2021-11-26 [?] RSPM
+ P mime          0.12    2021-09-28 [?] RSPM
+ P miniUI        0.1.1.1 2018-05-18 [?] RSPM
+ P pkgbuild      1.4.4   2024-03-17 [?] RSPM
+ P pkgload       1.4.0   2024-06-28 [?] RSPM
+ P profvis       0.3.8   2023-05-02 [?] RSPM
+ P promises      1.3.0   2024-04-05 [?] RSPM
+ P purrr         1.0.2   2023-08-10 [?] RSPM
+ P R6            2.5.1   2021-08-19 [?] RSPM
+ P Rcpp          1.0.13  2024-07-17 [?] RSPM
+ P remotes       2.5.0   2024-03-17 [?] RSPM
+   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)
+ P rlang         1.1.4   2024-06-04 [?] RSPM
+ P rmarkdown     2.27    2024-05-17 [?] RSPM
+ P sessioninfo   1.2.2   2021-12-06 [?] RSPM
+ P shiny         1.9.1   2024-08-01 [?] RSPM
+ P stringi       1.8.4   2024-05-06 [?] RSPM
+ P stringr       1.5.1   2023-11-14 [?] RSPM
+ P urlchecker    1.0.1   2021-11-30 [?] RSPM
+ P usethis     * 3.0.0   2024-07-29 [?] RSPM
+ P vctrs         0.6.5   2023-12-01 [?] RSPM
+ P xfun          0.46    2024-07-18 [?] RSPM
+ P xtable        1.8-4   2019-04-21 [?] RSPM
+ P yaml          2.3.8   2023-12-11 [?] RSPM
+
+ [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20
+ [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867
+
+ P ── Loaded and on-disk path mismatch.
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -274,7 +617,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -306,29 +660,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
@@ -336,7 +668,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
