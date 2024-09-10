@@ -256,5 +256,5 @@ and gives as example:
 
 > Packages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.
 
-Packages can write per default to `tempdir()` or don't add a default path at all, as long as the default is not the user's home filespace.  
+Packages can write per default to `tempdir()`, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user's home filespace.  
 
