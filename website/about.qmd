@@ -40,7 +40,9 @@ This cookbook is a Quarto website. To learn more about Quarto websites visit <ht
 ### Session info 
 
 ```{r}
-install.packages("devtools")
+if (!requireNamespace("devtools", quietly = TRUE)) {
+    install.packages("devtools")
+}
 library(devtools)
 
 devtools::session_info()
