@@ -231,7 +231,8 @@ The issue described in the recipe, also applies to the use of other function whi
 
 ## Problem
 
-You are writing by default or in your examples, vignettes or tests in the user's home filespace, including the package directory and `getwd()`.
+You are writing, either by default or within your examples, vignettes, or tests, to the user's home file space, including the package directory and the current working directory (`getwd()`).
+
 
 ## Solution 
 
