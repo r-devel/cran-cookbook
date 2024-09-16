@@ -106,3 +106,15 @@ It is also not recommended to [mention package names](https://cran.r-project.org
 
 ------------------------------------------------------------------------
 
+# Using Authors@R
+
+
+## Problem
+
+You have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.
+
+## Solution
+
+
+
+### Details
