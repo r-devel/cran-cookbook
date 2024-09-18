@@ -227,4 +227,37 @@ The issue described in the recipe, also applies to the use of other function whi
 
 --------------------------
 
+# Writing Files and Directories to the Home Filespace
+
+## Problem
+
+You are writing, either by default or within your examples, vignettes, or tests, to the user's home filespace, including the package directory and the current working directory (`getwd()`).
+
+
+## Solution 
+
+Omit any default path in your functions and write to `tempdir()` in examples, vignettes or tests.  
+
+
+### Details
+
+<!--adding this is a test for including the CRAN mail "template" for each recipe. This version is a small collapsible text box which I will add for (almost) every Issue. Maybe change the title of the boxes?--> 
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please ensure that your functions do not write by default or in your examples/vignettes/tests in the user's home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().
+
+:::
+
+The [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html) states that:
+
+> The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.
+
+and gives as example:
+
+> Packages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.
+
+Packages can write per default to `tempdir()`, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user's home filespace.  
+
+<!-- tbd: add section about R_user_dir() --> 
 
