@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CRAN Cookbook - Code Issues</title>
+<title>Code Issues – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -111,13 +111,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -238,6 +238,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a>
   <ul class="collapse">
   <li><a href="#details-3" id="toc-details-3" class="nav-link" data-scroll-target="#details-3">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#writing-files-and-directories-to-the-home-filespace" id="toc-writing-files-and-directories-to-the-home-filespace" class="nav-link" data-scroll-target="#writing-files-and-directories-to-the-home-filespace">Writing Files and Directories to the Home Filespace</a>
+  <ul class="collapse">
+  <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem</a></li>
+  <li><a href="#solution-4" id="toc-solution-4" class="nav-link" data-scroll-target="#solution-4">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-4" id="toc-details-4" class="nav-link" data-scroll-target="#details-4">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#writing-to-the-.globalenv" id="toc-writing-to-the-.globalenv" class="nav-link" data-scroll-target="#writing-to-the-.globalenv">Writing to the <code>.GlobalEnv</code></a>
+  <ul class="collapse">
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem</a></li>
+  <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -494,6 +510,112 @@ Note
 </div>
 </div>
 <hr>
+</section>
+</section>
+</section>
+<section id="writing-files-and-directories-to-the-home-filespace" class="level1">
+<h1>Writing Files and Directories to the Home Filespace</h1>
+<section id="problem-4" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4">Problem</h2>
+<p>You are writing, either by default or within your examples, vignettes, or tests, to the user’s home filespace, including the package directory and the current working directory (<code>getwd()</code>).</p>
+</section>
+<section id="solution-4" class="level2">
+<h2 class="anchored" data-anchor-id="solution-4">Solution</h2>
+<p>Omit any default path in your functions and write to <code>tempdir()</code> in examples, vignettes or tests.</p>
+<section id="details-4" class="level3">
+<h3 class="anchored" data-anchor-id="details-4">Details</h3>
+<!--adding this is a test for including the CRAN mail "template" for each recipe. This version is a small collapsible text box which I will add for (almost) every Issue. Maybe change the title of the boxes?-->
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please ensure that your functions do not write by default or in your examples/vignettes/tests in the user’s home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().</p>
+</div>
+</div>
+</div>
+<p>The <a href="https://cran.r-project.org/web/packages/policies.html">CRAN Repository Policy</a> states that:</p>
+<blockquote class="blockquote">
+<p>The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.</p>
+</blockquote>
+<p>and gives as example:</p>
+<blockquote class="blockquote">
+<p>Packages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.</p>
+</blockquote>
+<p>Packages can write per default to <code>tempdir()</code>, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user’s home filespace.</p>
+<!-- tbd: add section about R_user_dir() -->
+<hr>
+</section>
+</section>
+</section>
+<section id="writing-to-the-.globalenv" class="level1">
+<h1>Writing to the <code>.GlobalEnv</code></h1>
+<section id="problem-5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5">Problem</h2>
+<p>You are writing per default to the global environment, <code>.GlobalEnv</code>, the user’s workspace.</p>
+</section>
+<section id="solution-5" class="level2">
+<h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
+<p>Omit any default writing to the global environment.</p>
+<section id="details-5" class="level3">
+<h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please do not modify the global environment (e.g.&nbsp;by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.</p>
+</div>
+</div>
+</div>
+<p>The <code>.GlobalEnv</code> is the main workspace of users. It can also be accessed by <code>globalenv()</code>. Writing to the global environment is forbidden for CRAN packages.</p>
+<p>Sometimes package maintainers use the operator <code>&lt;&lt;-</code>. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the <code>.GlobalEnv</code>. To avoid writing to the global environment, the variable must be defined in a parent environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defines the variable in the foo()-function environment</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  var <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># redefines var but only in the foo() environment as it is the parent of foo1()</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    var <span class="ot">&lt;&lt;-</span> <span class="st">"redefined"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calls the foo1() function to redefine var</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">foo1</span>()</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(var)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Part of the <code>.GlobalEnv</code> is the <code>.Random.seed</code> which should not be changed at all.</p>
+<p>Excepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the <code>.GlobalEnv</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calls of <code>rm(list = ls())</code> to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions <code>rm(list = ls())</code> can be used, as the active environment is then the function environment instead of the global environment.</p>
+</div>
+</div>
 
 
 </section>
@@ -536,18 +658,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -579,7 +690,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
@@ -587,7 +720,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
