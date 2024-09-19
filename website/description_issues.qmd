@@ -115,6 +115,20 @@ You have not properly declared the authors, maintainers and copyright holders in
 
 ## Solution
 
+Add the `Authors@R` field in the DESCRIPTION file. 
 
 
 ### Details
+
+You can find more roles in the help documentation by running `?utils::person`. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.
+
+```{r}
+Authors@R: person("Jane", "Smith", email = "chef@cran-cookbook.com",
+  role = c("aut", "cre"))
+```
+
+
+::: callout-note
+If your package uses the older method of specifying separate `Maintainer` and `Author` fields in the DESCRIPTION file, it won’t be rejected solely because of this. However, this approach is less preferred.
+
+:::
