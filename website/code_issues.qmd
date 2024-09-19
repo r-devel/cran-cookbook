@@ -309,8 +309,13 @@ foo <- function(){
 ```
 
 
-Calls of `rm(list = ls())` to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions `rm(list = ls())` can be used, as the active environment is then the function environment instead of the global environment. 
-
 Part of the `.GlobalEnv` is the `.Random.seed` which should not be changed at all. 
 
 Excepted from this rule are 'shiny' packages which build interactive web apps. They sometimes need to modify the `.GlobalEnv`.
+
+:::{.callout-note}
+
+Calls of `rm(list = ls())` to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions `rm(list = ls())` can be used, as the active environment is then the function environment instead of the global environment. 
+
+:::
+
