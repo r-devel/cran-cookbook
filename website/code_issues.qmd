@@ -261,3 +261,61 @@ Packages can write per default to `tempdir()`, or any other temporary/cache dire
 
 <!-- tbd: add section about R_user_dir() --> 
 
+
+---------------------------------------
+
+# Writing to the `.GlobalEnv`
+
+## Problem
+
+You are writing per default to the global environment, `.GlobalEnv`, the user's workspace.
+
+## Solution
+
+Omit any default writing to the global environment. 
+
+### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please do not modify the global environment (e.g. by using <<-) in your functions. This is not allowed by the CRAN policies.
+
+:::
+
+The `.GlobalEnv` is the main workspace of users. It can also be accessed by `globalenv()`. Writing to the global environment is forbidden for CRAN packages. 
+
+Sometimes package maintainers use the operator `<<-`. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the `.GlobalEnv`. 
+To avoid writing to the global environment, the variable must be defined in a parent environment. 
+
+```{r eval=FALSE}
+
+foo <- function(){
+  
+  # defines the variable in the foo()-function environment
+  var <- NULL
+  
+  foo1 <- function(){
+    
+    # redefines var but only in the foo() environment as it is the parent of foo1()
+    var <<- "redefined"
+  }
+  
+  # calls the foo1() function to redefine var
+  foo1()
+  return(var)
+}
+
+
+```
+
+
+Part of the `.GlobalEnv` is the `.Random.seed` which should not be changed at all. 
+
+Excepted from this rule are 'shiny' packages which build interactive web apps. They sometimes need to modify the `.GlobalEnv`.
+
+:::{.callout-note}
+
+Calls of `rm(list = ls())` to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions `rm(list = ls())` can be used, as the active environment is then the function environment instead of the global environment. 
+
+:::
+
