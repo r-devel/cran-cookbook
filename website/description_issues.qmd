@@ -111,7 +111,7 @@ It is also not recommended to [mention package names](https://cran.r-project.org
 
 ## Problem
 
-You have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.
+You have not properly declared the authors, maintainers and copyright holders in the `Authors@R` section of the DESCRIPTION file.
 
 ## Solution
 
