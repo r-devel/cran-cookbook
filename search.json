@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the CRAN Cookbook",
-    "section": "",
-    "text": "Introduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\nBeginner to intermediate knowledge of R Programming: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a ‘best practices’ approach to resolving R package issues to facilitate a successful re-submission to CRAN.\nExperience in debugging code: Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.\n\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
-    "crumbs": [
-      "Welcome to the CRAN Cookbook"
-    ]
-  },
-  {
     "objectID": "docs_issues.html",
     "href": "docs_issues.html",
     "title": "Manuals & Documentation Issues",
@@ -57,6 +47,136 @@
     "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
     "crumbs": [
       "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the CRAN Cookbook",
+    "section": "",
+    "text": "Introduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\nBeginner to intermediate knowledge of R Programming: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a ‘best practices’ approach to resolving R package issues to facilitate a successful re-submission to CRAN.\nExperience in debugging code: Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.\n\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
+    "crumbs": [
+      "Welcome to the CRAN Cookbook"
+    ]
+  },
+  {
+    "objectID": "description_issues.html",
+    "href": "description_issues.html",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem",
+    "href": "description_issues.html#problem",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution",
+    "href": "description_issues.html#solution",
+    "title": "DESCRIPTION file Issues",
+    "section": "",
+    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-1",
+    "href": "description_issues.html#problem-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-1",
+    "href": "description_issues.html#solution-1",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-2",
+    "href": "description_issues.html#problem-2",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-2",
+    "href": "description_issues.html#solution-2",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-3",
+    "href": "description_issues.html#problem-3",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-3",
+    "href": "description_issues.html#solution-3",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-4",
+    "href": "description_issues.html#problem-4",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nYou have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-4",
+    "href": "description_issues.html#solution-4",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nAdd the Authors@R field in the DESCRIPTION file.\n\nDetails\nYou can find more roles in the help documentation by running ?utils::person. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.\n\nAuthors@R: person(\"Jane\", \"Smith\", email = \"chef@cran-cookbook.com\",\n  role = c(\"aut\", \"cre\"), ORCID = \"&lt;USER-ORCID&gt;\")\n\n\n\n\n\n\n\nNote\n\n\n\nThe Maintainer and Author fields are automatically generated, so you don’t need to add them manually.\nIf your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "general_issues.html#description-length",
+    "href": "general_issues.html#description-length",
+    "title": "General Issues",
+    "section": "Description Length",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
+    "crumbs": [
+      "General Issues"
     ]
   },
   {
@@ -224,109 +344,9 @@
     "href": "about.html#technical-details",
     "title": "About",
     "section": "Technical details",
-    "text": "Technical details\nThis cookbook is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites. The cookbook is hosted on GitHub pages as part of the Community R development resources. The website is currently deployed with local commands.\n\nSession info\n\nif (!requireNamespace(\"devtools\", quietly = TRUE)) {\n    install.packages(\"devtools\")\n}\nlibrary(devtools)\n\nLoading required package: usethis\n\ndevtools::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.1 (2024-06-14 ucrt)\n os       Windows 10 x64 (build 19045)\n system   x86_64, mingw32\n ui       RTerm\n language (EN)\n collate  German_Austria.utf8\n ctype    German_Austria.utf8\n tz       Europe/Vienna\n date     2024-09-19\n pandoc   3.2 @ C:\\\\Users\\\\benia\\\\AppData\\\\Local\\\\Programs\\\\Quarto\\\\bin\\\\tools/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n ! package     * version date (UTC) lib source\n P cachem        1.1.0   2024-05-16 [?] RSPM\n P cli           3.6.3   2024-06-21 [?] RSPM\n P devtools    * 2.4.5   2022-10-11 [?] CRAN (R 4.4.1)\n P digest        0.6.36  2024-06-23 [?] RSPM\n P ellipsis      0.3.2   2021-04-29 [?] CRAN (R 4.4.1)\n P evaluate      0.24.0  2024-06-10 [?] RSPM\n P fastmap       1.2.0   2024-05-15 [?] RSPM\n P fs            1.6.4   2024-04-25 [?] RSPM\n P glue          1.7.0   2024-01-09 [?] RSPM\n P htmltools     0.5.8.1 2024-04-04 [?] RSPM\n P htmlwidgets   1.6.4   2023-12-06 [?] CRAN (R 4.4.1)\n P httpuv        1.6.15  2024-03-26 [?] CRAN (R 4.4.1)\n P jsonlite      1.8.8   2023-12-04 [?] RSPM\n P knitr         1.48    2024-07-07 [?] CRAN (R 4.4.1)\n P later         1.3.2   2023-12-06 [?] CRAN (R 4.4.1)\n P lifecycle     1.0.4   2023-11-07 [?] RSPM\n P magrittr      2.0.3   2022-03-30 [?] RSPM\n P memoise       2.0.1   2021-11-26 [?] RSPM\n P mime          0.12    2021-09-28 [?] RSPM\n P miniUI        0.1.1.1 2018-05-18 [?] CRAN (R 4.4.1)\n P pkgbuild      1.4.4   2024-03-17 [?] CRAN (R 4.4.0)\n P pkgload       1.4.0   2024-06-28 [?] CRAN (R 4.4.1)\n P profvis       0.3.8   2023-05-02 [?] CRAN (R 4.4.1)\n P promises      1.3.0   2024-04-05 [?] CRAN (R 4.4.1)\n P purrr         1.0.2   2023-08-10 [?] CRAN (R 4.4.0)\n P R6            2.5.1   2021-08-19 [?] RSPM\n P Rcpp          1.0.13  2024-07-17 [?] RSPM\n P remotes       2.5.0   2024-03-17 [?] CRAN (R 4.4.1)\n   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)\n P rlang         1.1.4   2024-06-04 [?] RSPM\n P rmarkdown     2.27    2024-05-17 [?] RSPM\n P sessioninfo   1.2.2   2021-12-06 [?] CRAN (R 4.4.1)\n P shiny         1.9.1   2024-08-01 [?] RSPM\n P stringi       1.8.4   2024-05-06 [?] RSPM\n P stringr       1.5.1   2023-11-14 [?] RSPM\n P urlchecker    1.0.1   2021-11-30 [?] CRAN (R 4.4.1)\n P usethis     * 3.0.0   2024-07-29 [?] RSPM\n P vctrs         0.6.5   2023-12-01 [?] RSPM\n P xfun          0.46    2024-07-18 [?] RSPM\n P xtable        1.8-4   2019-04-21 [?] CRAN (R 4.4.1)\n P yaml          2.3.10  2024-07-26 [?] RSPM\n\n [1] C:/Users/benia/Desktop/cran-cookbook/cran-cookbook/website/renv/library/windows/R-4.4/x86_64-w64-mingw32\n [2] C:/Users/benia/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/e0da0d43\n\n P ── Loaded and on-disk path mismatch.\n\n──────────────────────────────────────────────────────────────────────────────",
+    "text": "Technical details\nThis cookbook is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites. The cookbook is hosted on GitHub pages as part of the Community R development resources. The website is currently deployed with local commands.\n\nSession info\n\nif (!requireNamespace(\"devtools\", quietly = TRUE)) {\n    install.packages(\"devtools\")\n}\nlibrary(devtools)\n\nLoading required package: usethis\n\ndevtools::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.0 (2024-04-24)\n os       macOS Ventura 13.6.9\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       America/New_York\n date     2024-09-26\n pandoc   NA (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n ! package     * version date (UTC) lib source\n P cachem        1.1.0   2024-05-16 [?] RSPM\n P cli           3.6.3   2024-06-21 [?] RSPM\n P devtools    * 2.4.5   2022-10-11 [?] RSPM\n P digest        0.6.36  2024-06-23 [?] RSPM\n P ellipsis      0.3.2   2021-04-29 [?] RSPM\n P evaluate      0.24.0  2024-06-10 [?] RSPM\n P fastmap       1.2.0   2024-05-15 [?] RSPM\n P fs            1.6.4   2024-04-25 [?] RSPM\n P glue          1.7.0   2024-01-09 [?] RSPM\n P htmltools     0.5.8.1 2024-04-04 [?] RSPM\n P htmlwidgets   1.6.4   2023-12-06 [?] RSPM\n P httpuv        1.6.15  2024-03-26 [?] RSPM\n P jsonlite      1.8.8   2023-12-04 [?] RSPM\n P knitr         1.48    2024-07-07 [?] RSPM\n P later         1.3.2   2023-12-06 [?] RSPM\n P lifecycle     1.0.4   2023-11-07 [?] RSPM\n P magrittr      2.0.3   2022-03-30 [?] RSPM\n P memoise       2.0.1   2021-11-26 [?] RSPM\n P mime          0.12    2021-09-28 [?] RSPM\n P miniUI        0.1.1.1 2018-05-18 [?] RSPM\n P pkgbuild      1.4.4   2024-03-17 [?] RSPM\n P pkgload       1.4.0   2024-06-28 [?] RSPM\n P profvis       0.3.8   2023-05-02 [?] RSPM\n P promises      1.3.0   2024-04-05 [?] RSPM\n P purrr         1.0.2   2023-08-10 [?] RSPM\n P R6            2.5.1   2021-08-19 [?] RSPM\n P Rcpp          1.0.13  2024-07-17 [?] RSPM\n P remotes       2.5.0   2024-03-17 [?] RSPM\n   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)\n P rlang         1.1.4   2024-06-04 [?] RSPM\n P rmarkdown     2.27    2024-05-17 [?] RSPM\n P rstudioapi    0.16.0  2024-03-24 [?] RSPM\n P sessioninfo   1.2.2   2021-12-06 [?] RSPM\n P shiny         1.9.1   2024-08-01 [?] RSPM\n P stringi       1.8.4   2024-05-06 [?] RSPM\n P stringr       1.5.1   2023-11-14 [?] RSPM\n P urlchecker    1.0.1   2021-11-30 [?] RSPM\n P usethis     * 3.0.0   2024-07-29 [?] RSPM\n P vctrs         0.6.5   2023-12-01 [?] RSPM\n P xfun          0.46    2024-07-18 [?] RSPM\n P xtable        1.8-4   2019-04-21 [?] RSPM\n P yaml          2.3.8   2023-12-11 [?] RSPM\n\n [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20\n [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867\n\n P ── Loaded and on-disk path mismatch.\n\n──────────────────────────────────────────────────────────────────────────────",
     "crumbs": [
       "About"
-    ]
-  },
-  {
-    "objectID": "description_issues.html",
-    "href": "description_issues.html",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem",
-    "href": "description_issues.html#problem",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution",
-    "href": "description_issues.html#solution",
-    "title": "DESCRIPTION file Issues",
-    "section": "",
-    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-1",
-    "href": "description_issues.html#problem-1",
-    "title": "DESCRIPTION file Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-1",
-    "href": "description_issues.html#solution-1",
-    "title": "DESCRIPTION file Issues",
-    "section": "Solution",
-    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-2",
-    "href": "description_issues.html#problem-2",
-    "title": "DESCRIPTION file Issues",
-    "section": "Problem",
-    "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-2",
-    "href": "description_issues.html#solution-2",
-    "title": "DESCRIPTION file Issues",
-    "section": "Solution",
-    "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-3",
-    "href": "description_issues.html#problem-3",
-    "title": "DESCRIPTION file Issues",
-    "section": "Problem",
-    "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-3",
-    "href": "description_issues.html#solution-3",
-    "title": "DESCRIPTION file Issues",
-    "section": "Solution",
-    "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
-    "crumbs": [
-      "DESCRIPTION file Issues"
-    ]
-  },
-  {
-    "objectID": "general_issues.html#description-length",
-    "href": "general_issues.html#description-length",
-    "title": "General Issues",
-    "section": "Description Length",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
-    "crumbs": [
-      "General Issues"
     ]
   }
 ]
