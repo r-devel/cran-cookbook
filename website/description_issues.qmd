@@ -129,6 +129,9 @@ Authors@R: person("Jane", "Smith", email = "chef@cran-cookbook.com",
 
 
 ::: callout-note
-If your package uses the older method of specifying separate `Maintainer` and `Author` fields in the DESCRIPTION file, it won’t be rejected solely because of this. However, this approach is less preferred.
+
+The Maintainer and Author fields are automatically generated, so you don't need to add them manually.
+
+If your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.
 
 :::
