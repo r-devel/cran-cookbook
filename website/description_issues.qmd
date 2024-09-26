@@ -106,3 +106,32 @@ It is also not recommended to [mention package names](https://cran.r-project.org
 
 ------------------------------------------------------------------------
 
+# Using Authors@R
+
+
+## Problem
+
+You have not properly declared the authors, maintainers and copyright holders in the `Authors@R` section of the DESCRIPTION file.
+
+## Solution
+
+Add the `Authors@R` field in the DESCRIPTION file. 
+
+
+### Details
+
+You can find more roles in the help documentation by running `?utils::person`. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.
+
+```{r}
+Authors@R: person("Jane", "Smith", email = "chef@cran-cookbook.com",
+  role = c("aut", "cre"), ORCID = "<USER-ORCID>")
+```
+
+
+::: callout-note
+
+The Maintainer and Author fields are automatically generated, so you don't need to add them manually.
+
+If your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.
+
+:::
