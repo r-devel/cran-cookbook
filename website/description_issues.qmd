@@ -122,7 +122,7 @@ Add the `Authors@R` field in the DESCRIPTION file.
 
 You can find more roles in the help documentation by running `?utils::person`. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.
 
-```{r}
+```{r, eval=FALSE}
 Authors@R: person("Jane", "Smith", email = "chef@cran-cookbook.com",
   role = c("aut", "cre"), ORCID = "<USER-ORCID>")
 ```
