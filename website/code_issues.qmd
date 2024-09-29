@@ -337,6 +337,12 @@ Instead of using `installed.packages()` use `requireNamespace("pkg")` or `requir
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+You are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().
+
+:::
+
 The `installed.packages()` function outputs a matrix with details of all packages which are installed in the specified libraries. This can then be used to check if a specific package is installed. As mentioned in the help file of `installed.packages()`, it can be very slow under certain circumstances.
 
 > This needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, ...
