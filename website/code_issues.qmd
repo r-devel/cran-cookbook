@@ -319,3 +319,36 @@ Calls of `rm(list = ls())` to remove variables of the current environment, shoul
 
 :::
 
+
+
+
+---------------------------------------------
+
+
+# Calling `installed.packages()`
+
+## Problem
+
+You are calling `installed.packages()` to check if a package is installed.
+
+## Solution
+
+Instead of using `installed.packages()` use `requireNamespace("pkg")` or `require("pkg")` to find out if packages are available.
+
+### Details
+
+The `installed.packages()` function outputs a matrix with details of all packages which are installed in the specified libraries. This can then be used to check if a specific package is installed. As mentioned in the help file of `installed.packages()`, it can be very slow under certain circumstances.
+
+> This needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, ...
+
+The help file lists different solutions and the respective, alternative functions.
+
+> ... so do not use it to find out if a named package is installed (use `find.package` or `system.file`) nor to find out if a package is usable (call `requireNamespace` or `require` and check the return value) nor to find details of a small number of packages (use `packageDescription`).
+
+Ideally, use `requireNamespace("pkg")` or `require("pkg")`, which return `FALSE` if a package is not available, and throw an error based on its return value. For more details on package installations in your code see [the corresponding recipe, (yet to come)]().
+
+
+
+
+
+
