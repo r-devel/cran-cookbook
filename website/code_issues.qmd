@@ -343,7 +343,7 @@ You are using `installed.packages()` in your code. As mentioned in the notes of 
 
 :::
 
-The `installed.packages()` function outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of `installed.packages()`, it can be very slow under certain circumstances.
+`installed.packages()` outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the [`installed.packages()` function](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html), it can be very slow under certain circumstances.
 
 > This needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, ...
 
