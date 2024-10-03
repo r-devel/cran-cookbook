@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CRAN Cookbook - Code Issues</title>
+<title>Code Issues – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -111,13 +111,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -254,6 +254,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
   <ul class="collapse">
   <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#calling-installed.packages" id="toc-calling-installed.packages" class="nav-link" data-scroll-target="#calling-installed.packages">Calling <code>installed.packages()</code></a>
+  <ul class="collapse">
+  <li><a href="#problem-6" id="toc-problem-6" class="nav-link" data-scroll-target="#problem-6">Problem</a></li>
+  <li><a href="#solution-6" id="toc-solution-6" class="nav-link" data-scroll-target="#solution-6">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-6" id="toc-details-6" class="nav-link" data-scroll-target="#details-6">Details</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -616,6 +624,47 @@ Note
 <p>Calls of <code>rm(list = ls())</code> to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions <code>rm(list = ls())</code> can be used, as the active environment is then the function environment instead of the global environment.</p>
 </div>
 </div>
+<hr>
+</section>
+</section>
+</section>
+<section id="calling-installed.packages" class="level1">
+<h1>Calling <code>installed.packages()</code></h1>
+<section id="problem-6" class="level2">
+<h2 class="anchored" data-anchor-id="problem-6">Problem</h2>
+<p>You are calling <code>installed.packages()</code> to check if a package is installed.</p>
+</section>
+<section id="solution-6" class="level2">
+<h2 class="anchored" data-anchor-id="solution-6">Solution</h2>
+<p>Instead of using <code>installed.packages()</code>, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code> to find out if packages are available.</p>
+<section id="details-6" class="level3">
+<h3 class="anchored" data-anchor-id="details-6">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are using <code>installed.packages()</code> in your code. As mentioned in the notes of <code>installed.packages()</code> help page, this can be very slow. Therefore do not use <code>installed.packages()</code>.</p>
+</div>
+</div>
+</div>
+<p><code>installed.packages()</code> outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the <a href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html"><code>installed.packages()</code> function</a>, it can be very slow under certain circumstances.</p>
+<blockquote class="blockquote">
+<p>This needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …</p>
+</blockquote>
+<p>Therefore, do not use <code>installed.packages()</code> in CRAN packages.</p>
+<p>The help file also lists different solutions and the respective, alternative functions.</p>
+<blockquote class="blockquote">
+<p>… so do not use it to find out if a named package is installed (use <code>find.package</code> or <code>system.file</code>) nor to find out if a package is usable (call <code>requireNamespace</code> or <code>require</code> and check the return value) nor to find details of a small number of packages (use <code>packageDescription</code>).</p>
+</blockquote>
+<p>Ideally, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code>, both return <code>FALSE</code> if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see <a href="">the corresponding recipe, (yet to come)</a>.</p>
 
 
 </section>
@@ -658,18 +707,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -701,7 +739,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
@@ -709,7 +769,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
