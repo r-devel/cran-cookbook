@@ -71,11 +71,11 @@ All wrappers must still be placed inside the `\examples{}` tag.
 
 # Package Size
 
-CRAN package tarballs should be under 5 MB, with very few exceptions (and these will trigger flags for every future submission, so it's best to minimize the package size). Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.
+CRAN package tarballs should be under 5 Mb, with very few exceptions (and these will trigger flags for every future submission, so it's best to minimize the package size). Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.
 
 :::callout-tip
 
-If your package exceeds the recommended 5 MB limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
+If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
 
 :::
 
