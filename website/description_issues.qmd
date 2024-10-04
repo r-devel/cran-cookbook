@@ -163,7 +163,7 @@ Description: The 'tidyverse' is a set of packages that work in harmony
 ```
 
 
-::: callout-note
+::: callout-tip
 
 Including a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file to provide additional references or information.
 
