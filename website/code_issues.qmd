@@ -379,6 +379,7 @@ You are setting `options(warn=-1)` in your function. This is not allowed. Please
 :::
 
 CRAN doesn't allow negative `warn` options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the [Change of Options recipe](#change-of-options-graphical-parameters-and-working-directory), the submission will be rejected.
+
 Instead, CRAN recommends using `suppressWarnings()`. While this will  disable warnings as well, it affects only the expression called within. 
 
 
