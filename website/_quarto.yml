@@ -36,7 +36,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: style.css
     toc: true
 
 execute:
