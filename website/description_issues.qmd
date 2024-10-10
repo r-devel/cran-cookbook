@@ -143,7 +143,7 @@ If your package uses the older approach of specifying Maintainer and Author sepa
 
 ## Problem
 
-The reference link in the Description field is incorrectly formatted and isn't clickable.
+The reference link in the Description field is incorrectly formatted or isn't clickable.
 
 ## Solution
 
