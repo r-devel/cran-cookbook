@@ -73,7 +73,7 @@ All wrappers must still be placed inside the `\examples{}` tag.
 
 Ideally, CRAN packages should be under 5 Mb. There are *very few exceptions* mostly for a larger inst/ folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every submitted version is saved on CRAN, they are very hesitant.
 So it's best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.
-
+At a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.
 :::callout-tip
 
 If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
