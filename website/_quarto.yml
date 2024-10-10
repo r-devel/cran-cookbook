@@ -17,6 +17,7 @@ website:
       - docs_issues.qmd
       - code_issues.qmd
       - description_issues.qmd
+      - resources.qmd
       - about.qmd
 
     tools:

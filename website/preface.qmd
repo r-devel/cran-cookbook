@@ -1,0 +1,55 @@
+---
+title: "Preface"
+subtitle: ""
+format: 
+  html:
+    css: style.css
+---
+
+# Motivation
+
+<!-- add this --> 
+
+# Introduction
+
+The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: **Improving the Skills of R Package Maintainers**. The goals of the project are:
+
+1. Educate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.
+2. Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.
+3. Identify common CRAN submission issues and create a framework of "problems" and "solutions" that are easy to implement and discover.
+
+<!-- add more -->
+
+# Prerequisites
+
+1. **Beginner to intermediate knowledge of R Programming**: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a 'best practices' approach to resolving R package issues to facilitate a successful re-submission to CRAN.
+
+2. **Experience in debugging code**: Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.
+
+
+# Acknowledgement
+
+- Thank you to the [R Consortium](https://www.r-consortium.org/) for funding and sponsoring this project!
+
+![](https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg){fig-align="left"}
+
+## Contributors
+
+_Thanks to all contributors!_
+
+Lluís Revilla ([@llrs](https://github.com/llrs))
+
+# Colophon
+
+This cookbook is a Quarto website. To learn more about Quarto websites visit <https://quarto.org/docs/websites>. The cookbook is hosted on GitHub pages as part of the [Community R development resources](https://github.com/r-devel). The website is currently deployed with [local commands](https://github.com/r-devel/cran-cookbook/wiki/GitHub-Pages-Deployment).
+
+### Session info 
+
+```{r}
+if (!requireNamespace("devtools", quietly = TRUE)) {
+    install.packages("devtools")
+}
+library(devtools)
+
+devtools::session_info()
+```
