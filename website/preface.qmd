@@ -20,7 +20,7 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 
 <!-- add more -->
 
-# Prerequisites
+# Prerequisite
 
 - **Beginner to intermediate knowledge of R Programming**: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a 'best practices' approach to resolving R package issues to facilitate a successful re-submission to CRAN.
 
