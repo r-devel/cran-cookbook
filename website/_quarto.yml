@@ -3,6 +3,7 @@ project:
 
 website:
   title: CRAN Cookbook
+  favicon: favicon.png
   page-footer:
     center: "<b>This cookbook is currently in development - Please use with caution!</b>"
     background: info
