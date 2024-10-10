@@ -148,6 +148,7 @@ The reference link in the Description field is incorrectly formatted or isn't cl
 ## Solution
 
 Remove the space after <doi:...> or <https:...> to enable the reference link.
+Write the reference in the form: Authors (year) <doi:...>.
 
 
 ### Details
