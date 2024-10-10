@@ -135,3 +135,41 @@ The Maintainer and Author fields are automatically generated, so you don't need 
 If your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.
 
 :::
+
+
+------------------------------------------------------------------------
+
+# References
+
+## Problem
+
+The reference link in the Description field is incorrectly formatted or isn't clickable.
+
+## Solution
+
+Remove the space after <doi:...> or <https:...> to enable the reference link.
+Write the reference in the form: Authors (year) <doi:...>.
+
+
+### Details
+
+Ideally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ['Rcpp'](https://github.com/RcppCore/Rcpp/blob/master/DESCRIPTION#L21-L29) package:
+
+```
+Description: The 'Rcpp' package provides R functions as well as C++ classes which
+ offer a seamless integration of R and C++. Many R data types and objects can be
+ mapped back and forth to C++ equivalents which facilitates both writing of new
+ code as well as easier integration of third-party libraries. Documentation
+ about 'Rcpp' is provided by several vignettes included in this package, via the
+ 'Rcpp Gallery' site at <https://gallery.rcpp.org>, the paper by Eddelbuettel and
+ Francois (2011, <doi:10.18637/jss.v040.i08>), the book by Eddelbuettel (2013,
+ <doi:10.1007/978-1-4614-6868-4>) and the paper by Eddelbuettel and Balamuta (2018,
+ <doi:10.1080/00031305.2017.1375990>); see 'citation("Rcpp")' for details.
+```
+
+
+::: callout-tip
+
+Including a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file to provide additional references or information.
+
+:::
