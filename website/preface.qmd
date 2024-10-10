@@ -25,7 +25,7 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 - **Beginner to intermediate knowledge of R Programming**: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a 'best practices' approach to resolving R package issues to facilitate a successful re-submission to CRAN.
 
 
-- While not required, it's useful to have Experience in debugging code. Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.
+- While not required, it's useful to have experience in debugging code. Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.
 
 
 # Acknowledgement
