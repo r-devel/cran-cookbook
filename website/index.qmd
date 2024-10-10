@@ -6,6 +6,8 @@ author: "Jasmine Daly and Beni Altmann"
 
 <!-- add intro paragraph and hex sticker --> 
 
+<img align="right" width="100" height="100" src="website/CRAN Cookbook Hex Sticker.png">
+
 Welcome to the **CRAN Cookbook**, a website curated with recipes to solve common (and often repeat) issues observed by CRAN Volunteers during package submission and re-submission. In this website you'll find recipes organized based on the package structure (i.e. Issues in the DESCRIPTION file will be in the [Description chapter](https://contributor.r-project.org/cran-cookbook/description_issues.html)). The CRAN Cookbook authors: Jasmine Daly and Beni Altmann are advised by a steering commitee: Heather Turner, Bettina Grün and Gwynn Gebeyehu. 
 
 

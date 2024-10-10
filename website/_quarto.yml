@@ -13,12 +13,13 @@ website:
     pinned: true
     contents:
       - index.qmd
+      - preface.qmd
       - general_issues.qmd
       - docs_issues.qmd
       - code_issues.qmd
       - description_issues.qmd
       - resources.qmd
-      - about.qmd
+
 
     tools:
       - icon: github
