@@ -357,6 +357,30 @@ Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` 
 
 
 
+--------------
+
+
+# Setting `options(warn = -1)`
+
+## Problem
+
+You are setting `options(warn = -1)`.
+
+## Solution
+
+Consider using `suppressWarnings()` instead of `options(warn = -1)` if you absolutely need to suppress warnings.
+
+### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+You are setting `options(warn=-1)` in your function. This is not allowed. Please rather use `suppressWarnings()` if really needed.
+
+:::
+
+CRAN doesn't allow negative `warn` options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the [Change of Options recipe](#change-of-options-graphical-parameters-and-working-directory), the submission will be rejected.
+
+CRAN recommends using `suppressWarnings()`, which disables warnings only for the specific expression it's applied to, rather than globally.
 
 
 
