@@ -383,4 +383,27 @@ CRAN doesn't allow negative `warn` options. This setting will turn off all warni
 CRAN recommends using `suppressWarnings()`, which disables warnings only for the specific expression it's applied to, rather than globally.
 
 
+----------------------------
+
+# Installing Software
+
+## Problem
+
+You are installing software or packages in your functions, examples, tests or vignettes.
+
+## Solution
+
+Create special functions for the purpose of installing software and don't install them in examples, tests, or vignettes. 
+
+### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.
+
+:::
+
+
+
+
 
