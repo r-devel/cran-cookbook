@@ -210,6 +210,26 @@
     ]
   },
   {
+    "objectID": "code_issues.html#problem-7",
+    "href": "code_issues.html#problem-7",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are setting options(warn = -1).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-7",
+    "href": "code_issues.html#solution-7",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -244,7 +264,7 @@
     "href": "about.html#technical-details",
     "title": "About",
     "section": "Technical details",
-    "text": "Technical details\nThis cookbook is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites. The cookbook is hosted on GitHub pages as part of the Community R development resources. The website is currently deployed with local commands.\n\nSession info\n\nif (!requireNamespace(\"devtools\", quietly = TRUE)) {\n    install.packages(\"devtools\")\n}\nlibrary(devtools)\n\nLoading required package: usethis\n\ndevtools::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.1 (2024-06-14 ucrt)\n os       Windows 10 x64 (build 19045)\n system   x86_64, mingw32\n ui       RTerm\n language (EN)\n collate  German_Austria.utf8\n ctype    German_Austria.utf8\n tz       Europe/Vienna\n date     2024-10-03\n pandoc   3.2 @ C:\\\\Users\\\\benia\\\\AppData\\\\Local\\\\Programs\\\\Quarto\\\\bin\\\\tools/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n ! package     * version date (UTC) lib source\n P cachem        1.1.0   2024-05-16 [?] RSPM\n P cli           3.6.3   2024-06-21 [?] RSPM\n P devtools    * 2.4.5   2022-10-11 [?] CRAN (R 4.4.1)\n P digest        0.6.36  2024-06-23 [?] RSPM\n P ellipsis      0.3.2   2021-04-29 [?] CRAN (R 4.4.1)\n P evaluate      0.24.0  2024-06-10 [?] RSPM\n P fastmap       1.2.0   2024-05-15 [?] RSPM\n P fs            1.6.4   2024-04-25 [?] RSPM\n P glue          1.7.0   2024-01-09 [?] RSPM\n P htmltools     0.5.8.1 2024-04-04 [?] RSPM\n P htmlwidgets   1.6.4   2023-12-06 [?] CRAN (R 4.4.1)\n P httpuv        1.6.15  2024-03-26 [?] CRAN (R 4.4.1)\n P jsonlite      1.8.8   2023-12-04 [?] RSPM\n P knitr         1.48    2024-07-07 [?] CRAN (R 4.4.1)\n P later         1.3.2   2023-12-06 [?] CRAN (R 4.4.1)\n P lifecycle     1.0.4   2023-11-07 [?] RSPM\n P magrittr      2.0.3   2022-03-30 [?] RSPM\n P memoise       2.0.1   2021-11-26 [?] RSPM\n P mime          0.12    2021-09-28 [?] RSPM\n P miniUI        0.1.1.1 2018-05-18 [?] CRAN (R 4.4.1)\n P pkgbuild      1.4.4   2024-03-17 [?] CRAN (R 4.4.0)\n P pkgload       1.4.0   2024-06-28 [?] CRAN (R 4.4.1)\n P profvis       0.3.8   2023-05-02 [?] CRAN (R 4.4.1)\n P promises      1.3.0   2024-04-05 [?] CRAN (R 4.4.1)\n P purrr         1.0.2   2023-08-10 [?] CRAN (R 4.4.0)\n P R6            2.5.1   2021-08-19 [?] RSPM\n P Rcpp          1.0.13  2024-07-17 [?] RSPM\n P remotes       2.5.0   2024-03-17 [?] CRAN (R 4.4.1)\n   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)\n P rlang         1.1.4   2024-06-04 [?] RSPM\n P rmarkdown     2.27    2024-05-17 [?] RSPM\n P sessioninfo   1.2.2   2021-12-06 [?] CRAN (R 4.4.1)\n P shiny         1.9.1   2024-08-01 [?] RSPM\n P stringi       1.8.4   2024-05-06 [?] RSPM\n P stringr       1.5.1   2023-11-14 [?] RSPM\n P urlchecker    1.0.1   2021-11-30 [?] CRAN (R 4.4.1)\n P usethis     * 3.0.0   2024-07-29 [?] RSPM\n P vctrs         0.6.5   2023-12-01 [?] RSPM\n P xfun          0.46    2024-07-18 [?] RSPM\n P xtable        1.8-4   2019-04-21 [?] CRAN (R 4.4.1)\n P yaml          2.3.10  2024-07-26 [?] RSPM\n\n [1] C:/Users/benia/Desktop/cran-cookbook/cran-cookbook/website/renv/library/windows/R-4.4/x86_64-w64-mingw32\n [2] C:/Users/benia/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/e0da0d43\n\n P ── Loaded and on-disk path mismatch.\n\n──────────────────────────────────────────────────────────────────────────────",
+    "text": "Technical details\nThis cookbook is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites. The cookbook is hosted on GitHub pages as part of the Community R development resources. The website is currently deployed with local commands.\n\nSession info\n\nif (!requireNamespace(\"devtools\", quietly = TRUE)) {\n    install.packages(\"devtools\")\n}\nlibrary(devtools)\n\nLoading required package: usethis\n\ndevtools::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.0 (2024-04-24)\n os       macOS Ventura 13.6.9\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       America/New_York\n date     2024-09-26\n pandoc   NA (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n ! package     * version date (UTC) lib source\n P cachem        1.1.0   2024-05-16 [?] RSPM\n P cli           3.6.3   2024-06-21 [?] RSPM\n P devtools    * 2.4.5   2022-10-11 [?] RSPM\n P digest        0.6.36  2024-06-23 [?] RSPM\n P ellipsis      0.3.2   2021-04-29 [?] RSPM\n P evaluate      0.24.0  2024-06-10 [?] RSPM\n P fastmap       1.2.0   2024-05-15 [?] RSPM\n P fs            1.6.4   2024-04-25 [?] RSPM\n P glue          1.7.0   2024-01-09 [?] RSPM\n P htmltools     0.5.8.1 2024-04-04 [?] RSPM\n P htmlwidgets   1.6.4   2023-12-06 [?] RSPM\n P httpuv        1.6.15  2024-03-26 [?] RSPM\n P jsonlite      1.8.8   2023-12-04 [?] RSPM\n P knitr         1.48    2024-07-07 [?] RSPM\n P later         1.3.2   2023-12-06 [?] RSPM\n P lifecycle     1.0.4   2023-11-07 [?] RSPM\n P magrittr      2.0.3   2022-03-30 [?] RSPM\n P memoise       2.0.1   2021-11-26 [?] RSPM\n P mime          0.12    2021-09-28 [?] RSPM\n P miniUI        0.1.1.1 2018-05-18 [?] RSPM\n P pkgbuild      1.4.4   2024-03-17 [?] RSPM\n P pkgload       1.4.0   2024-06-28 [?] RSPM\n P profvis       0.3.8   2023-05-02 [?] RSPM\n P promises      1.3.0   2024-04-05 [?] RSPM\n P purrr         1.0.2   2023-08-10 [?] RSPM\n P R6            2.5.1   2021-08-19 [?] RSPM\n P Rcpp          1.0.13  2024-07-17 [?] RSPM\n P remotes       2.5.0   2024-03-17 [?] RSPM\n   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)\n P rlang         1.1.4   2024-06-04 [?] RSPM\n P rmarkdown     2.27    2024-05-17 [?] RSPM\n P rstudioapi    0.16.0  2024-03-24 [?] RSPM\n P sessioninfo   1.2.2   2021-12-06 [?] RSPM\n P shiny         1.9.1   2024-08-01 [?] RSPM\n P stringi       1.8.4   2024-05-06 [?] RSPM\n P stringr       1.5.1   2023-11-14 [?] RSPM\n P urlchecker    1.0.1   2021-11-30 [?] RSPM\n P usethis     * 3.0.0   2024-07-29 [?] RSPM\n P vctrs         0.6.5   2023-12-01 [?] RSPM\n P xfun          0.46    2024-07-18 [?] RSPM\n P xtable        1.8-4   2019-04-21 [?] RSPM\n P yaml          2.3.8   2023-12-11 [?] RSPM\n\n [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20\n [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867\n\n P ── Loaded and on-disk path mismatch.\n\n──────────────────────────────────────────────────────────────────────────────",
     "crumbs": [
       "About"
     ]
@@ -355,6 +375,26 @@
     "title": "DESCRIPTION file Issues",
     "section": "Solution",
     "text": "Solution\nAdd the Authors@R field in the DESCRIPTION file.\n\nDetails\nYou can find more roles in the help documentation by running ?utils::person. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.\n\nAuthors@R: person(\"Jane\", \"Smith\", email = \"chef@cran-cookbook.com\",\n  role = c(\"aut\", \"cre\"), ORCID = \"&lt;USER-ORCID&gt;\")\n\n\n\n\n\n\n\nNote\n\n\n\nThe Maintainer and Author fields are automatically generated, so you don’t need to add them manually.\nIf your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-5",
+    "href": "description_issues.html#problem-5",
+    "title": "DESCRIPTION file Issues",
+    "section": "Problem",
+    "text": "Problem\nThe reference link in the Description field is incorrectly formatted or isn’t clickable.",
+    "crumbs": [
+      "DESCRIPTION file Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-5",
+    "href": "description_issues.html#solution-5",
+    "title": "DESCRIPTION file Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.\n\nDetails\nIdeally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ‘Rcpp’ package:\nDescription: The 'Rcpp' package provides R functions as well as C++ classes which\n offer a seamless integration of R and C++. Many R data types and objects can be\n mapped back and forth to C++ equivalents which facilitates both writing of new\n code as well as easier integration of third-party libraries. Documentation\n about 'Rcpp' is provided by several vignettes included in this package, via the\n 'Rcpp Gallery' site at &lt;https://gallery.rcpp.org&gt;, the paper by Eddelbuettel and\n Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel (2013,\n &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and Balamuta (2018,\n &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation(\"Rcpp\")' for details.\n\n\n\n\n\n\nTip\n\n\n\nIncluding a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the cran-comments.md file to provide additional references or information.",
     "crumbs": [
       "DESCRIPTION file Issues"
     ]

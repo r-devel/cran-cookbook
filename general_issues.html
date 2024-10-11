@@ -179,6 +179,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#description-length" id="toc-description-length" class="nav-link" data-scroll-target="#description-length">Description Length</a></li>
   </ul></li>
   <li><a href="#structuring-of-examples" id="toc-structuring-of-examples" class="nav-link" data-scroll-target="#structuring-of-examples">Structuring of Examples</a></li>
+  <li><a href="#package-size" id="toc-package-size" class="nav-link" data-scroll-target="#package-size">Package Size</a></li>
   </ul>
 </nav>
     </div>
@@ -277,6 +278,25 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>All wrappers must still be placed inside the <code>\examples{}</code> tag.</p>
+</div>
+</div>
+</section>
+<section id="package-size" class="level1">
+<h1>Package Size</h1>
+<p>Ideally, CRAN packages should be under 5 Mb. There are <em>very few exceptions</em> mostly for a larger <code>inst/</code> folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every accepted version is saved on CRAN, they are very hesitant.</p>
+<p>It’s best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.</p>
+<p>At a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file.</p>
 </div>
 </div>
 

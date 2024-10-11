@@ -247,6 +247,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-4" id="toc-details-4" class="nav-link" data-scroll-target="#details-4">Details</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <ul class="collapse">
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem</a></li>
+  <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -405,6 +413,44 @@ Note
 <div class="callout-body-container callout-body">
 <p>The Maintainer and Author fields are automatically generated, so you don’t need to add them manually.</p>
 <p>If your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<section id="problem-5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5">Problem</h2>
+<p>The reference link in the Description field is incorrectly formatted or isn’t clickable.</p>
+</section>
+<section id="solution-5" class="level2">
+<h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
+<p>Remove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.</p>
+<section id="details-5" class="level3">
+<h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<p>Ideally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the <a href="https://github.com/RcppCore/Rcpp/blob/master/DESCRIPTION#L21-L29">‘Rcpp’</a> package:</p>
+<pre><code>Description: The 'Rcpp' package provides R functions as well as C++ classes which
+ offer a seamless integration of R and C++. Many R data types and objects can be
+ mapped back and forth to C++ equivalents which facilitates both writing of new
+ code as well as easier integration of third-party libraries. Documentation
+ about 'Rcpp' is provided by several vignettes included in this package, via the
+ 'Rcpp Gallery' site at &lt;https://gallery.rcpp.org&gt;, the paper by Eddelbuettel and
+ Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel (2013,
+ &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and Balamuta (2018,
+ &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation("Rcpp")' for details.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Including a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file to provide additional references or information.</p>
 </div>
 </div>
 

@@ -264,6 +264,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-6" id="toc-details-6" class="nav-link" data-scroll-target="#details-6">Details</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#setting-optionswarn--1" id="toc-setting-optionswarn--1" class="nav-link" data-scroll-target="#setting-optionswarn--1">Setting <code>options(warn = -1)</code></a>
+  <ul class="collapse">
+  <li><a href="#problem-7" id="toc-problem-7" class="nav-link" data-scroll-target="#problem-7">Problem</a></li>
+  <li><a href="#solution-7" id="toc-solution-7" class="nav-link" data-scroll-target="#solution-7">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-7" id="toc-details-7" class="nav-link" data-scroll-target="#details-7">Details</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -665,6 +673,39 @@ CRAN Review Communication
 <p>… so do not use it to find out if a named package is installed (use <code>find.package</code> or <code>system.file</code>) nor to find out if a package is usable (call <code>requireNamespace</code> or <code>require</code> and check the return value) nor to find details of a small number of packages (use <code>packageDescription</code>).</p>
 </blockquote>
 <p>Ideally, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code>, both return <code>FALSE</code> if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see <a href="">the corresponding recipe, (yet to come)</a>.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="setting-optionswarn--1" class="level1">
+<h1>Setting <code>options(warn = -1)</code></h1>
+<section id="problem-7" class="level2">
+<h2 class="anchored" data-anchor-id="problem-7">Problem</h2>
+<p>You are setting <code>options(warn = -1)</code>.</p>
+</section>
+<section id="solution-7" class="level2">
+<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
+<p>Consider using <code>suppressWarnings()</code> instead of <code>options(warn = -1)</code> if you absolutely need to suppress warnings.</p>
+<section id="details-7" class="level3">
+<h3 class="anchored" data-anchor-id="details-7">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are setting <code>options(warn=-1)</code> in your function. This is not allowed. Please rather use <code>suppressWarnings()</code> if really needed.</p>
+</div>
+</div>
+</div>
+<p>CRAN doesn’t allow negative <code>warn</code> options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the <a href="#change-of-options-graphical-parameters-and-working-directory">Change of Options recipe</a>, the submission will be rejected.</p>
+<p>CRAN recommends using <code>suppressWarnings()</code>, which disables warnings only for the specific expression it’s applied to, rather than globally.</p>
 
 
 </section>
