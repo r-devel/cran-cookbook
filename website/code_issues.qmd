@@ -368,7 +368,7 @@ You are setting `options(warn = -1)`.
 
 ## Solution
 
-Omit the code line and rather use `suppressWarnings()` if really needed.
+Consider using `suppressWarnings()` instead of `options(warn = -1)` if you absolutely need to suppress warnings.
 
 ### Details
 
