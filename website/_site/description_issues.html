@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CRAN Cookbook - DESCRIPTION file Issues</title>
+<title>DESCRIPTION file Issues – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -76,13 +111,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -97,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -129,7 +164,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome to the CRAN Cookbook</span></a>
+ <span class="menu-text">Welcome!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,61 +179,28 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">General Issues</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Code Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">DESCRIPTION file Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./description_issues.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DESCRIPTION file Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Resources</span></a>
   </div>
 </li>
     </ul>
@@ -205,20 +213,53 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#issue-1" id="toc-issue-1" class="nav-link active" data-scroll-target="#issue-1">Issue 1</a>
+  <li><a href="#formatting-software-names" id="toc-formatting-software-names" class="nav-link active" data-scroll-target="#formatting-software-names">Formatting Software Names</a>
   <ul class="collapse">
   <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem">Problem</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
   </ul></li>
-  <li><a href="#issue-2" id="toc-issue-2" class="nav-link" data-scroll-target="#issue-2">Issue 2</a>
+  </ul></li>
+  <li><a href="#explaining-acronyms" id="toc-explaining-acronyms" class="nav-link" data-scroll-target="#explaining-acronyms">Explaining Acronyms</a>
   <ul class="collapse">
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem</a></li>
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-1" id="toc-details-1" class="nav-link" data-scroll-target="#details-1">Details</a></li>
   </ul></li>
-  <li><a href="#issue-3" id="toc-issue-3" class="nav-link" data-scroll-target="#issue-3">Issue 3</a>
+  </ul></li>
+  <li><a href="#license-files" id="toc-license-files" class="nav-link" data-scroll-target="#license-files">LICENSE files</a>
   <ul class="collapse">
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem</a></li>
-  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-2" id="toc-details-2" class="nav-link" data-scroll-target="#details-2">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#title-case" id="toc-title-case" class="nav-link" data-scroll-target="#title-case">Title Case</a>
+  <ul class="collapse">
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem</a></li>
+  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-3" id="toc-details-3" class="nav-link" data-scroll-target="#details-3">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#using-authorsr" id="toc-using-authorsr" class="nav-link" data-scroll-target="#using-authorsr">Using Authors@R</a>
+  <ul class="collapse">
+  <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem</a></li>
+  <li><a href="#solution-4" id="toc-solution-4" class="nav-link" data-scroll-target="#solution-4">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-4" id="toc-details-4" class="nav-link" data-scroll-target="#details-4">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <ul class="collapse">
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem</a></li>
+  <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -226,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">DESCRIPTION file Issues</h1>
 </div>
@@ -245,33 +286,182 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="issue-1" class="level1">
-<h1>Issue 1</h1>
+<section id="formatting-software-names" class="level1">
+<h1>Formatting Software Names</h1>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
+<p>The automatic spell check has flagged a software name as incorrect and results in a NOTE.</p>
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.</p>
+<section id="details" class="level3">
+<h3 class="anchored" data-anchor-id="details">Details</h3>
+<p>Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names <strong>only</strong>.</p>
+<p>The description section in the <a href="https://github.com/tidyverse/readr/blob/main/DESCRIPTION">DESCRIPTION file</a> of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:</p>
+<pre><code>Description: The goal of 'readr' is to provide a fast and friendly way to
+    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed
+    to flexibly parse many types of data found in the wild, while still
+    cleanly failing when data unexpectedly changes.</code></pre>
+<hr>
 </section>
 </section>
-<section id="issue-2" class="level1">
-<h1>Issue 2</h1>
+</section>
+<section id="explaining-acronyms" class="level1">
+<h1>Explaining Acronyms</h1>
 <section id="problem-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1">Problem</h2>
+<p>You are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.</p>
 </section>
 <section id="solution-1" class="level2">
 <h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
+<p>Document all non-obvious acronyms in the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file to facilitate the CRAN team review.</p>
+<section id="details-1" class="level3">
+<h3 class="anchored" data-anchor-id="details-1">Details</h3>
+<p>Most acronyms that are not widely known should be explained. For example, you don’t have to explain <em>OLS</em>, <em>SEO</em>, or <em>DNA</em> but explanations should be provided for: <em>MEFM</em> or <em>OCCDS</em>. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.</p>
+<hr>
 </section>
 </section>
-<section id="issue-3" class="level1">
-<h1>Issue 3</h1>
+</section>
+<section id="license-files" class="level1">
+<h1>LICENSE files</h1>
 <section id="problem-2" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2">Problem</h2>
+<p>Some licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the <a href="https://cran.r-project.org/web/licenses/">CRAN website</a>.</p>
 </section>
 <section id="solution-2" class="level2">
 <h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
+<p>Remove the reference <code>+ file LICENSE</code> and delete the LICENSE file.</p>
+<section id="details-2" class="level3">
+<h3 class="anchored" data-anchor-id="details-2">Details</h3>
+<p>Most licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within <em>R</em> by searching for <strong>Note: this is a template, needs + file LICENSE</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_licenses <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> <span class="fu">R.home</span>(), <span class="st">"license.db"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>licenses_doc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">read.dcf</span>(path_licenses))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If an additional file is needed, it should only specify the <strong>author</strong> and <strong>year</strong> for a MIT file or <strong>year</strong>, <strong>copyright holder</strong>, and <strong>organization</strong> for a BSD file.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Licenses should be FOSS, or allowed by <a href="https://svn.r-project.org/R/trunk/share/licenses/license.db">R</a>.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="title-case" class="level1">
+<h1>Title Case</h1>
+<section id="problem-3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3">Problem</h2>
+<p>The package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.</p>
+</section>
+<section id="solution-3" class="level2">
+<h2 class="anchored" data-anchor-id="solution-3">Solution</h2>
+<p>The package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.</p>
+<section id="details-3" class="level3">
+<h3 class="anchored" data-anchor-id="details-3">Details</h3>
+<p>Determining Title Case automatically can be challenging due to word significance being only known by the package author. The function <code>toTitleCase()</code> can assist with transforming sentences into Title Case from the ‘tools’ package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="st">"web application framework for R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Web Application Framework for R"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are some exceptions to using Title Case for quoting longer works like book titles and shorter works like <a href="https://www.scribbr.com/academic-writing/title-case/#:~:text=In%20title%20case%2C%20the%20first,title%2C%20subtitle%2C%20or%20heading.">research papers</a>.</p>
+<p>It is also not recommended to <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">mention package names</a> in the Title.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="using-authorsr" class="level1">
+<h1>Using Authors@R</h1>
+<section id="problem-4" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4">Problem</h2>
+<p>You have not properly declared the authors, maintainers and copyright holders in the <code>Authors@R</code> section of the DESCRIPTION file.</p>
+</section>
+<section id="solution-4" class="level2">
+<h2 class="anchored" data-anchor-id="solution-4">Solution</h2>
+<p>Add the <code>Authors@R</code> field in the DESCRIPTION file.</p>
+<section id="details-4" class="level3">
+<h3 class="anchored" data-anchor-id="details-4">Details</h3>
+<p>You can find more roles in the help documentation by running <code>?utils::person</code>. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span> <span class="fu">person</span>(<span class="st">"Jane"</span>, <span class="st">"Smith"</span>, <span class="at">email =</span> <span class="st">"chef@cran-cookbook.com"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="at">ORCID =</span> <span class="st">"&lt;USER-ORCID&gt;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Maintainer and Author fields are automatically generated, so you don’t need to add them manually.</p>
+<p>If your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<section id="problem-5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5">Problem</h2>
+<p>The reference link in the Description field is incorrectly formatted or isn’t clickable.</p>
+</section>
+<section id="solution-5" class="level2">
+<h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
+<p>Remove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.</p>
+<section id="details-5" class="level3">
+<h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<p>Ideally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the <a href="https://github.com/RcppCore/Rcpp/blob/master/DESCRIPTION#L21-L29">‘Rcpp’</a> package:</p>
+<pre><code>Description: The 'Rcpp' package provides R functions as well as C++ classes which
+ offer a seamless integration of R and C++. Many R data types and objects can be
+ mapped back and forth to C++ equivalents which facilitates both writing of new
+ code as well as easier integration of third-party libraries. Documentation
+ about 'Rcpp' is provided by several vignettes included in this package, via the
+ 'Rcpp Gallery' site at &lt;https://gallery.rcpp.org&gt;, the paper by Eddelbuettel and
+ Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel (2013,
+ &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and Balamuta (2018,
+ &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation("Rcpp")' for details.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Including a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file to provide additional references or information.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
@@ -311,18 +501,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -354,15 +533,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
