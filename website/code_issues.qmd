@@ -353,7 +353,7 @@ The help file also lists different solutions and the respective, alternative fun
 
 > ... so do not use it to find out if a named package is installed (use `find.package` or `system.file`) nor to find out if a package is usable (call `requireNamespace` or `require` and check the return value) nor to find details of a small number of packages (use `packageDescription`).
 
-Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` if a package isn't available, and throw an error conditionally. For more details on package installations in your code see [the corresponding recipe, (yet to come)]().
+Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` if a package isn't available, and throw an error conditionally. For more details on package installations in your code see this [recipe](#installing-software).
 
 
 
