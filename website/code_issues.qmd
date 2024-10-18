@@ -41,7 +41,7 @@ print(T)
 
 To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, `TRUE` and `FALSE` instead of their abbreviated forms. For the same reason, `T` or `F` should not be used as variable names in your code, examples, tests or vignettes.
 
---------------------------------------------------------------------
+------------------------------------------------------------------------
 
 # Setting a Specific Seed
 
@@ -51,11 +51,11 @@ In your functions, you are setting a the random seed to a specific number which 
 
 ## Solution
 
-Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want. 
+Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.
 
 ### Details
 
-Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
+Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally.
 
 ```{r, eval = FALSE}
 function(... , seed = NULL){
@@ -67,18 +67,17 @@ function(... , seed = NULL){
   
 }
 ```
-This allows users to avoid setting a seed if they change the argument to `NULL`. Ideally, the argument is already set to `NULL` per default. 
+
+This allows users to avoid setting a seed if they change the argument to `NULL`. Ideally, the argument is already set to `NULL` per default.
 
 <!--# IDEA: Add a paragraph about messing with the .Random.seed... 
       Then referenced to the .GlobalEnv Issue. -->
 
-::: {.callout-note}
-
-In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results. 
-
+::: callout-note
+In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.
 :::
 
------------------------------------------------------------
+------------------------------------------------------------------------
 
 # Using `print()`/`cat()`
 
@@ -91,28 +90,26 @@ You are using functions, like `print()` or `cat()`, to print unsuppressable outp
 Change `print()`/`cat()` to `message()`, `warning()`, `stop()`, or wrap them in `if(verbose){}`.
 
 ### Details
-Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users. 
 
-:::{.callout-note}
+Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.
 
-Printing in special functions like print, summary, interactive functions or methods for generic functions is accepted. 
-
+::: callout-note
+Printing in special functions like print, summary, interactive functions or methods for generic functions is accepted.
 :::
 
+To allow users to suppress the console output CRAN recommends two different ways:
 
-To allow users to suppress the console output CRAN recommends two different ways: 
+-   exchanging `cat()`/`print()` with other generics
+    -   [`message()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html): for information messages and status updates
+    -   [`warning()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html): for warning, will print a "Warning: " before the output
+    -   [`stop()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html): for error messages, will print an "Error: " before the output and halt the execution
 
-  * exchanging `cat()`/`print()` with other generics
-    - [`message()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html): for information messages and status updates 
-    - [`warning()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html): for warning, will print a "Warning: " before the output
-    - [`stop()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html): for error messages, will print an "Error: " before the output and halt the execution
-    
-This allows to use functions like `suppressMessages()` to avoid unwanted output.  
+This allows to use functions like `suppressMessages()` to avoid unwanted output.
 
-  * using an additional function argument
-    - create one argument in your function to turn off the console output
-    - CRAN suggests using `verbose`, other names are accepted
-    
+-   using an additional function argument
+    -   create one argument in your function to turn off the console output
+    -   CRAN suggests using `verbose`, other names are accepted
+
 This example code shows the use of a `verbose` argument to allow users to suppress printing
 
 ```{r, eval = FALSE}
@@ -128,44 +125,37 @@ foo <- function(..., verbose = TRUE){
 
 Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting `verbose = FALSE`).
 
-:::{.callout-note}
-
-`print()` and `cat()` are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like `writeLines()`. 
-If you are using loggers to document your functions' process, make sure that users can set their log level such that not messages are displayed.
-
+::: callout-note
+`print()` and `cat()` are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like `writeLines()`. If you are using loggers to document your functions' process, make sure that users can set their log level such that not messages are displayed.
 :::
 
+------------------------------------------------------------------------
 
-
----------------------------------------------------------
-
-# Change of Options, Graphical Parameters and Working Directory
+# Change of Options, Graphical Parameters and Working Directory {#change-of-options-graphical-parameters-and-working-directory}
 
 ## Problem
 
 You are changing the `par()`, `options()` or `setwd()` in your functions, examples, demos or vignettes without resetting them.
 
-## Solution 
+## Solution
 
 Reset the changed options, in your functions by using [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) or in examples, demos and vignettes with an additional line of code after the example.
 
 ### Details
 
-Ideally, the user's options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. 
-The reason for this rule is this line stated in the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html):
+Ideally, the user's options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. The reason for this rule is this line stated in the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html):
 
 > The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.
 
 Resetting options is therefore mainly a Quality-of-Life feature for users of your package.
 
-There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN. 
+There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN.
 
-Changing `par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function. 
-
+Changing `par()`, `options()` or `setwd()` all invisibly return the previous values and therefore these can be stored in variables using the assignment operator `<-` and later be restored by calling the variable name as argument in the respective function.
 
 **For functions**:
 
-When changing options inside one of your package functions, you can use [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) for restoring. 
+When changing options inside one of your package functions, you can use [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) for restoring.
 
 ```{r, eval = FALSE}
 
@@ -191,12 +181,9 @@ foo <- function(x){
 
 ```
 
-This will reset the `par()`, `options()` and `setwd()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
-For more information, call [`?on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) in your console. 
+This will reset the `par()`, `options()` and `setwd()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. For more information, call [`?on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) in your console.
 
-
-**For demos, examples and vignettes**:
-Since no function is exited when changing options in examples, [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) cannot be used. CRAN recommends the following way for restoring options:
+**For demos, examples and vignettes**: Since no function is exited when changing options in examples, [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) cannot be used. CRAN recommends the following way for restoring options:
 
 ```{r, eval = FALSE}
 
@@ -210,43 +197,34 @@ par(oldpar)
 
 ```
 
-Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the `options()` and `setwd()` can be done using the same principle as for `par()` shown above.  
+Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the `options()` and `setwd()` can be done using the same principle as for `par()` shown above.
 
-:::{.callout-tip}
-
-If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. Saving the entire 
-Note, that for `par()` the `no.readonly` argument must be set to `TRUE` or else warnings will be produced.
-
+::: callout-tip
+If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. Saving the entire Note, that for `par()` the `no.readonly` argument must be set to `TRUE` or else warnings will be produced.
 :::
 
-:::{.callout-note}
-
-The issue described in the recipe, also applies to the use of other function which change some parameters persistently, like `Sys.setLanguage`. 
-
+::: callout-note
+The issue described in the recipe, also applies to the use of other function which change some parameters persistently, like `Sys.setLanguage`.
 :::
 
---------------------------
+------------------------------------------------------------------------
 
-# Writing Files and Directories to the Home Filespace
+# Writing Files and Directories to the Home Filespace {#writing-files-and-directories-to-the-home-filespace}
 
 ## Problem
 
 You are writing, either by default or within your examples, vignettes, or tests, to the user's home filespace, including the package directory and the current working directory (`getwd()`).
 
+## Solution
 
-## Solution 
-
-Omit any default path in your functions and write to `tempdir()` in examples, vignettes or tests.  
-
+Omit any default path in your functions and write to `tempdir()` in examples, vignettes or tests.
 
 ### Details
 
-<!--adding this is a test for including the CRAN mail "template" for each recipe. This version is a small collapsible text box which I will add for (almost) every Issue. Maybe change the title of the boxes?--> 
+<!--adding this is a test for including the CRAN mail "template" for each recipe. This version is a small collapsible text box which I will add for (almost) every Issue. Maybe change the title of the boxes?-->
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 Please ensure that your functions do not write by default or in your examples/vignettes/tests in the user's home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().
-
 :::
 
 The [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html) states that:
@@ -257,12 +235,11 @@ and gives as example:
 
 > Packages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.
 
-Packages can write per default to `tempdir()`, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user's home filespace.  
+Packages can write per default to `tempdir()`, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user's home filespace.
 
-<!-- tbd: add section about R_user_dir() --> 
+<!-- tbd: add section about R_user_dir() -->
 
-
----------------------------------------
+------------------------------------------------------------------------
 
 # Writing to the `.GlobalEnv`
 
@@ -272,20 +249,17 @@ You are writing per default to the global environment, `.GlobalEnv`, the user's 
 
 ## Solution
 
-Omit any default writing to the global environment. 
+Omit any default writing to the global environment.
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
-Please do not modify the global environment (e.g. by using <<-) in your functions. This is not allowed by the CRAN policies.
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
+Please do not modify the global environment (e.g. by using \<\<-) in your functions. This is not allowed by the CRAN policies.
 :::
 
-The `.GlobalEnv` is the main workspace of users. It can also be accessed by `globalenv()`. Writing to the global environment is forbidden for CRAN packages. 
+The `.GlobalEnv` is the main workspace of users. It can also be accessed by `globalenv()`. Writing to the global environment is forbidden for CRAN packages.
 
-Sometimes package maintainers use the operator `<<-`. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the `.GlobalEnv`. 
-To avoid writing to the global environment, the variable must be defined in a parent environment. 
+Sometimes package maintainers use the operator `<<-`. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the `.GlobalEnv`. To avoid writing to the global environment, the variable must be defined in a parent environment.
 
 ```{r eval=FALSE}
 
@@ -308,22 +282,15 @@ foo <- function(){
 
 ```
 
-
-Part of the `.GlobalEnv` is the `.Random.seed` which should not be changed at all. 
+Part of the `.GlobalEnv` is the `.Random.seed` which should not be changed at all.
 
 Excepted from this rule are 'shiny' packages which build interactive web apps. They sometimes need to modify the `.GlobalEnv`.
 
-:::{.callout-note}
-
-Calls of `rm(list = ls())` to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions `rm(list = ls())` can be used, as the active environment is then the function environment instead of the global environment. 
-
+::: callout-note
+Calls of `rm(list = ls())` to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions `rm(list = ls())` can be used, as the active environment is then the function environment instead of the global environment.
 :::
 
-
-
-
----------------------------------------------
-
+------------------------------------------------------------------------
 
 # Calling `installed.packages()`
 
@@ -337,10 +304,8 @@ Instead of using `installed.packages()`, use `requireNamespace("pkg")` or `requi
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 You are using `installed.packages()` in your code. As mentioned in the notes of `installed.packages()` help page, this can be very slow. Therefore do not use `installed.packages()`.
-
 :::
 
 `installed.packages()` outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the [`installed.packages()` function](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html), it can be very slow under certain circumstances.
@@ -355,10 +320,7 @@ The help file also lists different solutions and the respective, alternative fun
 
 Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` if a package isn't available, and throw an error conditionally. For more details on package installations in your code see this [recipe](#installing-software).
 
-
-
---------------
-
+------------------------------------------------------------------------
 
 # Setting `options(warn = -1)`
 
@@ -372,20 +334,17 @@ Consider using `suppressWarnings()` instead of `options(warn = -1)` if you absol
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 You are setting `options(warn=-1)` in your function. This is not allowed. Please rather use `suppressWarnings()` if really needed.
-
 :::
 
 CRAN doesn't allow negative `warn` options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the [Change of Options recipe](#change-of-options-graphical-parameters-and-working-directory), the submission will be rejected.
 
 CRAN recommends using `suppressWarnings()`, which disables warnings only for the specific expression it's applied to, rather than globally.
 
+------------------------------------------------------------------------
 
-----------------------------
-
-# Installing Software
+# Installing Software {#installing-software}
 
 ## Problem
 
@@ -393,27 +352,24 @@ You are installing software or packages in your functions, examples, tests or vi
 
 ## Solution
 
-Create special functions for the purpose of installing software and don't install them in examples, tests, or vignettes. 
+Create special functions for the purpose of installing software and don't install it in examples, tests, or vignettes.
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.
-
 :::
 
+Packages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.
 
-Packages should usually not be installed within functions, especially since dependencies should be listed in the DESCRIPTION.
-For external software this is typically the same. However, if the sole purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN. 
+To ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:
 
-To ensure a shorter check times, those functions should not be called within tests, vignettes or examples. 
-Additionally, the name of function which install software should indicate that for example `Software.installer()`. Ideally, the corresponding help file also states that software will be installed.
+-   `devtools::install_github()`
 
-::: {.callout-note}
+-   `reticulate::install_python()`
 
-Even if it is clear that installations will happen, the function should still not write to the user's home file space, as mentioned in this [recipe](#writing-files-and-directories-to-the-home-filespace).
+The corresponding help file should also state that software will be installed.
 
+::: callout-note
+Even if it is made clear that installations will happen, the function shouldn't write to the user's home file space, as mentioned in this [recipe](#writing-files-and-directories-to-the-home-filespace).
 :::
-
-
