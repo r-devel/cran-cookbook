@@ -404,6 +404,16 @@ Please do not install packages in your functions, examples or vignette. This can
 :::
 
 
+Packages should usually not be installed within functions, especially since dependencies should be listed in the DESCRIPTION.
+For external software this is typically the same. However, if the sole purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN. 
 
+To ensure a shorter check times, those functions should not be called within tests, vignettes or examples. 
+Additionally, the name of function which install software should indicate that for example `Software.installer()`. Ideally, the corresponding help file also states that software will be installed.
+
+::: {.callout-note}
+
+Even if it is clear that installations will happen, the function should still not write to the user's home file space, as mentioned in this [recipe](#writing-files-and-directories-to-the-home-filespace).
+
+:::
 
 
