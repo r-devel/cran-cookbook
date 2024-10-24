@@ -3,6 +3,7 @@ project:
 
 website:
   title: CRAN Cookbook
+  favicon: favicon.png
   page-footer:
     center: "<b>This cookbook is currently in development - Please use with caution!</b>"
     background: info
@@ -13,11 +14,13 @@ website:
     pinned: true
     contents:
       - index.qmd
+      - preface.qmd
       - general_issues.qmd
       - docs_issues.qmd
       - code_issues.qmd
       - description_issues.qmd
-      - about.qmd
+      - resources.qmd
+
 
     tools:
       - icon: github
@@ -33,7 +36,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: style.css
     toc: true
 
 execute:

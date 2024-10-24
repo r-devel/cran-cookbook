@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CRAN Cookbook - Code Issues</title>
+<title>Code Issues – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -76,13 +111,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -97,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -129,7 +164,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome to the CRAN Cookbook</span></a>
+ <span class="menu-text">Welcome!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,61 +179,28 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">General Issues</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Code Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_issues.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Code Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">DESCRIPTION file Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./description_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DESCRIPTION file Issues</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Resources</span></a>
   </div>
 </li>
     </ul>
@@ -205,20 +213,62 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#issue-1" id="toc-issue-1" class="nav-link active" data-scroll-target="#issue-1">Issue 1</a>
+  <li><a href="#tf-instead-of-truefalse" id="toc-tf-instead-of-truefalse" class="nav-link active" data-scroll-target="#tf-instead-of-truefalse"><code>T</code>/<code>F</code> Instead of <code>TRUE</code>/<code>FALSE</code></a>
   <ul class="collapse">
   <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem">Problem</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
-  <li><a href="#issue-2" id="toc-issue-2" class="nav-link" data-scroll-target="#issue-2">Issue 2</a>
+  </ul></li>
+  <li><a href="#setting-a-specific-seed" id="toc-setting-a-specific-seed" class="nav-link" data-scroll-target="#setting-a-specific-seed">Setting a Specific Seed</a>
   <ul class="collapse">
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem</a></li>
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-1" id="toc-details-1" class="nav-link" data-scroll-target="#details-1">Details</a></li>
   </ul></li>
-  <li><a href="#issue-3" id="toc-issue-3" class="nav-link" data-scroll-target="#issue-3">Issue 3</a>
+  </ul></li>
+  <li><a href="#using-printcat" id="toc-using-printcat" class="nav-link" data-scroll-target="#using-printcat">Using <code>print()</code>/<code>cat()</code></a>
   <ul class="collapse">
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem</a></li>
-  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-2" id="toc-details-2" class="nav-link" data-scroll-target="#details-2">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#change-of-options-graphical-parameters-and-working-directory" id="toc-change-of-options-graphical-parameters-and-working-directory" class="nav-link" data-scroll-target="#change-of-options-graphical-parameters-and-working-directory">Change of Options, Graphical Parameters and Working Directory</a>
+  <ul class="collapse">
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem</a></li>
+  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-3" id="toc-details-3" class="nav-link" data-scroll-target="#details-3">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#writing-files-and-directories-to-the-home-filespace" id="toc-writing-files-and-directories-to-the-home-filespace" class="nav-link" data-scroll-target="#writing-files-and-directories-to-the-home-filespace">Writing Files and Directories to the Home Filespace</a>
+  <ul class="collapse">
+  <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem</a></li>
+  <li><a href="#solution-4" id="toc-solution-4" class="nav-link" data-scroll-target="#solution-4">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-4" id="toc-details-4" class="nav-link" data-scroll-target="#details-4">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#writing-to-the-.globalenv" id="toc-writing-to-the-.globalenv" class="nav-link" data-scroll-target="#writing-to-the-.globalenv">Writing to the <code>.GlobalEnv</code></a>
+  <ul class="collapse">
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem</a></li>
+  <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#calling-installed.packages" id="toc-calling-installed.packages" class="nav-link" data-scroll-target="#calling-installed.packages">Calling <code>installed.packages()</code></a>
+  <ul class="collapse">
+  <li><a href="#problem-6" id="toc-problem-6" class="nav-link" data-scroll-target="#problem-6">Problem</a></li>
+  <li><a href="#solution-6" id="toc-solution-6" class="nav-link" data-scroll-target="#solution-6">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-6" id="toc-details-6" class="nav-link" data-scroll-target="#details-6">Details</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -226,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li><li class="breadcrumb-item"><a href="./code_issues.html">Code Issues</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Code Issues</h1>
 </div>
@@ -245,33 +295,385 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="issue-1" class="level1">
-<h1>Issue 1</h1>
+<section id="tf-instead-of-truefalse" class="level1">
+<h1><code>T</code>/<code>F</code> Instead of <code>TRUE</code>/<code>FALSE</code></h1>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
+<p>You are writing the abbreviated forms of <code>TRUE</code> and <code>FALSE</code>, <code>T</code> and <code>F</code> or you are using <code>T</code> or <code>F</code> as names.</p>
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>Change the abbreviation to the full words or use a different variable name.</p>
+<section id="details" class="level3">
+<h3 class="anchored" data-anchor-id="details">Details</h3>
+<p>In R, <code>T</code> and <code>F</code> are variables being set to <code>TRUE</code> and <code>FALSE</code>, respectively. However, those variables can be redefined by the user since these are not reserved words as <code>TRUE</code> and <code>FALSE</code> are (see the <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Reserved-words">R Language Definition</a> for more details). This can result in unexpected code behavior as users of your package might have variables named <code>T</code>/<code>F</code>.</p>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p>The first example shows that you cannot overwrite <code>TRUE</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="ot">&lt;-</span> <span class="st">"Not TRUE anymore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in TRUE &lt;- "Not TRUE anymore": invalid (do_set) left-hand side to assignment</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>This throws an error as <code>TRUE</code> is a reserved word and the value of <code>TRUE</code> does not change.</p>
+<p><code>T</code> (and <code>F</code>) on the other hand can be set to a different value:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="st">"Not TRUE anymore"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Not TRUE anymore"</code></pre>
+</div>
+</div>
+<p>To avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, <code>TRUE</code> and <code>FALSE</code> instead of their abbreviated forms. For the same reason, <code>T</code> or <code>F</code> should not be used as variable names in your code, examples, tests or vignettes.</p>
+<hr>
 </section>
 </section>
-<section id="issue-2" class="level1">
-<h1>Issue 2</h1>
+</section>
+<section id="setting-a-specific-seed" class="level1">
+<h1>Setting a Specific Seed</h1>
 <section id="problem-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1">Problem</h2>
+<p>In your functions, you are setting a the random seed to a specific number which cannot be changed.</p>
 </section>
 <section id="solution-1" class="level2">
 <h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
+<p>Remove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.</p>
+<section id="details-1" class="level3">
+<h3 class="anchored" data-anchor-id="details-1">Details</h3>
+<p>Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: <code>set.seed(123)</code>). A good solution for allowing to set a seed is to add an argument <code>seed</code> to your function and set it conditionally.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(... , <span class="at">seed =</span> <span class="cn">NULL</span>){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(seed)){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set.seed</span>(seed)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#the rest of your function can be written here.</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This allows users to avoid setting a seed if they change the argument to <code>NULL</code>. Ideally, the argument is already set to <code>NULL</code> per default.</p>
+<!--# IDEA: Add a paragraph about messing with the .Random.seed... 
+      Then referenced to the .GlobalEnv Issue. -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="issue-3" class="level1">
-<h1>Issue 3</h1>
+</section>
+<section id="using-printcat" class="level1">
+<h1>Using <code>print()</code>/<code>cat()</code></h1>
 <section id="problem-2" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2">Problem</h2>
+<p>You are using functions, like <code>print()</code> or <code>cat()</code>, to print unsuppressable output to the console.</p>
 </section>
 <section id="solution-2" class="level2">
 <h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
+<p>Change <code>print()</code>/<code>cat()</code> to <code>message()</code>, <code>warning()</code>, <code>stop()</code>, or wrap them in <code>if(verbose){}</code>.</p>
+<section id="details-2" class="level3">
+<h3 class="anchored" data-anchor-id="details-2">Details</h3>
+<p>Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Printing in special functions like print, summary, interactive functions or methods for generic functions is accepted.</p>
+</div>
+</div>
+<p>To allow users to suppress the console output CRAN recommends two different ways:</p>
+<ul>
+<li>exchanging <code>cat()</code>/<code>print()</code> with other generics
+<ul>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html"><code>message()</code></a>: for information messages and status updates</li>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html"><code>warning()</code></a>: for warning, will print a “Warning:” before the output</li>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html"><code>stop()</code></a>: for error messages, will print an “Error:” before the output and halt the execution</li>
+</ul></li>
+</ul>
+<p>This allows to use functions like <code>suppressMessages()</code> to avoid unwanted output.</p>
+<ul>
+<li>using an additional function argument
+<ul>
+<li>create one argument in your function to turn off the console output</li>
+<li>CRAN suggests using <code>verbose</code>, other names are accepted</li>
+</ul></li>
+</ul>
+<p>This example code shows the use of a <code>verbose</code> argument to allow users to suppress printing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(..., <span class="at">verbose =</span> <span class="cn">TRUE</span>){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># your code</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(verbose){</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Whatever you want to say!"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># your code</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Functions can print per default, like the example above, as long as the printing can be turned off (here, by setting <code>verbose = FALSE</code>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>print()</code> and <code>cat()</code> are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like <code>writeLines()</code>. If you are using loggers to document your functions’ process, make sure that users can set their log level such that not messages are displayed.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="change-of-options-graphical-parameters-and-working-directory" class="level1">
+<h1>Change of Options, Graphical Parameters and Working Directory</h1>
+<section id="problem-3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3">Problem</h2>
+<p>You are changing the <code>par()</code>, <code>options()</code> or <code>setwd()</code> in your functions, examples, demos or vignettes without resetting them.</p>
+</section>
+<section id="solution-3" class="level2">
+<h2 class="anchored" data-anchor-id="solution-3">Solution</h2>
+<p>Reset the changed options, in your functions by using <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> or in examples, demos and vignettes with an additional line of code after the example.</p>
+<section id="details-3" class="level3">
+<h3 class="anchored" data-anchor-id="details-3">Details</h3>
+<p>Ideally, the user’s options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. The reason for this rule is this line stated in the <a href="https://cran.r-project.org/web/packages/policies.html">CRAN Repository Policy</a>:</p>
+<blockquote class="blockquote">
+<p>The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.</p>
+</blockquote>
+<p>Resetting options is therefore mainly a Quality-of-Life feature for users of your package.</p>
+<p>There are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN.</p>
+<p>Changing <code>par()</code>, <code>options()</code> or <code>setwd()</code> all invisibly return the previous values and therefore these can be stored in variables using the assignment operator <code>&lt;-</code> and later be restored by calling the variable name as argument in the respective function.</p>
+<p><strong>For functions</strong>:</p>
+<p>When changing options inside one of your package functions, you can use <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> for restoring.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># par():</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  oldpar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">par</span>(oldpar))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># options():</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  oldop <span class="ot">&lt;-</span> <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">options</span>(oldop))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># setwd():</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  oldwd <span class="ot">&lt;-</span> <span class="fu">setwd</span>(<span class="st">"."</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">setwd</span>(oldwd))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># your code which requires a changed option</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will reset the <code>par()</code>, <code>options()</code> and <code>setwd()</code>. The use of <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. For more information, call <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>?on.exit()</code></a> in your console.</p>
+<p><strong>For demos, examples and vignettes</strong>: Since no function is exited when changing options in examples, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html"><code>on.exit()</code></a> cannot be used. CRAN recommends the following way for restoring options:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>oldpar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># your code which requires a changed option</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(oldpar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the <code>options()</code> and <code>setwd()</code> can be done using the same principle as for <code>par()</code> shown above.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you need to change more than one option in the same function, example, vignette or demo, you can use <code>oldpar &lt;- par(no.readonly = TRUE)</code> or <code>oldop &lt;- options()</code> to reset all parameters at once. Saving the entire Note, that for <code>par()</code> the <code>no.readonly</code> argument must be set to <code>TRUE</code> or else warnings will be produced.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The issue described in the recipe, also applies to the use of other function which change some parameters persistently, like <code>Sys.setLanguage</code>.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="writing-files-and-directories-to-the-home-filespace" class="level1">
+<h1>Writing Files and Directories to the Home Filespace</h1>
+<section id="problem-4" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4">Problem</h2>
+<p>You are writing, either by default or within your examples, vignettes, or tests, to the user’s home filespace, including the package directory and the current working directory (<code>getwd()</code>).</p>
+</section>
+<section id="solution-4" class="level2">
+<h2 class="anchored" data-anchor-id="solution-4">Solution</h2>
+<p>Omit any default path in your functions and write to <code>tempdir()</code> in examples, vignettes or tests.</p>
+<section id="details-4" class="level3">
+<h3 class="anchored" data-anchor-id="details-4">Details</h3>
+<!--adding this is a test for including the CRAN mail "template" for each recipe. This version is a small collapsible text box which I will add for (almost) every Issue. Maybe change the title of the boxes?-->
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please ensure that your functions do not write by default or in your examples/vignettes/tests in the user’s home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().</p>
+</div>
+</div>
+</div>
+<p>The <a href="https://cran.r-project.org/web/packages/policies.html">CRAN Repository Policy</a> states that:</p>
+<blockquote class="blockquote">
+<p>The code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.</p>
+</blockquote>
+<p>and gives as example:</p>
+<blockquote class="blockquote">
+<p>Packages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.</p>
+</blockquote>
+<p>Packages can write per default to <code>tempdir()</code>, or any other temporary/cache directory, or have no default path at all, as long as the default is not the user’s home filespace.</p>
+<!-- tbd: add section about R_user_dir() -->
+<hr>
+</section>
+</section>
+</section>
+<section id="writing-to-the-.globalenv" class="level1">
+<h1>Writing to the <code>.GlobalEnv</code></h1>
+<section id="problem-5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5">Problem</h2>
+<p>You are writing per default to the global environment, <code>.GlobalEnv</code>, the user’s workspace.</p>
+</section>
+<section id="solution-5" class="level2">
+<h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
+<p>Omit any default writing to the global environment.</p>
+<section id="details-5" class="level3">
+<h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please do not modify the global environment (e.g.&nbsp;by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.</p>
+</div>
+</div>
+</div>
+<p>The <code>.GlobalEnv</code> is the main workspace of users. It can also be accessed by <code>globalenv()</code>. Writing to the global environment is forbidden for CRAN packages.</p>
+<p>Sometimes package maintainers use the operator <code>&lt;&lt;-</code>. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the <code>.GlobalEnv</code>. To avoid writing to the global environment, the variable must be defined in a parent environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defines the variable in the foo()-function environment</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  var <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># redefines var but only in the foo() environment as it is the parent of foo1()</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    var <span class="ot">&lt;&lt;-</span> <span class="st">"redefined"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calls the foo1() function to redefine var</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">foo1</span>()</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(var)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Part of the <code>.GlobalEnv</code> is the <code>.Random.seed</code> which should not be changed at all.</p>
+<p>Excepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the <code>.GlobalEnv</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calls of <code>rm(list = ls())</code> to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions <code>rm(list = ls())</code> can be used, as the active environment is then the function environment instead of the global environment.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="calling-installed.packages" class="level1">
+<h1>Calling <code>installed.packages()</code></h1>
+<section id="problem-6" class="level2">
+<h2 class="anchored" data-anchor-id="problem-6">Problem</h2>
+<p>You are calling <code>installed.packages()</code> to check if a package is installed.</p>
+</section>
+<section id="solution-6" class="level2">
+<h2 class="anchored" data-anchor-id="solution-6">Solution</h2>
+<p>Instead of using <code>installed.packages()</code>, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code> to find out if packages are available.</p>
+<section id="details-6" class="level3">
+<h3 class="anchored" data-anchor-id="details-6">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are using <code>installed.packages()</code> in your code. As mentioned in the notes of <code>installed.packages()</code> help page, this can be very slow. Therefore do not use <code>installed.packages()</code>.</p>
+</div>
+</div>
+</div>
+<p><code>installed.packages()</code> outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the <a href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html"><code>installed.packages()</code> function</a>, it can be very slow under certain circumstances.</p>
+<blockquote class="blockquote">
+<p>This needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …</p>
+</blockquote>
+<p>Therefore, do not use <code>installed.packages()</code> in CRAN packages.</p>
+<p>The help file also lists different solutions and the respective, alternative functions.</p>
+<blockquote class="blockquote">
+<p>… so do not use it to find out if a named package is installed (use <code>find.package</code> or <code>system.file</code>) nor to find out if a package is usable (call <code>requireNamespace</code> or <code>require</code> and check the return value) nor to find details of a small number of packages (use <code>packageDescription</code>).</p>
+</blockquote>
+<p>Ideally, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code>, both return <code>FALSE</code> if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see <a href="">the corresponding recipe, (yet to come)</a>.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -311,18 +713,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -354,15 +745,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
