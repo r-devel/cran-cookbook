@@ -383,4 +383,15 @@ CRAN doesn't allow negative `warn` options. This setting will turn off all warni
 CRAN recommends using `suppressWarnings()`, which disables warnings only for the specific expression it's applied to, rather than globally.
 
 
+-----------------------------------------
+
+# Using > 2 Cores
+
+## Problem
+
+You are using more than 2 cores in your examples, vignettes or tests. 
+
+## Solution
+
+
 
