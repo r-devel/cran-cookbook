@@ -385,15 +385,16 @@ CRAN recommends using `suppressWarnings()`, which disables warnings only for the
 
 -----------------------------------------
 
-# Using > 2 Cores
+# Using more than 2 Cores
 
 ## Problem
 
-You are using more than 2 cores in your examples, vignettes or tests. 
+You are using more than 2 cores in your examples, vignettes, tests or during installation. 
 
 ## Solution
 
-Make sure that you set the maximum number of cores used to 2. This is also important for installation, where the `-j 2` flag should be used. 
+Make sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. 
+During installation, many modern build systems use the `-j` flag. 
 <!-- This was recommended by 'aitap' in a discussion on GitHub -->
 
 ### Details
@@ -405,7 +406,7 @@ Please ensure that you do not use more than 2 cores in your examples, vignettes,
 :::
 
 
-CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of two CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores a NOTE from CRAN checks is given, saying that during installation, it took more CPU time than elapsed time.
+CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of two CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that, it took more CPU time than elapsed time.
 
 ::: {.callout-note title="CRAN NOTE" icon=false}
 
@@ -419,5 +420,8 @@ Check: examples, Result: NOTE\
 
 The automatic tests will only produce a NOTE when more than 2 cores are used in examples, vignettes, tests or the installation.However, a possibility to set the amount of cores should be given in any function and the default is ideally set to less than 2 cores.
 
+During installation, something that ran as part of the installation process started more than two child processes (or threads) at the same time. The solution is specific to the build system your package is using. Many modern build systems can use the `-j` flag which originated from `GNU Make`(from their [manual](https://devdocs.io/gnu_make/options-summary#-j%20[jobs]):)
 
+> ‘-j [jobs]’\
+Specifies the number of recipes (jobs) to run simultaneously. With no argument, `make` runs as many recipes simultaneously as possible. If there is more than one ‘-j’ option, the last one is effective.
 
