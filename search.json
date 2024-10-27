@@ -1,62 +1,22 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the CRAN Cookbook",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Additional Resources",
     "section": "",
-    "text": "Introduction\nThe CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: Improving the Skills of R Package Maintainers. The goals of the project are:\n\nEducate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.\nDevelop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.\nIdentify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.\n\n\n\nPrerequisites\n\nBeginner to intermediate knowledge of R Programming: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a ‘best practices’ approach to resolving R package issues to facilitate a successful re-submission to CRAN.\nExperience in debugging code: Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.\n\n\n\nAdditional Resources\n\nWriting R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
+    "text": "Writing R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
     "crumbs": [
-      "Welcome to the CRAN Cookbook"
+      "Additional Resources"
     ]
   },
   {
-    "objectID": "docs_issues.html",
-    "href": "docs_issues.html",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "objectID": "preface.html#contributors",
+    "href": "preface.html#contributors",
+    "title": "Preface",
+    "section": "Contributors",
+    "text": "Contributors\nThanks to all contributors!\nLluís Revilla (@llrs)",
     "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#problem",
-    "href": "docs_issues.html#problem",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#solution",
-    "href": "docs_issues.html#solution",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#problem-1",
-    "href": "docs_issues.html#problem-1",
-    "title": "Manuals & Documentation Issues",
-    "section": "Problem",
-    "text": "Problem\nThe CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#solution-1",
-    "href": "docs_issues.html#solution-1",
-    "title": "Manuals & Documentation Issues",
-    "section": "Solution",
-    "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
+      "Preface"
     ]
   },
   {
@@ -230,43 +190,13 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\n\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "objectID": "general_issues.html#description-length",
+    "href": "general_issues.html#description-length",
+    "title": "General Issues",
+    "section": "Description Length",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
     "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#writers",
-    "href": "about.html#writers",
-    "title": "About",
-    "section": "",
-    "text": "Jasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#steering-committee",
-    "href": "about.html#steering-committee",
-    "title": "About",
-    "section": "",
-    "text": "Heather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#technical-details",
-    "href": "about.html#technical-details",
-    "title": "About",
-    "section": "Technical details",
-    "text": "Technical details\nThis cookbook is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites. The cookbook is hosted on GitHub pages as part of the Community R development resources. The website is currently deployed with local commands.\n\nSession info\n\nif (!requireNamespace(\"devtools\", quietly = TRUE)) {\n    install.packages(\"devtools\")\n}\nlibrary(devtools)\n\nLoading required package: usethis\n\ndevtools::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.4.0 (2024-04-24)\n os       macOS Ventura 13.6.9\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       America/New_York\n date     2024-09-26\n pandoc   NA (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n ! package     * version date (UTC) lib source\n P cachem        1.1.0   2024-05-16 [?] RSPM\n P cli           3.6.3   2024-06-21 [?] RSPM\n P devtools    * 2.4.5   2022-10-11 [?] RSPM\n P digest        0.6.36  2024-06-23 [?] RSPM\n P ellipsis      0.3.2   2021-04-29 [?] RSPM\n P evaluate      0.24.0  2024-06-10 [?] RSPM\n P fastmap       1.2.0   2024-05-15 [?] RSPM\n P fs            1.6.4   2024-04-25 [?] RSPM\n P glue          1.7.0   2024-01-09 [?] RSPM\n P htmltools     0.5.8.1 2024-04-04 [?] RSPM\n P htmlwidgets   1.6.4   2023-12-06 [?] RSPM\n P httpuv        1.6.15  2024-03-26 [?] RSPM\n P jsonlite      1.8.8   2023-12-04 [?] RSPM\n P knitr         1.48    2024-07-07 [?] RSPM\n P later         1.3.2   2023-12-06 [?] RSPM\n P lifecycle     1.0.4   2023-11-07 [?] RSPM\n P magrittr      2.0.3   2022-03-30 [?] RSPM\n P memoise       2.0.1   2021-11-26 [?] RSPM\n P mime          0.12    2021-09-28 [?] RSPM\n P miniUI        0.1.1.1 2018-05-18 [?] RSPM\n P pkgbuild      1.4.4   2024-03-17 [?] RSPM\n P pkgload       1.4.0   2024-06-28 [?] RSPM\n P profvis       0.3.8   2023-05-02 [?] RSPM\n P promises      1.3.0   2024-04-05 [?] RSPM\n P purrr         1.0.2   2023-08-10 [?] RSPM\n P R6            2.5.1   2021-08-19 [?] RSPM\n P Rcpp          1.0.13  2024-07-17 [?] RSPM\n P remotes       2.5.0   2024-03-17 [?] RSPM\n   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)\n P rlang         1.1.4   2024-06-04 [?] RSPM\n P rmarkdown     2.27    2024-05-17 [?] RSPM\n P rstudioapi    0.16.0  2024-03-24 [?] RSPM\n P sessioninfo   1.2.2   2021-12-06 [?] RSPM\n P shiny         1.9.1   2024-08-01 [?] RSPM\n P stringi       1.8.4   2024-05-06 [?] RSPM\n P stringr       1.5.1   2023-11-14 [?] RSPM\n P urlchecker    1.0.1   2021-11-30 [?] RSPM\n P usethis     * 3.0.0   2024-07-29 [?] RSPM\n P vctrs         0.6.5   2023-12-01 [?] RSPM\n P xfun          0.46    2024-07-18 [?] RSPM\n P xtable        1.8-4   2019-04-21 [?] RSPM\n P yaml          2.3.8   2023-12-11 [?] RSPM\n\n [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20\n [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867\n\n P ── Loaded and on-disk path mismatch.\n\n──────────────────────────────────────────────────────────────────────────────",
-    "crumbs": [
-      "About"
+      "General Issues"
     ]
   },
   {
@@ -400,13 +330,63 @@
     ]
   },
   {
-    "objectID": "general_issues.html#description-length",
-    "href": "general_issues.html#description-length",
-    "title": "General Issues",
-    "section": "Description Length",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
     "crumbs": [
-      "General Issues"
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html",
+    "href": "docs_issues.html",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem",
+    "href": "docs_issues.html#problem",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution",
+    "href": "docs_issues.html#solution",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-1",
+    "href": "docs_issues.html#problem-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem\nThe CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-1",
+    "href": "docs_issues.html#solution-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
     ]
   }
 ]

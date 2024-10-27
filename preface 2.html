@@ -2,13 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jasmine Daly and Beni Altmann">
 
-<title>Welcome! – CRAN Cookbook</title>
+<title>Preface – CRAN Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +63,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -81,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">Preface</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,13 +163,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+  <a href="./preface.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -175,28 +208,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#prerequisite" id="toc-prerequisite" class="nav-link" data-scroll-target="#prerequisite">Prerequisite</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a>
+  <ul class="collapse">
+  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
+  </ul></li>
+  <li><a href="#colophon" id="toc-colophon" class="nav-link" data-scroll-target="#colophon">Colophon</a>
+  <ul class="collapse">
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info">Session info</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome!</h1>
-<p class="subtitle lead">A complementary self-service guide to discover solutions to common CRAN submission issues</p>
+<h1 class="title">Preface</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jasmine Daly and Beni Altmann </p>
-          </div>
-  </div>
     
   
     
@@ -207,41 +249,127 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img align="right" width="300" height="300" src="CRAN Cookbook Hex Sticker.png"></p>
-<p>Welcome to the <strong>CRAN Cookbook</strong>, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the <a href="https://contributor.r-project.org/cran-cookbook/description_issues.html">Description chapter</a>). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage <a href="https://github.com/r-devel/cran-cookbook/discussions/categories/community-contributions">contributions</a> from the community!</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand To Learn More About the Writers &amp; Steering Committee
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<section id="writers" class="level3">
-<h3 class="anchored" data-anchor-id="writers">Writers</h3>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<!-- add this -->
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: <strong>Improving the Skills of R Package Maintainers</strong>. The goals of the project are:</p>
+<ol type="1">
+<li>Educate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.</li>
+<li>Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.</li>
+<li>Identify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.</li>
+</ol>
+<!-- add more -->
+</section>
+<section id="prerequisite" class="level1">
+<h1>Prerequisite</h1>
 <ul>
-<li><p><a href="https://github.com/jasdumas">Jasmine Daly (<span class="citation" data-cites="jasdumas">@jasdumas</span>)</a>: Principal Consultant &amp; Founder of <a href="https://dalyanalytics.com/">Daly Analytics</a>, maintainer of 2 CRAN packages.</p></li>
-<li><p><a href="https://github.com/Baltmann01">Beni Altmann (<span class="citation" data-cites="Baltmann01">@Baltmann01</span>)</a>: Student, assistant member of the CRAN Team working on CRAN submissions.</p></li>
+<li><p><strong>Beginner to intermediate knowledge of R Programming</strong>: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a ‘best practices’ approach to resolving R package issues to facilitate a successful re-submission to CRAN.</p></li>
+<li><p>While not required, it’s useful to have experience in debugging code. Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.</p></li>
 </ul>
 </section>
-<section id="steering-committee" class="level3">
-<h3 class="anchored" data-anchor-id="steering-committee">Steering Committee</h3>
+<section id="acknowledgement" class="level1">
+<h1>Acknowledgement</h1>
 <ul>
-<li><a href="https://github.com/hturner">Heather Turner (<span class="citation" data-cites="hturner">@hturner</span>)</a>: member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.</li>
-<li><a href="https://github.com/bettinagruen">Bettina Grün (<span class="citation" data-cites="bettinagruen">@bettinagruen</span>)</a>: member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.</li>
-<li><a href="https://github.com/nzgwynn">Gwynn Gebeyehu (<span class="citation" data-cites="nzgwynn">@nzgwynn</span>)</a> data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.</li>
+<li>Thank you to the <a href="https://www.r-consortium.org/">R Consortium</a> for funding and sponsoring this project!</li>
 </ul>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
+</figure>
+</div>
+<section id="contributors" class="level2">
+<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
+<p><em>Thanks to all contributors!</em></p>
+<p>Lluís Revilla (<a href="https://github.com/llrs"><span class="citation" data-cites="llrs">@llrs</span></a>)</p>
 </section>
+</section>
+<section id="colophon" class="level1">
+<h1>Colophon</h1>
+<p>This cookbook is a Quarto website. To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>. The cookbook is hosted on GitHub pages as part of the <a href="https://github.com/r-devel">Community R development resources</a>. The website is currently deployed with <a href="https://github.com/r-devel/cran-cookbook/wiki/GitHub-Pages-Deployment">local commands</a>.</p>
+<section id="session-info" class="level3">
+<h3 class="anchored" data-anchor-id="session-info">Session info</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"devtools"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: usethis</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.0 (2024-04-24)
+ os       macOS Ventura 13.6.9
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       America/New_York
+ date     2024-10-10
+ pandoc   NA (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ ! package     * version date (UTC) lib source
+ P cachem        1.1.0   2024-05-16 [?] RSPM
+ P cli           3.6.3   2024-06-21 [?] RSPM
+ P devtools    * 2.4.5   2022-10-11 [?] RSPM
+ P digest        0.6.36  2024-06-23 [?] RSPM
+ P ellipsis      0.3.2   2021-04-29 [?] RSPM
+ P evaluate      0.24.0  2024-06-10 [?] RSPM
+ P fastmap       1.2.0   2024-05-15 [?] RSPM
+ P fs            1.6.4   2024-04-25 [?] RSPM
+ P glue          1.7.0   2024-01-09 [?] RSPM
+ P htmltools     0.5.8.1 2024-04-04 [?] RSPM
+ P htmlwidgets   1.6.4   2023-12-06 [?] RSPM
+ P httpuv        1.6.15  2024-03-26 [?] RSPM
+ P jsonlite      1.8.8   2023-12-04 [?] RSPM
+ P knitr         1.48    2024-07-07 [?] RSPM
+ P later         1.3.2   2023-12-06 [?] RSPM
+ P lifecycle     1.0.4   2023-11-07 [?] RSPM
+ P magrittr      2.0.3   2022-03-30 [?] RSPM
+ P memoise       2.0.1   2021-11-26 [?] RSPM
+ P mime          0.12    2021-09-28 [?] RSPM
+ P miniUI        0.1.1.1 2018-05-18 [?] RSPM
+ P pkgbuild      1.4.4   2024-03-17 [?] RSPM
+ P pkgload       1.4.0   2024-06-28 [?] RSPM
+ P profvis       0.3.8   2023-05-02 [?] RSPM
+ P promises      1.3.0   2024-04-05 [?] RSPM
+ P purrr         1.0.2   2023-08-10 [?] RSPM
+ P R6            2.5.1   2021-08-19 [?] RSPM
+ P Rcpp          1.0.13  2024-07-17 [?] RSPM
+ P remotes       2.5.0   2024-03-17 [?] RSPM
+   renv          1.0.7   2024-04-11 [1] RSPM (R 4.4.0)
+ P rlang         1.1.4   2024-06-04 [?] RSPM
+ P rmarkdown     2.27    2024-05-17 [?] RSPM
+ P sessioninfo   1.2.2   2021-12-06 [?] RSPM
+ P shiny         1.9.1   2024-08-01 [?] RSPM
+ P stringi       1.8.4   2024-05-06 [?] RSPM
+ P stringr       1.5.1   2023-11-14 [?] RSPM
+ P urlchecker    1.0.1   2021-11-30 [?] RSPM
+ P usethis     * 3.0.0   2024-07-29 [?] RSPM
+ P vctrs         0.6.5   2023-12-01 [?] RSPM
+ P xfun          0.46    2024-07-18 [?] RSPM
+ P xtable        1.8-4   2019-04-21 [?] RSPM
+ P yaml          2.3.8   2023-12-11 [?] RSPM
+
+ [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/website/renv/library/macos/R-4.4/x86_64-apple-darwin20
+ [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867
+
+ P ── Loaded and on-disk path mismatch.
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
 </div>
-</div>
-<!-- add a citation here -->
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -336,7 +464,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
