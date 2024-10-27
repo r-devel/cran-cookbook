@@ -1,1 +1,0 @@
-Sitemap: https://r-devel.github.io/cran-cookbook/sitemap.xml
