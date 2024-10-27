@@ -393,5 +393,20 @@ You are using more than 2 cores in your examples, vignettes or tests.
 
 ## Solution
 
+Make sure that you set the maximum number of cores used to 2. This is also important for installation, where the `-j 2` flag should be used. 
+<!-- This was recommended by 'aitap' in a discussion on GitHub -->
+
+### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please ensure that you do not use more than 2 cores in your examples, vignettes, etc.
+
+:::
+
+
+CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of two CPU cores to exercise parallel code in examples and unit tests. An indicator for using more than 2 cores is a NOTE from CRAN checks, saying that during installation, it took more CPU time than elapsed time.
+
+
 
 
