@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/resources.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/resources.html</loc>
     <lastmod>2024-10-27T18:16:16.783Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/preface.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/preface.html</loc>
     <lastmod>2024-10-27T18:16:16.782Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/code_issues.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/code_issues.html</loc>
     <lastmod>2024-10-27T18:16:16.777Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/general_issues.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/general_issues.html</loc>
     <lastmod>2024-10-10T14:12:10.823Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/description_issues.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/description_issues.html</loc>
     <lastmod>2024-10-10T18:09:40.721Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/index.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/index.html</loc>
     <lastmod>2024-10-27T18:16:16.781Z</lastmod>
   </url>
   <url>
-    <loc>https://r-devel.github.io/cran-cookbook/docs_issues.html</loc>
+    <loc>https://contributor.r-project.org/cran-cookbook/docs_issues.html</loc>
     <lastmod>2024-09-12T15:09:18.415Z</lastmod>
   </url>
 </urlset>
