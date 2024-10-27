@@ -30,7 +30,7 @@ website:
             href:  https://github.com/r-devel/cran-cookbook
           - text: Report a Bug
             href:  https://github.com/r-devel/cran-cookbook/issues
-          - text: Provide Feedback or New Recipe
+          - text: Provide Feedback
             href:  https://github.com/r-devel/cran-cookbook/discussions
 
 
