@@ -407,6 +407,12 @@ Please ensure that you do not use more than 2 cores in your examples, vignettes,
 
 CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of two CPU cores to exercise parallel code in examples and unit tests. An indicator for using more than 2 cores is a NOTE from CRAN checks, saying that during installation, it took more CPU time than elapsed time.
 
+::: {.callout-note title="CRAN NOTE" icon=false}
+
+Check: whether package can be installed, Result: NOTE\
+&emsp; Installation took CPU time 6.9 times elapsed time
+  
+:::
 
 
 
