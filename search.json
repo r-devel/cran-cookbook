@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "general_issues.html#description-length",
+    "href": "general_issues.html#description-length",
+    "title": "General Issues",
+    "section": "Description Length",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
+    "crumbs": [
+      "General Issues"
+    ]
+  },
+  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Additional Resources",
@@ -7,16 +17,6 @@
     "text": "Writing R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
     "crumbs": [
       "Additional Resources"
-    ]
-  },
-  {
-    "objectID": "preface.html#contributors",
-    "href": "preface.html#contributors",
-    "title": "Preface",
-    "section": "Contributors",
-    "text": "Contributors\nThanks to all contributors!\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
-    "crumbs": [
-      "Preface"
     ]
   },
   {
@@ -230,16 +230,6 @@
     ]
   },
   {
-    "objectID": "general_issues.html#description-length",
-    "href": "general_issues.html#description-length",
-    "title": "General Issues",
-    "section": "Description Length",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
-    "crumbs": [
-      "General Issues"
-    ]
-  },
-  {
     "objectID": "description_issues.html",
     "href": "description_issues.html",
     "title": "DESCRIPTION file Issues",
@@ -370,13 +360,13 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "objectID": "preface.html#contributors",
+    "href": "preface.html#contributors",
+    "title": "Preface",
+    "section": "Contributors",
+    "text": "Contributors\nThanks to all contributors!\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
     "crumbs": [
-      "Welcome!"
+      "Preface"
     ]
   },
   {
@@ -427,6 +417,16 @@
     "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
     "crumbs": [
       "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
+    "crumbs": [
+      "Welcome!"
     ]
   }
 ]
