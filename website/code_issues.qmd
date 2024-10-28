@@ -406,7 +406,7 @@ Please ensure that you do not use more than 2 cores in your examples, vignettes,
 :::
 
 
-CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of two CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.
+CRAN checks run on big, multi-core computers, running many `R CMD check` processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.
 
 ::: {.callout-note title="CRAN NOTE" icon=false}
 
