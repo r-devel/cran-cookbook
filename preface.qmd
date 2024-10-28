@@ -38,7 +38,8 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 
 _Thanks to all contributors!_
 
-- Lluís Revilla ([@llrs](https://github.com/llrs))\
+- Lluís Revilla ([@llrs](https://github.com/llrs))
+
 - Ivan Krylov ([@aitap](https://github.com/aitap))
 
 # Colophon
