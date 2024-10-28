@@ -1,0 +1,47 @@
+project:
+  type: website
+
+website:
+  title: CRAN Cookbook
+  site-url: https://contributor.r-project.org/cran-cookbook
+  favicon: favicon.png
+  page-footer:
+    center: "<b>This cookbook is currently in development - Please use with caution!</b>"
+    background: info
+  sidebar:
+    style: "docked"
+    background: light
+    search: true
+    pinned: true
+    contents:
+      - index.qmd
+      - preface.qmd
+      - general_issues.qmd
+      - docs_issues.qmd
+      - code_issues.qmd
+      - description_issues.qmd
+      - resources.qmd
+
+
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/r-devel/cran-cookbook
+          - text: Report a Bug
+            href:  https://github.com/r-devel/cran-cookbook/issues
+          - text: Provide Feedback
+            href:  https://github.com/r-devel/cran-cookbook/discussions
+
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+    toc: true
+
+execute:
+  freeze: auto
+
+
+
