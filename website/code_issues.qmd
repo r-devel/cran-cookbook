@@ -418,7 +418,7 @@ Check: examples, Result: NOTE\
   
 :::
 
-The automatic tests will only produce a NOTE when more than 2 cores are used in examples, vignettes, tests or the installation. The possibility to set the amount of cores should be given in any function and the default is ideally set to less than 2 cores.
+Automatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.
 
 Something that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the `-j` flag which originated from `GNU Make` (for more information, see their [manual](https://devdocs.io/gnu_make/options-summary#-j%20[jobs]){target="_blank"}).
 <!-- The target="_blank" opens the link in a new tab as this is a link to a non R related resource and thus might not interest the user too much-->
