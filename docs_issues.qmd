@@ -79,7 +79,7 @@ Reduce the length and quantity of your examples, vignettes and tests.
 
 ::: {.callout-note title="CRAN NOTE" icon=false}
 
-Check: Overall checktime, Result: NOTE
+Check: Overall checktime, Result: NOTE\
 &emsp; Overall checktime 20 min > 10 min
 
   
