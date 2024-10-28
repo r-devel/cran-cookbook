@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Preface – CRAN Cookbook</title>
+<title>CRAN Cookbook - DESCRIPTION file Issues</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,7 +29,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -111,13 +76,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">Preface</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -132,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./">CRAN Cookbook</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/r-devel/cran-cookbook">
@@ -164,13 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome!</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Welcome to the CRAN Cookbook</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -179,28 +138,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">General Issues</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Manuals &amp; Documentation Issues</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Code Issues</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code Issues</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">DESCRIPTION file Issues</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./description_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="./description_issues.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DESCRIPTION file Issues</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Additional Resources</span></a>
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
     </ul>
@@ -213,16 +205,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#prerequisite" id="toc-prerequisite" class="nav-link" data-scroll-target="#prerequisite">Prerequisite</a></li>
-  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a>
+  <li><a href="#issue-1" id="toc-issue-1" class="nav-link active" data-scroll-target="#issue-1">Issue 1</a>
   <ul class="collapse">
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
+  <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem">Problem</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul></li>
-  <li><a href="#colophon" id="toc-colophon" class="nav-link" data-scroll-target="#colophon">Colophon</a>
+  <li><a href="#issue-2" id="toc-issue-2" class="nav-link" data-scroll-target="#issue-2">Issue 2</a>
   <ul class="collapse">
-  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info">Session info</a></li>
+  <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  </ul></li>
+  <li><a href="#issue-3" id="toc-issue-3" class="nav-link" data-scroll-target="#issue-3">Issue 3</a>
+  <ul class="collapse">
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem</a></li>
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -230,9 +226,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li><li class="breadcrumb-item"><a href="./description_issues.html">DESCRIPTION file Issues</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Preface</h1>
+<h1 class="title">DESCRIPTION file Issues</h1>
 </div>
 
 
@@ -249,127 +245,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="motivation" class="level1">
-<h1>Motivation</h1>
-<!-- add this -->
+<section id="issue-1" class="level1">
+<h1>Issue 1</h1>
+<section id="problem" class="level2">
+<h2 class="anchored" data-anchor-id="problem">Problem</h2>
 </section>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>The CRAN Cookbook has been developed as part of a special project grant from the R Consortium in 2024. The proposal is titled: <strong>Improving the Skills of R Package Maintainers</strong>. The goals of the project are:</p>
-<ol type="1">
-<li>Educate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.</li>
-<li>Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.</li>
-<li>Identify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.</li>
-</ol>
-<!-- add more -->
-</section>
-<section id="prerequisite" class="level1">
-<h1>Prerequisite</h1>
-<ul>
-<li><p><strong>Beginner to intermediate knowledge of R Programming</strong>: This guide is designed to assist both first-time R package maintainers and those with experience who prefer to navigate a curated selection of the most common issues encountered when submitting to CRAN, as identified by CRAN Maintainers. It provides a ‘best practices’ approach to resolving R package issues to facilitate a successful re-submission to CRAN.</p></li>
-<li><p>While not required, it’s useful to have experience in debugging code. Submitting your R package to CRAN is a multi-step process that may involve communicating with multiple CRAN volunteers and updating your code, tests, examples, documentation, and other supplementary files to meet acceptance criteria. Developing strong debugging skills can be particularly valuable during this process, as it can help you effectively apply the examples in this cookbook to create custom solutions for updating your R package.</p></li>
-</ul>
-</section>
-<section id="acknowledgement" class="level1">
-<h1>Acknowledgement</h1>
-<ul>
-<li>Thank you to the <a href="https://www.r-consortium.org/">R Consortium</a> for funding and sponsoring this project!</li>
-</ul>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/RConsortium/artwork/main/r_consortium/R_Consortium-logo-horizontal-color.svg" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
-</figure>
-</div>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<p><em>Thanks to all contributors!</em></p>
-<ul>
-<li><p>Lluís Revilla (<a href="https://github.com/llrs"><span class="citation" data-cites="llrs">@llrs</span></a>)</p></li>
-<li><p>Ivan Krylov (<a href="https://github.com/aitap"><span class="citation" data-cites="aitap">@aitap</span></a>)</p></li>
-</ul>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
 </section>
 </section>
-<section id="colophon" class="level1">
-<h1>Colophon</h1>
-<p>This cookbook is a Quarto website. To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>. The cookbook is hosted on GitHub pages as part of the <a href="https://github.com/r-devel">Community R development resources</a>. The website is currently deployed with <a href="https://github.com/r-devel/cran-cookbook/wiki/GitHub-Pages-Deployment">local commands</a>.</p>
-<section id="session-info" class="level3">
-<h3 class="anchored" data-anchor-id="session-info">Session info</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"devtools"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: usethis</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>─ Session info ───────────────────────────────────────────────────────────────
- setting  value
- version  R version 4.4.0 (2024-04-24)
- os       macOS Ventura 13.6.9
- system   x86_64, darwin20
- ui       X11
- language (EN)
- collate  en_US.UTF-8
- ctype    en_US.UTF-8
- tz       America/New_York
- date     2024-10-28
- pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/x86_64/ (via rmarkdown)
-
-─ Packages ───────────────────────────────────────────────────────────────────
- ! package     * version date (UTC) lib source
- P cachem        1.1.0   2024-05-16 [?] RSPM
- P cli           3.6.3   2024-06-21 [?] RSPM
- P devtools    * 2.4.5   2022-10-11 [?] RSPM
- P digest        0.6.37  2024-08-19 [?] CRAN (R 4.4.1)
- P ellipsis      0.3.2   2021-04-29 [?] RSPM
- P evaluate      1.0.0   2024-09-17 [?] CRAN (R 4.4.1)
- P fastmap       1.2.0   2024-05-15 [?] RSPM
- P fs            1.6.4   2024-04-25 [?] RSPM
- P glue          1.8.0   2024-09-30 [?] CRAN (R 4.4.1)
- P htmltools     0.5.8.1 2024-04-04 [?] RSPM
- P htmlwidgets   1.6.4   2023-12-06 [?] RSPM
- P httpuv        1.6.15  2024-03-26 [?] RSPM
- P jsonlite      1.8.9   2024-09-20 [?] CRAN (R 4.4.1)
- P knitr         1.48    2024-07-07 [?] RSPM
- P later         1.3.2   2023-12-06 [?] RSPM
- P lifecycle     1.0.4   2023-11-07 [?] RSPM
- P magrittr      2.0.3   2022-03-30 [?] RSPM
- P memoise       2.0.1   2021-11-26 [?] RSPM
- P mime          0.12    2021-09-28 [?] RSPM
- P miniUI        0.1.1.1 2018-05-18 [?] RSPM
- P pkgbuild      1.4.4   2024-03-17 [?] RSPM
- P pkgload       1.4.0   2024-06-28 [?] RSPM
- P profvis       0.3.8   2023-05-02 [?] RSPM
- P promises      1.3.0   2024-04-05 [?] RSPM
- P purrr         1.0.2   2023-08-10 [?] RSPM
- P R6            2.5.1   2021-08-19 [?] RSPM
- P Rcpp          1.0.13  2024-07-17 [?] RSPM
- P remotes       2.5.0   2024-03-17 [?] RSPM
-   renv          1.0.7   2024-04-11 [1] CRAN (R 4.4.0)
- P rlang         1.1.4   2024-06-04 [?] RSPM
- P rmarkdown     2.28    2024-08-17 [?] CRAN (R 4.4.1)
- P rstudioapi    0.16.0  2024-03-24 [?] RSPM
- P sessioninfo   1.2.2   2021-12-06 [?] RSPM
- P shiny         1.9.1   2024-08-01 [?] RSPM
- P stringi       1.8.4   2024-05-06 [?] RSPM
- P stringr       1.5.1   2023-11-14 [?] RSPM
- P urlchecker    1.0.1   2021-11-30 [?] RSPM
- P usethis     * 3.0.0   2024-07-29 [?] RSPM
- P vctrs         0.6.5   2023-12-01 [?] RSPM
- P xfun          0.48    2024-10-03 [?] CRAN (R 4.4.1)
- P xtable        1.8-4   2019-04-21 [?] RSPM
- P yaml          2.3.10  2024-07-26 [?] CRAN (R 4.4.0)
-
- [1] /Users/jasminedaly/Desktop/R-directory/cran-cookbook/renv/library/macos/R-4.4/x86_64-apple-darwin20
- [2] /Users/jasminedaly/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.4/x86_64-apple-darwin20/2edc1867
-
- P ── Loaded and on-disk path mismatch.
-
-──────────────────────────────────────────────────────────────────────────────</code></pre>
-</div>
-</div>
+<section id="issue-2" class="level1">
+<h1>Issue 2</h1>
+<section id="problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1">Problem</h2>
+</section>
+<section id="solution-1" class="level2">
+<h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
+</section>
+</section>
+<section id="issue-3" class="level1">
+<h1>Issue 3</h1>
+<section id="problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2">Problem</h2>
+</section>
+<section id="solution-2" class="level2">
+<h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
 
 
 </section>
@@ -411,7 +311,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -443,37 +354,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/contributor\.r-project\.org\/cran-cookbook");
+      var filterRegex = new RegExp("https:\/\/r-devel\.github\.io\/cran-cookbook\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

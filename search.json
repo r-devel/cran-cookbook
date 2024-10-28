@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "general_issues.html#description-length",
-    "href": "general_issues.html#description-length",
-    "title": "General Issues",
-    "section": "Description Length",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
-    "crumbs": [
-      "General Issues"
-    ]
-  },
-  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Additional Resources",
@@ -17,6 +7,16 @@
     "text": "Writing R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan",
     "crumbs": [
       "Additional Resources"
+    ]
+  },
+  {
+    "objectID": "preface.html#contributors",
+    "href": "preface.html#contributors",
+    "title": "Preface",
+    "section": "Contributors",
+    "text": "Contributors\nThanks to all contributors!\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
+    "crumbs": [
+      "Preface"
     ]
   },
   {
@@ -164,7 +164,7 @@
     "href": "code_issues.html#solution-6",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see the corresponding recipe, (yet to come).",
+    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this recipe.",
     "crumbs": [
       "Code Issues"
     ]
@@ -187,6 +187,56 @@
     "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
     "crumbs": [
       "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-8",
+    "href": "code_issues.html#problem-8",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are installing software or packages in your functions, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-8",
+    "href": "code_issues.html#solution-8",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nCreate special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.\n\n\n\nPackages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.\nTo ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:\n\ndevtools::install_github()\nreticulate::install_python()\n\nThe corresponding help file should also state that software will be installed.\n\n\n\n\n\n\nNote\n\n\n\nEven if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this recipe.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-9",
+    "href": "code_issues.html#problem-9",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using more than 2 CPU cores in your examples, vignettes, tests or during installation.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-9",
+    "href": "code_issues.html#solution-9",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nMake sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the -j flag. \n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that you do not use more than 2 cores in your examples, vignettes, etc.\n\n\n\nCRAN checks run on big, multi-core computers, running many R CMD check processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: whether package can be installed, Result: NOTE\n  Installation took CPU time 6.9 times elapsed time\n\nCheck: examples, Result: NOTE\n  Examples with CPU time &gt; 2.5 times elapsed time\n\n\nAutomatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.\nSomething that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the -j flag which originated from GNU Make (for more information, see their manual).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "general_issues.html#description-length",
+    "href": "general_issues.html#description-length",
+    "title": "General Issues",
+    "section": "Description Length",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.",
+    "crumbs": [
+      "General Issues"
     ]
   },
   {
@@ -320,13 +370,13 @@
     ]
   },
   {
-    "objectID": "preface.html#contributors",
-    "href": "preface.html#contributors",
-    "title": "Preface",
-    "section": "Contributors",
-    "text": "Contributors\nThanks to all contributors!\nLluís Revilla (@llrs)",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
     "crumbs": [
-      "Preface"
+      "Welcome!"
     ]
   },
   {
@@ -377,16 +427,6 @@
     "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
     "crumbs": [
       "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.",
-    "crumbs": [
-      "Welcome!"
     ]
   }
 ]

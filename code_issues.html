@@ -278,6 +278,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-7" id="toc-details-7" class="nav-link" data-scroll-target="#details-7">Details</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#installing-software" id="toc-installing-software" class="nav-link" data-scroll-target="#installing-software">Installing Software</a>
+  <ul class="collapse">
+  <li><a href="#problem-8" id="toc-problem-8" class="nav-link" data-scroll-target="#problem-8">Problem</a></li>
+  <li><a href="#solution-8" id="toc-solution-8" class="nav-link" data-scroll-target="#solution-8">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-8" id="toc-details-8" class="nav-link" data-scroll-target="#details-8">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#using-more-than-2-cores" id="toc-using-more-than-2-cores" class="nav-link" data-scroll-target="#using-more-than-2-cores">Using more than 2 Cores</a>
+  <ul class="collapse">
+  <li><a href="#problem-9" id="toc-problem-9" class="nav-link" data-scroll-target="#problem-9">Problem</a></li>
+  <li><a href="#solution-9" id="toc-solution-9" class="nav-link" data-scroll-target="#solution-9">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-9" id="toc-details-9" class="nav-link" data-scroll-target="#details-9">Details</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -678,7 +694,7 @@ CRAN Review Communication
 <blockquote class="blockquote">
 <p>… so do not use it to find out if a named package is installed (use <code>find.package</code> or <code>system.file</code>) nor to find out if a package is usable (call <code>requireNamespace</code> or <code>require</code> and check the return value) nor to find details of a small number of packages (use <code>packageDescription</code>).</p>
 </blockquote>
-<p>Ideally, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code>, both return <code>FALSE</code> if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see <a href="">the corresponding recipe, (yet to come)</a>.</p>
+<p>Ideally, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code>, both return <code>FALSE</code> if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this <a href="#installing-software">recipe</a>.</p>
 <hr>
 </section>
 </section>
@@ -712,6 +728,108 @@ CRAN Review Communication
 </div>
 <p>CRAN doesn’t allow negative <code>warn</code> options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the <a href="#change-of-options-graphical-parameters-and-working-directory">Change of Options recipe</a>, the submission will be rejected.</p>
 <p>CRAN recommends using <code>suppressWarnings()</code>, which disables warnings only for the specific expression it’s applied to, rather than globally.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="installing-software" class="level1">
+<h1>Installing Software</h1>
+<section id="problem-8" class="level2">
+<h2 class="anchored" data-anchor-id="problem-8">Problem</h2>
+<p>You are installing software or packages in your functions, examples, tests or vignettes.</p>
+</section>
+<section id="solution-8" class="level2">
+<h2 class="anchored" data-anchor-id="solution-8">Solution</h2>
+<p>Create special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.</p>
+<section id="details-8" class="level3">
+<h3 class="anchored" data-anchor-id="details-8">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.</p>
+</div>
+</div>
+</div>
+<p>Packages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.</p>
+<p>To ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:</p>
+<ul>
+<li><p><code>devtools::install_github()</code></p></li>
+<li><p><code>reticulate::install_python()</code></p></li>
+</ul>
+<p>The corresponding help file should also state that software will be installed.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this <a href="#writing-files-and-directories-to-the-home-filespace">recipe</a>.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="using-more-than-2-cores" class="level1">
+<h1>Using more than 2 Cores</h1>
+<section id="problem-9" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9">Problem</h2>
+<p>You are using more than 2 CPU cores in your examples, vignettes, tests or during installation.</p>
+</section>
+<section id="solution-9" class="level2">
+<h2 class="anchored" data-anchor-id="solution-9">Solution</h2>
+<p>Make sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the <code>-j</code> flag. <!-- This was recommended by 'aitap' in a discussion on GitHub --></p>
+<section id="details-9" class="level3">
+<h3 class="anchored" data-anchor-id="details-9">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please ensure that you do not use more than 2 cores in your examples, vignettes, etc.</p>
+</div>
+</div>
+</div>
+<p>CRAN checks run on big, multi-core computers, running many <code>R CMD check</code> processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="CRAN NOTE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN NOTE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check: whether package can be installed, Result: NOTE<br>
+  Installation took CPU time 6.9 times elapsed time<br>
+<br>
+Check: examples, Result: NOTE<br>
+  Examples with CPU time &gt; 2.5 times elapsed time</p>
+</div>
+</div>
+<p>Automatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.</p>
+<p>Something that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the <code>-j</code> flag which originated from <code>GNU Make</code> (for more information, see their <a href="https://devdocs.io/gnu_make/options-summary#-j%20%5Bjobs%5D" target="_blank">manual</a>). <!-- The target="_blank" opens the link in a new tab as this is a link to a non R related resource and thus might not interest the user too much--></p>
 
 
 </section>
