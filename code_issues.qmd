@@ -322,8 +322,7 @@ Calls of `rm(list = ls())` to remove variables of the current environment, shoul
 
 
 
----------------------------------------------
-
+------------------------------------------------------------------------
 
 # Calling `installed.packages()`
 
@@ -337,10 +336,8 @@ Instead of using `installed.packages()`, use `requireNamespace("pkg")` or `requi
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 You are using `installed.packages()` in your code. As mentioned in the notes of `installed.packages()` help page, this can be very slow. Therefore do not use `installed.packages()`.
-
 :::
 
 `installed.packages()` outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the [`installed.packages()` function](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html), it can be very slow under certain circumstances.
@@ -353,12 +350,9 @@ The help file also lists different solutions and the respective, alternative fun
 
 > ... so do not use it to find out if a named package is installed (use `find.package` or `system.file`) nor to find out if a package is usable (call `requireNamespace` or `require` and check the return value) nor to find details of a small number of packages (use `packageDescription`).
 
-Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` if a package isn't available, and throw an error conditionally. For more details on package installations in your code see [the corresponding recipe, (yet to come)]().
+Ideally, use `requireNamespace("pkg")` or `require("pkg")`, both return `FALSE` if a package isn't available, and throw an error conditionally. For more details on package installations in your code see this [recipe](#installing-software).
 
-
-
---------------
-
+------------------------------------------------------------------------
 
 # Setting `options(warn = -1)`
 
@@ -372,17 +366,45 @@ Consider using `suppressWarnings()` instead of `options(warn = -1)` if you absol
 
 ### Details
 
-::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
-
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
 You are setting `options(warn=-1)` in your function. This is not allowed. Please rather use `suppressWarnings()` if really needed.
-
 :::
 
 CRAN doesn't allow negative `warn` options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the [Change of Options recipe](#change-of-options-graphical-parameters-and-working-directory), the submission will be rejected.
 
 CRAN recommends using `suppressWarnings()`, which disables warnings only for the specific expression it's applied to, rather than globally.
 
+------------------------------------------------------------------------
 
+# Installing Software {#installing-software}
+
+## Problem
+
+You are installing software or packages in your functions, examples, tests or vignettes.
+
+## Solution
+
+Create special functions for the purpose of installing software and don't install it in examples, tests, or vignettes.
+
+### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
+Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.
+:::
+
+Packages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.
+
+To ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:
+
+-   `devtools::install_github()`
+
+-   `reticulate::install_python()`
+
+The corresponding help file should also state that software will be installed.
+
+::: callout-note
+Even if it is made clear that installations will happen, the function shouldn't write to the user's home file space, as mentioned in this [recipe](#writing-files-and-directories-to-the-home-filespace).
+:::
 -----------------------------------------
 
 # Using more than 2 Cores
