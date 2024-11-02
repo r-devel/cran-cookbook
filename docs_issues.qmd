@@ -86,9 +86,9 @@ Check: Overall checktime, Result: NOTE\
 :::
 
 
-CRAN tests the unwrapped examples, vignettes and tests of packages rather frequently. The overall time it takes to run all of them should therefore be less than 10 minutes in total. 
+Unwrapped examples, vignettes and tests of packages are run frequently on CRAN's test servers. The overall time it takes to run all of them should therefore be less than 10 minutes in total. 
 
-This should not discourage from writing extensive test and documentation with high code coverage but rather encourage sensible testing. Avoid vignettes or test with many it iterations, run them on small toy data or provide precomputed results. 
+This should not discourage from writing extensive test and documentation with high code coverage but rather encourage sensible testing. Avoid vignettes or tests with many iterations, run them on small toy data or provide precomputed results. 
 
 
 
