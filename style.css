@@ -1,8 +1,8 @@
 hr {
     border: none;
+    border-radius: 4px;
     height: 5px;
-    color: blue;
-    background-color: blue;
+    background-color: #2780e3;
 }
 
 
