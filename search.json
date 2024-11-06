@@ -420,6 +420,26 @@
     ]
   },
   {
+    "objectID": "docs_issues.html#problem-2",
+    "href": "docs_issues.html#problem-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem\nAutomatic CRAN tests give a NOTE saying the overall checktime of your package is too long.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-2",
+    "href": "docs_issues.html#solution-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution\nReduce the length and quantity of your examples, vignettes and tests.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: Overall checktime, Result: NOTE\n  Overall checktime 20 min &gt; 10 min\n\n\nUnwrapped examples, vignettes and tests of packages are run frequently on CRAN’s test servers. The overall time it takes to run all of them should therefore be less than 10 minutes in total.\nWrite vignettes and tests with fewer iterations, run them on small toy data or provide precomputed results. Focus on writing sensible test and documentation, retaining high code coverage instead of disabling test or removing examples.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome!",

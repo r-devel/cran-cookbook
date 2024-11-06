@@ -229,6 +229,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-1" id="toc-details-1" class="nav-link" data-scroll-target="#details-1">Details</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#overall-checktime" id="toc-overall-checktime" class="nav-link" data-scroll-target="#overall-checktime">Overall Checktime</a>
+  <ul class="collapse">
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem</a></li>
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-2" id="toc-details-2" class="nav-link" data-scroll-target="#details-2">Details</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -317,6 +325,36 @@ Note
 </div>
 </div>
 <hr>
+</section>
+</section>
+</section>
+<section id="overall-checktime" class="level1">
+<h1>Overall Checktime</h1>
+<section id="problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2">Problem</h2>
+<p>Automatic CRAN tests give a NOTE saying the overall checktime of your package is too long.</p>
+</section>
+<section id="solution-2" class="level2">
+<h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
+<p>Reduce the length and quantity of your examples, vignettes and tests.</p>
+<section id="details-2" class="level3">
+<h3 class="anchored" data-anchor-id="details-2">Details</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="CRAN NOTE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN NOTE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check: Overall checktime, Result: NOTE<br>
+  Overall checktime 20 min &gt; 10 min</p>
+</div>
+</div>
+<p>Unwrapped examples, vignettes and tests of packages are run frequently on CRAN’s test servers. The overall time it takes to run all of them should therefore be less than 10 minutes in total.</p>
+<p>Write vignettes and tests with fewer iterations, run them on small toy data or provide precomputed results. Focus on writing sensible test and documentation, retaining high code coverage instead of disabling test or removing examples.</p>
 
 
 </section>
