@@ -160,17 +160,17 @@ Add the `Authors@R` field in the DESCRIPTION file.
 
 Author field differs from that derived from Authors@R.
 
-No Authors@R field in DESCRIPTION.
-  Please add one, modifying
-    Authors@R: c(person(given = "Alice",
-                        family = "Developer",
-                        role = c("aut", "cre"),
-                        email = "alice.developer@some.domain.net"),
-                 person(given = "Bob",
-                        family = "Dev",
-                        role = "aut"),
-                 )
-  as necessary.
+No Authors@R field in DESCRIPTION.  
+&emsp; Please add one, modifying  
+&emsp; &emsp; Authors@R: c(person(given = "Alice",    
+&emsp; &emsp; &emsp; family = "Developer",  
+&emsp; &emsp; &emsp; role = c("aut", "cre"),  
+&emsp; &emsp; &emsp; email = "alice.developer@some.domain.net"),  
+&emsp; &emsp; person(given = "Bob",  
+&emsp; &emsp; &emsp; family = "Dev",  
+&emsp; &emsp; &emsp; role = "aut"),  
+&emsp; &emsp; )  
+&emsp; as necessary.
 
 :::
 
@@ -209,10 +209,10 @@ Write the reference in the form: Authors (year) <doi:...>.
 
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
 
-If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form
-authors (year) <doi:...>
-authors (year, ISBN:...)
-or if those are not available: <https:...>
+If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form  
+authors (year) <doi:...>  
+authors (year, ISBN:...)  
+or if those are not available: <https:...>  
 with no space after 'doi:', 'https:' and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: "Title")
 
 :::
