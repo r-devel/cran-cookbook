@@ -297,6 +297,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.</p>
 <section id="details" class="level3">
 <h3 class="anchored" data-anchor-id="details">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’</p>
+<p>Please note that package names are case sensitive.</p>
+</div>
+</div>
+</div>
 <p>Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names <strong>only</strong>.</p>
 <p>The description section in the <a href="https://github.com/tidyverse/readr/blob/main/DESCRIPTION">DESCRIPTION file</a> of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:</p>
 <pre><code>Description: The goal of 'readr' is to provide a fast and friendly way to
@@ -318,6 +335,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Document all non-obvious acronyms in the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file to facilitate the CRAN team review.</p>
 <section id="details-1" class="level3">
 <h3 class="anchored" data-anchor-id="details-1">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please always explain all acronyms in the description text.</p>
+</div>
+</div>
+</div>
 <p>Most acronyms that are not widely known should be explained. For example, you don’t have to explain <em>OLS</em>, <em>SEO</em>, or <em>DNA</em> but explanations should be provided for: <em>MEFM</em> or <em>OCCDS</em>. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.</p>
 <hr>
 </section>
@@ -334,6 +367,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Remove the reference <code>+ file LICENSE</code> and delete the LICENSE file.</p>
 <section id="details-2" class="level3">
 <h3 class="anchored" data-anchor-id="details-2">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The LICENSE file is only needed if you have additional restrictions to the license which you have not? In that case omit the file and its reference in the DESCRIPTION file.</p>
+<p>License components with restrictions and base license permitting such: GPL-3 + file LICENSE</p>
+<p>We do not need “+ file LICENSE” and the file as these are part of R. This is only needed in case of attribution requirements or other possible restrictions. Hence please omit it.</p>
+</div>
+</div>
+</div>
 <p>Most licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within <em>R</em> by searching for <strong>Note: this is a template, needs + file LICENSE</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_licenses <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> <span class="fu">R.home</span>(), <span class="st">"license.db"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>licenses_doc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">read.dcf</span>(path_licenses))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -366,6 +417,25 @@ Tip
 <p>The package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.</p>
 <section id="details-3" class="level3">
 <h3 class="anchored" data-anchor-id="details-3">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Title field should be in title case. Current version is:<br>
+‘This is my title’</p>
+<p>In title case that is:<br>
+‘This is My Title’</p>
+</div>
+</div>
+</div>
 <p>Determining Title Case automatically can be challenging due to word significance being only known by the package author. The function <code>toTitleCase()</code> can assist with transforming sentences into Title Case from the ‘tools’ package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="st">"web application framework for R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -402,6 +472,33 @@ Note
 <p>Add the <code>Authors@R</code> field in the DESCRIPTION file.</p>
 <section id="details-4" class="level3">
 <h3 class="anchored" data-anchor-id="details-4">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Author field differs from that derived from Authors@R.</p>
+<p>No Authors@R field in DESCRIPTION.<br>
+  Please add one, modifying<br>
+    Authors@R: c(person(given = “Alice”,<br>
+      family = “Developer”,<br>
+      role = c(“aut”, “cre”),<br>
+      email = “alice.developer@some.domain.net”),<br>
+    person(given = “Bob”,<br>
+      family = “Dev”,<br>
+      role = “aut”),<br>
+    )<br>
+  as necessary.</p>
+</div>
+</div>
+</div>
 <p>You can find more roles in the help documentation by running <code>?utils::person</code>. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span> <span class="fu">person</span>(<span class="st">"Jane"</span>, <span class="st">"Smith"</span>, <span class="at">email =</span> <span class="st">"chef@cran-cookbook.com"</span>,</span>
@@ -436,6 +533,26 @@ Note
 <p>Remove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.</p>
 <section id="details-5" class="level3">
 <h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form<br>
+authors (year) &lt;doi:…&gt;<br>
+authors (year, ISBN:…)<br>
+or if those are not available: &lt;https:…&gt;<br>
+with no space after ‘doi:’, ‘https:’ and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: “Title”)</p>
+</div>
+</div>
+</div>
 <p>Ideally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the <a href="https://github.com/RcppCore/Rcpp/blob/master/DESCRIPTION#L21-L29">‘Rcpp’</a> package:</p>
 <pre><code>Description: The 'Rcpp' package provides R functions as well as C++ classes which
  offer a seamless integration of R and C++. Many R data types and objects can be

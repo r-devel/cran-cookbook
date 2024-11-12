@@ -273,6 +273,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Often it is enough to simply add the missing <code>\value</code>-tags. If the function doesn’t return anything, write that as your <code>\value</code>-tag.</p>
 <section id="details" class="level3">
 <h3 class="anchored" data-anchor-id="details">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please add \value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g.&nbsp;\value{No return value, called for side effects} or similar)</p>
+</div>
+</div>
+</div>
 <p>CRAN wants a <code>\value</code>-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.</p>
 <p>Adding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.</p>
 <p>The only exception are .Rd-files for data sets, marked with the <code>\docType{data}</code>-tag. Since these are no functions, no <code>\value</code>-tag is necessary.</p>
@@ -296,6 +312,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Implement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using <code>roxygenize()</code>.</p>
 <section id="details-1" class="level3">
 <h3 class="anchored" data-anchor-id="details-1">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since you are using ‘roxygen2’, please make sure to add a <span class="citation" data-cites="return-tag">@return-tag</span> in the corresponding .R-file and re-roxygenize() your .Rd-files.</p>
+</div>
+</div>
+</div>
 <p>If you decide to render your manuals with <a href="https://cran.r-project.org/web/packages/roxygen2/index.html">‘roxygen2’</a>, the .Rd-files can be render using the function <a href="https://roxygen2.r-lib.org/reference/roxygenize.html"><code>roxygenize()</code></a>. If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">

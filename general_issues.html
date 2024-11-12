@@ -223,6 +223,22 @@ Where do they end up and who will look at them etc... -->
 <section id="description-length" class="level2">
 <h2 class="anchored" data-anchor-id="description-length">Description Length</h2>
 <p>The description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the <a href="https://github.com/tidyverse/tidyverse/blob/main/DESCRIPTION#L8-L12">‘tidyverse’</a> package.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Description field is intended to be a (one paragraph) description of what the package does and why it may be useful. Please add more details about the package functionality and implemented methods in your Description text.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="structuring-of-examples" class="level1">
@@ -234,7 +250,7 @@ Where do they end up and who will look at them etc... -->
 </ol>
 <p>For several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.</p>
 <ul>
-<li><strong>Unwrapper:</strong>
+<li><strong>Unwrapped:</strong>
 <ul>
 <li>Short examples to show the functionality of the code</li>
 <li>CRAN recommends the use of toy examples on small data sets</li>
@@ -286,6 +302,26 @@ Important
 <p>All wrappers must still be placed inside the <code>\examples{}</code> tag.</p>
 </div>
 </div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Examples of CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples of CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>\dontrun{} should only be used if the example really cannot be executed (e.g.&nbsp;because of missing additional software, missing API keys, …) by the user. That’s why wrapping examples in \dontrun{} adds the comment (“# Not run:”) as a warning for the user. Does not seem necessary. Please replace \dontrun with \donttest.</p>
+<p>Please unwrap the examples if they are executable in &lt; 5 sec, or replace \dontrun{} with \donttest{}.</p>
+<p>Functions which are supposed to only run interactively (e.g.&nbsp;shiny) should be wrapped in if(interactive()). Please replace \dontrun{} with if(interactive()){} if possible, then users can see that the functions are not intended for use in scripts.</p>
+<p>All your examples are wrapped in \donttest{} and therefore do not get tested.<br>
+Please unwrap the examples if that is feasible and if they can be executed in &lt; 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="package-size" class="level1">
 <h1>Package Size</h1>
@@ -303,6 +339,22 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the <a href="https://usethis.r-lib.org/reference/use_cran_comments.html">cran-comments.md</a> file.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A CRAN package should not be larger than 5 MB. Please reduce the size.</p>
+</div>
 </div>
 </div>
 
