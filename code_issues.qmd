@@ -17,6 +17,12 @@ Change the abbreviation to the full words or use a different variable name.
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please write TRUE and FALSE instead of T and F. Please don't use "T" or "F" as vector names.
+
+:::
+
 In R, `T` and `F` are variables being set to `TRUE` and `FALSE`, respectively. However, those variables can be redefined by the user since these are not reserved words as `TRUE` and `FALSE` are (see the [R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Reserved-words) for more details). This can result in unexpected code behavior as users of your package might have variables named `T`/`F`.
 
 ### Examples
@@ -55,6 +61,12 @@ Remove the code that sets the seed. If you want to set it specifically in your f
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please do not set a seed to a specific number within a function.
+
+:::
+
 Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
 
 ```{r, eval = FALSE}
@@ -91,6 +103,14 @@ You are using functions, like `print()` or `cat()`, to print unsuppressable outp
 Change `print()`/`cat()` to `message()`, `warning()`, `stop()`, or wrap them in `if(verbose){}`.
 
 ### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+You write information messages to the console that cannot be easily suppressed.
+It is more R like to generate objects that can be used to extract the information a user is interested in, and then print() that object. Instead of print()/cat() rather use message()/warning() or if(verbose)cat(..) (or maybe stop()) if you really have to write text to the console. (except for print, summary, interactive functions)
+
+:::
+
 Information messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users. 
 
 :::{.callout-note}
@@ -150,6 +170,26 @@ You are changing the `par()`, `options()` or `setwd()` in your functions, exampl
 Reset the changed options, in your functions by using [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) or in examples, demos and vignettes with an additional line of code after the example.
 
 ### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+Please make sure that you do not change the user's options, par or working directory. If you really have to do so within functions, please ensure with an *immediate* call of on.exit() that the settings are reset when the function is exited.  
+e.g.:  
+...  
+oldpar <- par(no.readonly = TRUE) # code line i  
+on.exit(par(oldpar)) # code line i + 1  
+...  
+par(mfrow=c(2,2)) # somewhere after  
+...  
+e.g.:  
+If you're not familiar with the function, please check ?on.exit. This function makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.  
+
+Please always make sure to reset to user's options(), working directory or par() after you changed it in examples and vignettes and demos.  
+e.g.:  
+oldpar <- par(mfrow = c(1,2))  
+...  
+par(oldpar)  
+
+:::
 
 Ideally, the user's options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. 
 The reason for this rule is this line stated in the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html):
