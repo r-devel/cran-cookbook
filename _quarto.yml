@@ -8,14 +8,16 @@ website:
   title: The CRAN Cookbook
   site-url: https://contributor.r-project.org/cran-cookbook
   repo-url: https://github.com/r-devel/cran-cookbook
-  repo-actions: [edit, source, issue]
   favicon: favicon.png
+  reader-mode: true
+  page-navigation: true
+  back-to-top-navigation: true
 
   page-footer:
     center: "The CRAN Cookbook (2024)"
 
   sidebar:
-    title: "The CRAN Cookbook"
+    title: The CRAN Cookbook
     logo: "CRAN Cookbook Hex Sticker.png"
     style: "docked"
     background: light
@@ -34,9 +36,11 @@ website:
       - icon: bug-fill
         text: Report a Bug
         href:  https://github.com/r-devel/cran-cookbook/issues
+        aria-label: Bug
       - icon: file-plus-fill
         text: Contribute a Community Recipe
         href:  https://github.com/r-devel/cran-cookbook/discussions/categories/community-contributions
+        aria-label: Contribute
 
 format:
   html:
