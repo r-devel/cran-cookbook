@@ -17,6 +17,15 @@ All references to names of software, packages and API names in the description s
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please always write package names, software names and API (application programming interface) names in single quotes in title and description.
+e.g: --> 'python'
+
+Please note that package names are case sensitive.
+
+:::
+
 Words in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names **only**.
 
 The description section in the [DESCRIPTION file](https://github.com/tidyverse/readr/blob/main/DESCRIPTION) of the 'readr' package provides an example which uses single quotes around the package name and file extensions:
@@ -43,6 +52,12 @@ Document all non-obvious acronyms in the [cran-comments.md](https://usethis.r-li
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Please always explain all acronyms in the description text.
+
+:::
+
 Most acronyms that are not widely known should be explained. For example, you don’t have to explain *OLS*, *SEO*, or *DNA* but explanations should be provided for: *MEFM* or *OCCDS*. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.
 
 
@@ -60,6 +75,17 @@ Some licenses do not need to be added verbatim, instead they are referenced in t
 Remove the reference `+ file LICENSE` and delete the LICENSE file.
 
 ### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+The LICENSE file is only needed if you have additional restrictions to the license which you have not? In that case omit the file and its reference in the DESCRIPTION file.
+
+License components with restrictions and base license permitting such:
+GPL-3 + file LICENSE
+
+We do not need "+ file LICENSE" and the file as these are part of R. This is only needed in case of attribution requirements or other possible restrictions. Hence please omit it.
+
+:::
 
 Most licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within _R_ by searching for **Note: this is a template, needs + file LICENSE**:
 
@@ -92,6 +118,16 @@ The package Title field in the DESCRIPTION file must be in Title Case, except wo
 
 ### Details
 
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+The Title field should be in title case.  Current version is:  
+'This is my title'
+
+In title case that is:  
+'This is My Title'
+
+:::
+
 Determining Title Case automatically can be challenging due to word significance being only known by the package author. The function `toTitleCase()` can assist with transforming sentences into Title Case from the 'tools' package.
 
 ```{r}
@@ -119,6 +155,24 @@ Add the `Authors@R` field in the DESCRIPTION file.
 
 
 ### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+Author field differs from that derived from Authors@R.
+
+No Authors@R field in DESCRIPTION.  
+&emsp; Please add one, modifying  
+&emsp; &emsp; Authors@R: c(person(given = "Alice",    
+&emsp; &emsp; &emsp; family = "Developer",  
+&emsp; &emsp; &emsp; role = c("aut", "cre"),  
+&emsp; &emsp; &emsp; email = "alice.developer@some.domain.net"),  
+&emsp; &emsp; person(given = "Bob",  
+&emsp; &emsp; &emsp; family = "Dev",  
+&emsp; &emsp; &emsp; role = "aut"),  
+&emsp; &emsp; )  
+&emsp; as necessary.
+
+:::
 
 You can find more roles in the help documentation by running `?utils::person`. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.
 
@@ -152,6 +206,17 @@ Write the reference in the form: Authors (year) <doi:...>.
 
 
 ### Details
+
+::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
+
+If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form  
+authors (year) <doi:...>  
+authors (year, ISBN:...)  
+or if those are not available: <https:...>  
+with no space after 'doi:', 'https:' and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: "Title")
+
+:::
+
 
 Ideally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ['Rcpp'](https://github.com/RcppCore/Rcpp/blob/master/DESCRIPTION#L21-L29) package:
 
