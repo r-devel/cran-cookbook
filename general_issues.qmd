@@ -102,9 +102,14 @@ If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in t
 
 :::
 
+
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
 
 A CRAN package should not be larger than 5 MB. Please reduce the size.
 
 :::
+
+# Communicating with CRAN
+
+For a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC `cran-submission@r-project.org` in your email communications. This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file ([cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html)).
 
