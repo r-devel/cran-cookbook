@@ -36,7 +36,10 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 
 ## Contributors
 
-_Thanks to all contributors!_
+_Thank you to all contributors!_ 
+
+
+If you are looking to make a contribution to the CRAN Cookbook please see our [contributors guide](https://github.com/r-devel/cran-cookbook/wiki/Contributors-Guide). 
 
 - Lluís Revilla ([@llrs](https://github.com/llrs))
 
