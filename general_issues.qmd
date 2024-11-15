@@ -11,7 +11,7 @@ format:
 <!-- I would add a section about the path of packages when they are submitted to CRAN.
 Where do they end up and who will look at them etc... -->
 
-# Fields the DESCRIPTION File
+# Fields of the DESCRIPTION File
 
 <!-- I suggest writing a short overview of the most common and important fields of the DESCRIPTION -->
 
