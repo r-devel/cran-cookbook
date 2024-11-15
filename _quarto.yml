@@ -49,6 +49,7 @@ format:
       dark: [cosmo, theme-dark.scss]
     css: style.css
     toc: true
+    include-in-header: plausible.html
 
 
 
