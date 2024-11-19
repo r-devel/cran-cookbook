@@ -35,7 +35,7 @@ Sometimes functions don't return one specific value but are rather called for th
 \value{No return value, called for side effects}
 ```
 
-When using 'roxygen' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\value`-tag automatically when rendering.
+When using 'roxygen2' to render the .Rd-files, an `@return`-tag must be added in the corresponding .R-file. This will create the `\value`-tag automatically when rendering.
 
 ``` default
 #' @return What your function returns.
