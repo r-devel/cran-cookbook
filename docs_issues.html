@@ -292,7 +292,7 @@ CRAN Review Communication
 <p>The only exception are .Rd-files for data sets, marked with the <code>\docType{data}</code>-tag. Since these are no functions, no <code>\value</code>-tag is necessary.</p>
 <p>Sometimes functions don’t return one specific value but are rather called for their side effects. In that case the <code>\value</code>-tag should state this.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>\value{No return value, called for side effects}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>When using ‘roxygen’ to render the .Rd-files, an <code>@return</code>-tag must be added in the corresponding .R-file. This will create the <code>\value</code>-tag automatically when rendering.</p>
+<p>When using ‘roxygen2’ to render the .Rd-files, an <code>@return</code>-tag must be added in the corresponding .R-file. This will create the <code>\value</code>-tag automatically when rendering.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>#' @return What your function returns.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For more details on ‘roxygen2’ check the <a href="#repeated-rejections-of-issues-in-manuals-if-using-roxygen2">‘roxygen2’ section</a>.</p>
 <hr>
