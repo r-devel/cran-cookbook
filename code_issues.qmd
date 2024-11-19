@@ -311,13 +311,13 @@ Some of your code that runs during ` R CMD check ` creates files in the temporar
 
 ## Solution
 
-If you use `tempfile()`/`tempdir()` as the default destination for functions called in your examples or tests, `unlink()` the resulting files as part of the test. In the `\examples{}` section of your help files, clean-up actions can be wrapped in `\dontshow{}` for aesthetic reasons. If you launch a browser, Calibre, or Python code, and it creates temporary files, find out what they are and remove them once the launched code is done with them.
+If you use `tempfile()`/`tempdir()` as the default destination for functions called in your examples or tests, `unlink()` the resulting files as part of the test. In the `\examples{}` section of your help files, clean-up actions can be wrapped in `\dontshow{}` for aesthetic reasons. If you launch a browser, Calibre, Python code or other software, and it creates temporary files, find out where they are and remove them once the code is done with them.
 
 ### Details
 
 The code responsible for the detritus may include your own tests and examples creating files under `tempdir()`, child processes, or Python code launched using `reticulate`. For example, R packages that use the `tensorflow` Python package [find and remove temporary files created by its auto-gradient feature](https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13).
 
-A package that uses the `testthat` test suite will benefit from [the self-cleaning functions `withr::local_tempfile()` and `withr::local_tempdir()`](https://r-pkgs.org/testing-design.html#sec-tests-files-where-write) to work with temporary files. Even without `testthat`, the `withr` package has no non-core strong dependencies and can be used independently.
+A package that uses the `testthat` test suite will benefit from [the self-cleaning functions `withr::local_tempfile()` and `withr::local_tempdir()`](https://r-pkgs.org/testing-design.html#sec-tests-files-where-write) to work with temporary files. Even without `testthat`, the `withr` package has no external strong dependencies and can be used independently.
 
 ---------------------------------------
 
