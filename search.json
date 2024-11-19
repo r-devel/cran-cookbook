@@ -232,131 +232,131 @@
   {
     "objectID": "description_issues.html",
     "href": "description_issues.html",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "",
     "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem",
     "href": "description_issues.html#problem",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "",
     "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution",
     "href": "description_issues.html#solution",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "",
     "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem-1",
     "href": "description_issues.html#problem-1",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Problem",
     "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution-1",
     "href": "description_issues.html#solution-1",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Solution",
     "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always explain all acronyms in the description text.\n\n\n\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem-2",
     "href": "description_issues.html#problem-2",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Problem",
     "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution-2",
     "href": "description_issues.html#solution-2",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Solution",
     "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe LICENSE file is only needed if you have additional restrictions to the license which you have not? In that case omit the file and its reference in the DESCRIPTION file.\nLicense components with restrictions and base license permitting such: GPL-3 + file LICENSE\nWe do not need “+ file LICENSE” and the file as these are part of R. This is only needed in case of attribution requirements or other possible restrictions. Hence please omit it.\n\n\n\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem-3",
     "href": "description_issues.html#problem-3",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Problem",
     "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution-3",
     "href": "description_issues.html#solution-3",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Solution",
     "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Title field should be in title case. Current version is:\n‘This is my title’\nIn title case that is:\n‘This is My Title’\n\n\n\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem-4",
     "href": "description_issues.html#problem-4",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Problem",
     "text": "Problem\nYou have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution-4",
     "href": "description_issues.html#solution-4",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Solution",
     "text": "Solution\nAdd the Authors@R field in the DESCRIPTION file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nAuthor field differs from that derived from Authors@R.\nNo Authors@R field in DESCRIPTION.\n  Please add one, modifying\n    Authors@R: c(person(given = “Alice”,\n      family = “Developer”,\n      role = c(“aut”, “cre”),\n      email = “alice.developer@some.domain.net”),\n    person(given = “Bob”,\n      family = “Dev”,\n      role = “aut”),\n    )\n  as necessary.\n\n\n\nYou can find more roles in the help documentation by running ?utils::person. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.\n\nAuthors@R: person(\"Jane\", \"Smith\", email = \"chef@cran-cookbook.com\",\n  role = c(\"aut\", \"cre\"), ORCID = \"&lt;USER-ORCID&gt;\")\n\n\n\n\n\n\n\nNote\n\n\n\nThe Maintainer and Author fields are automatically generated, so you don’t need to add them manually.\nIf your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#problem-5",
     "href": "description_issues.html#problem-5",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Problem",
     "text": "Problem\nThe reference link in the Description field is incorrectly formatted or isn’t clickable.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
     "objectID": "description_issues.html#solution-5",
     "href": "description_issues.html#solution-5",
-    "title": "DESCRIPTION file Issues",
+    "title": "DESCRIPTION File Issues",
     "section": "Solution",
     "text": "Solution\nRemove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nIf there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form\nauthors (year) &lt;doi:…&gt;\nauthors (year, ISBN:…)\nor if those are not available: &lt;https:…&gt;\nwith no space after ‘doi:’, ‘https:’ and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: “Title”)\n\n\n\nIdeally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ‘Rcpp’ package:\nDescription: The 'Rcpp' package provides R functions as well as C++ classes which\n offer a seamless integration of R and C++. Many R data types and objects can be\n mapped back and forth to C++ equivalents which facilitates both writing of new\n code as well as easier integration of third-party libraries. Documentation\n about 'Rcpp' is provided by several vignettes included in this package, via the\n 'Rcpp Gallery' site at &lt;https://gallery.rcpp.org&gt;, the paper by Eddelbuettel and\n Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel (2013,\n &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and Balamuta (2018,\n &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation(\"Rcpp\")' for details.\n\n\n\n\n\n\nTip\n\n\n\nIncluding a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the cran-comments.md file to provide additional references or information.",
     "crumbs": [
-      "DESCRIPTION file Issues"
+      "DESCRIPTION File Issues"
     ]
   },
   {
