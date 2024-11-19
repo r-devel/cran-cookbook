@@ -1,5 +1,5 @@
 ---
-title: "DESCRIPTION file Issues"
+title: "DESCRIPTION File Issues"
 format: 
   html:
     css: style.css
