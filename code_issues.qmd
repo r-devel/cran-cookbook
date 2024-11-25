@@ -1,5 +1,6 @@
 ---
 title: "Code Issues"
+subtitle: "The Code Issues chapter provides recipes for addressing common challenges in writing functions, managing file and directory operations, and handling installation and compute resources."
 format: 
   html:
     css: style.css
