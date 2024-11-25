@@ -1,6 +1,6 @@
 ---
 title: "Additional Resources"
-subtitle: ""
+subtitle: "The CRAN Cookbook is designed to complement other key resources listed below for developing R packages intended for distribution on CRAN."
 format: 
   html:
     css: style.css
