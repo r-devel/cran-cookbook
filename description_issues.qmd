@@ -1,5 +1,6 @@
 ---
 title: "DESCRIPTION File Issues"
+subtitle: "The DESCRIPTION Files Issues chapter features recipes on content formatting, license structuring, and how to include additional background context & links."
 format: 
   html:
     css: style.css
