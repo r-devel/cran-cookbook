@@ -134,7 +134,7 @@
     "href": "code_issues.html#problem-5",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem\nYou are writing per default to the global environment, .GlobalEnv, the user’s workspace.",
+    "text": "Problem\nSome of your code that runs during R CMD check creates files in the temporary directory specified by the environment variable TMPDIR and doesn’t remove them afterwards. As a result, R CMD check gives your package a NOTE complaining about the “detritus in the temp directory”.",
     "crumbs": [
       "Code Issues"
     ]
@@ -144,7 +144,7 @@
     "href": "code_issues.html#solution-5",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\nOmit any default writing to the global environment.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not modify the global environment (e.g. by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.\n\n\n\nThe .GlobalEnv is the main workspace of users. It can also be accessed by globalenv(). Writing to the global environment is forbidden for CRAN packages.\nSometimes package maintainers use the operator &lt;&lt;-. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the .GlobalEnv. To avoid writing to the global environment, the variable must be defined in a parent environment.\n\nfoo &lt;- function(){\n  \n  # defines the variable in the foo()-function environment\n  var &lt;- NULL\n  \n  foo1 &lt;- function(){\n    \n    # redefines var but only in the foo() environment as it is the parent of foo1()\n    var &lt;&lt;- \"redefined\"\n  }\n  \n  # calls the foo1() function to redefine var\n  foo1()\n  return(var)\n}\n\nPart of the .GlobalEnv is the .Random.seed which should not be changed at all.\nExcepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the .GlobalEnv.\n\n\n\n\n\n\nNote\n\n\n\nCalls of rm(list = ls()) to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions rm(list = ls()) can be used, as the active environment is then the function environment instead of the global environment.",
+    "text": "Solution\nIf you use tempfile()/tempdir() as the default destination for functions called in your examples or tests, unlink() the resulting files as part of the test. In the \\examples{} section of your help files, clean-up actions can be wrapped in \\dontshow{} for aesthetic reasons. If you launch a browser, ‘Calibre’, ‘Python’ code or other software, and it creates temporary files, find out where they are and remove them once the code is done with them.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: for detritus in the temp directory, Result: NOTE\n  Found the following files/directories:\n   ‘this_is_detritus382e569a7712’\n\n\nThe code responsible for the detritus may include your own tests and examples creating files under tempdir(), child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package find and remove temporary files created by its auto-gradient feature.\nA package that uses the ‘testthat’ test suite will benefit from the self-cleaning functions withr::local_tempfile() and withr::local_tempdir() to work with temporary files. Even without ‘testthat’, the ‘withr’ package has no external strong dependencies and can be used independently.",
     "crumbs": [
       "Code Issues"
     ]
@@ -154,7 +154,7 @@
     "href": "code_issues.html#problem-6",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem\nYou are calling installed.packages() to check if a package is installed.",
+    "text": "Problem\nYou are writing per default to the global environment, .GlobalEnv, the user’s workspace.",
     "crumbs": [
       "Code Issues"
     ]
@@ -164,7 +164,7 @@
     "href": "code_issues.html#solution-6",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this recipe.",
+    "text": "Solution\nOmit any default writing to the global environment.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not modify the global environment (e.g. by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.\n\n\n\nThe .GlobalEnv is the main workspace of users. It can also be accessed by globalenv(). Writing to the global environment is forbidden for CRAN packages.\nSometimes package maintainers use the operator &lt;&lt;-. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the .GlobalEnv. To avoid writing to the global environment, the variable must be defined in a parent environment.\n\nfoo &lt;- function(){\n  \n  # defines the variable in the foo()-function environment\n  var &lt;- NULL\n  \n  foo1 &lt;- function(){\n    \n    # redefines var but only in the foo() environment as it is the parent of foo1()\n    var &lt;&lt;- \"redefined\"\n  }\n  \n  # calls the foo1() function to redefine var\n  foo1()\n  return(var)\n}\n\nPart of the .GlobalEnv is the .Random.seed which should not be changed at all.\nExcepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the .GlobalEnv.\n\n\n\n\n\n\nNote\n\n\n\nCalls of rm(list = ls()) to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions rm(list = ls()) can be used, as the active environment is then the function environment instead of the global environment.",
     "crumbs": [
       "Code Issues"
     ]
@@ -174,7 +174,7 @@
     "href": "code_issues.html#problem-7",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem\nYou are setting options(warn = -1).",
+    "text": "Problem\nYou are calling installed.packages() to check if a package is installed.",
     "crumbs": [
       "Code Issues"
     ]
@@ -184,7 +184,7 @@
     "href": "code_issues.html#solution-7",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
+    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this recipe.",
     "crumbs": [
       "Code Issues"
     ]
@@ -194,7 +194,7 @@
     "href": "code_issues.html#problem-8",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem\nYou are installing software or packages in your functions, examples, tests or vignettes.",
+    "text": "Problem\nYou are setting options(warn = -1).",
     "crumbs": [
       "Code Issues"
     ]
@@ -204,7 +204,7 @@
     "href": "code_issues.html#solution-8",
     "title": "Code Issues",
     "section": "Solution",
-    "text": "Solution\nCreate special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.\n\n\n\nPackages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.\nTo ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:\n\ndevtools::install_github()\nreticulate::install_python()\n\nThe corresponding help file should also state that software will be installed.\n\n\n\n\n\n\nNote\n\n\n\nEven if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this recipe.",
+    "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
     "crumbs": [
       "Code Issues"
     ]
@@ -214,7 +214,7 @@
     "href": "code_issues.html#problem-9",
     "title": "Code Issues",
     "section": "Problem",
-    "text": "Problem\nYou are using more than 2 CPU cores in your examples, vignettes, tests or during installation.",
+    "text": "Problem\nYou are installing software or packages in your functions, examples, tests or vignettes.",
     "crumbs": [
       "Code Issues"
     ]
@@ -222,6 +222,26 @@
   {
     "objectID": "code_issues.html#solution-9",
     "href": "code_issues.html#solution-9",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nCreate special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.\n\n\n\nPackages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.\nTo ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:\n\ndevtools::install_github()\nreticulate::install_python()\n\nThe corresponding help file should also state that software will be installed.\n\n\n\n\n\n\nNote\n\n\n\nEven if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this recipe.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-10",
+    "href": "code_issues.html#problem-10",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using more than 2 CPU cores in your examples, vignettes, tests or during installation.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-10",
+    "href": "code_issues.html#solution-10",
     "title": "Code Issues",
     "section": "Solution",
     "text": "Solution\nMake sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the -j flag. \n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that you do not use more than 2 cores in your examples, vignettes, etc.\n\n\n\nCRAN checks run on big, multi-core computers, running many R CMD check processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: whether package can be installed, Result: NOTE\n  Installation took CPU time 6.9 times elapsed time\n\nCheck: examples, Result: NOTE\n  Examples with CPU time &gt; 2.5 times elapsed time\n\n\nAutomatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.\nSomething that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the -j flag which originated from GNU Make (for more information, see their manual).",

@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-4" id="toc-details-4" class="nav-link" data-scroll-target="#details-4">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#writing-to-the-.globalenv" id="toc-writing-to-the-.globalenv" class="nav-link" data-scroll-target="#writing-to-the-.globalenv">Writing to the <code>.GlobalEnv</code></a>
+  <li><a href="#leaving-files-in-the-temporary-directory" id="toc-leaving-files-in-the-temporary-directory" class="nav-link" data-scroll-target="#leaving-files-in-the-temporary-directory">Leaving Files in the Temporary Directory</a>
   <ul class="collapse">
   <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem</a></li>
   <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a>
@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-5" id="toc-details-5" class="nav-link" data-scroll-target="#details-5">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#calling-installed.packages" id="toc-calling-installed.packages" class="nav-link" data-scroll-target="#calling-installed.packages">Calling <code>installed.packages()</code></a>
+  <li><a href="#writing-to-the-.globalenv" id="toc-writing-to-the-.globalenv" class="nav-link" data-scroll-target="#writing-to-the-.globalenv">Writing to the <code>.GlobalEnv</code></a>
   <ul class="collapse">
   <li><a href="#problem-6" id="toc-problem-6" class="nav-link" data-scroll-target="#problem-6">Problem</a></li>
   <li><a href="#solution-6" id="toc-solution-6" class="nav-link" data-scroll-target="#solution-6">Solution</a>
@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-6" id="toc-details-6" class="nav-link" data-scroll-target="#details-6">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#setting-optionswarn--1" id="toc-setting-optionswarn--1" class="nav-link" data-scroll-target="#setting-optionswarn--1">Setting <code>options(warn = -1)</code></a>
+  <li><a href="#calling-installed.packages" id="toc-calling-installed.packages" class="nav-link" data-scroll-target="#calling-installed.packages">Calling <code>installed.packages()</code></a>
   <ul class="collapse">
   <li><a href="#problem-7" id="toc-problem-7" class="nav-link" data-scroll-target="#problem-7">Problem</a></li>
   <li><a href="#solution-7" id="toc-solution-7" class="nav-link" data-scroll-target="#solution-7">Solution</a>
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-7" id="toc-details-7" class="nav-link" data-scroll-target="#details-7">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#installing-software" id="toc-installing-software" class="nav-link" data-scroll-target="#installing-software">Installing Software</a>
+  <li><a href="#setting-optionswarn--1" id="toc-setting-optionswarn--1" class="nav-link" data-scroll-target="#setting-optionswarn--1">Setting <code>options(warn = -1)</code></a>
   <ul class="collapse">
   <li><a href="#problem-8" id="toc-problem-8" class="nav-link" data-scroll-target="#problem-8">Problem</a></li>
   <li><a href="#solution-8" id="toc-solution-8" class="nav-link" data-scroll-target="#solution-8">Solution</a>
@@ -284,12 +284,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details-8" id="toc-details-8" class="nav-link" data-scroll-target="#details-8">Details</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#using-more-than-2-cores" id="toc-using-more-than-2-cores" class="nav-link" data-scroll-target="#using-more-than-2-cores">Using more than 2 Cores</a>
+  <li><a href="#installing-software" id="toc-installing-software" class="nav-link" data-scroll-target="#installing-software">Installing Software</a>
   <ul class="collapse">
   <li><a href="#problem-9" id="toc-problem-9" class="nav-link" data-scroll-target="#problem-9">Problem</a></li>
   <li><a href="#solution-9" id="toc-solution-9" class="nav-link" data-scroll-target="#solution-9">Solution</a>
   <ul class="collapse">
   <li><a href="#details-9" id="toc-details-9" class="nav-link" data-scroll-target="#details-9">Details</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#using-more-than-2-cores" id="toc-using-more-than-2-cores" class="nav-link" data-scroll-target="#using-more-than-2-cores">Using more than 2 Cores</a>
+  <ul class="collapse">
+  <li><a href="#problem-10" id="toc-problem-10" class="nav-link" data-scroll-target="#problem-10">Problem</a></li>
+  <li><a href="#solution-10" id="toc-solution-10" class="nav-link" data-scroll-target="#solution-10">Solution</a>
+  <ul class="collapse">
+  <li><a href="#details-10" id="toc-details-10" class="nav-link" data-scroll-target="#details-10">Details</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -669,19 +677,51 @@ CRAN Review Communication
 </section>
 </section>
 </section>
-<section id="writing-to-the-.globalenv" class="level1">
-<h1>Writing to the <code>.GlobalEnv</code></h1>
+<section id="leaving-files-in-the-temporary-directory" class="level1">
+<h1>Leaving Files in the Temporary Directory</h1>
 <section id="problem-5" class="level2">
 <h2 class="anchored" data-anchor-id="problem-5">Problem</h2>
-<p>You are writing per default to the global environment, <code>.GlobalEnv</code>, the user’s workspace.</p>
+<p>Some of your code that runs during <code>R CMD check</code> creates files in the temporary directory specified by the environment variable <code>TMPDIR</code> and doesn’t remove them afterwards. As a result, <code>R CMD check</code> gives your package a NOTE complaining about the “detritus in the temp directory”.</p>
 </section>
 <section id="solution-5" class="level2">
 <h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
-<p>Omit any default writing to the global environment.</p>
+<p>If you use <code>tempfile()</code>/<code>tempdir()</code> as the default destination for functions called in your examples or tests, <code>unlink()</code> the resulting files as part of the test. In the <code>\examples{}</code> section of your help files, clean-up actions can be wrapped in <code>\dontshow{}</code> for aesthetic reasons. If you launch a browser, ‘Calibre’, ‘Python’ code or other software, and it creates temporary files, find out where they are and remove them once the code is done with them.</p>
 <section id="details-5" class="level3">
 <h3 class="anchored" data-anchor-id="details-5">Details</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="CRAN NOTE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN NOTE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check: for detritus in the temp directory, Result: NOTE<br>
+  Found the following files/directories:<br>
+   ‘this_is_detritus382e569a7712’</p>
+</div>
+</div>
+<p>The code responsible for the detritus may include your own tests and examples creating files under <code>tempdir()</code>, child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package <a href="https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13">find and remove temporary files created by its auto-gradient feature</a>.</p>
+<p>A package that uses the ‘testthat’ test suite will benefit from <a href="https://r-pkgs.org/testing-design.html#sec-tests-files-where-write">the self-cleaning functions <code>withr::local_tempfile()</code> and <code>withr::local_tempdir()</code></a> to work with temporary files. Even without ‘testthat’, the ‘withr’ package has no external strong dependencies and can be used independently.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="writing-to-the-.globalenv" class="level1">
+<h1>Writing to the <code>.GlobalEnv</code></h1>
+<section id="problem-6" class="level2">
+<h2 class="anchored" data-anchor-id="problem-6">Problem</h2>
+<p>You are writing per default to the global environment, <code>.GlobalEnv</code>, the user’s workspace.</p>
+</section>
+<section id="solution-6" class="level2">
+<h2 class="anchored" data-anchor-id="solution-6">Solution</h2>
+<p>Omit any default writing to the global environment.</p>
+<section id="details-6" class="level3">
+<h3 class="anchored" data-anchor-id="details-6">Details</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -690,7 +730,7 @@ CRAN Review Communication
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Please do not modify the global environment (e.g.&nbsp;by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.</p>
 </div>
@@ -736,17 +776,17 @@ Note
 </section>
 <section id="calling-installed.packages" class="level1">
 <h1>Calling <code>installed.packages()</code></h1>
-<section id="problem-6" class="level2">
-<h2 class="anchored" data-anchor-id="problem-6">Problem</h2>
+<section id="problem-7" class="level2">
+<h2 class="anchored" data-anchor-id="problem-7">Problem</h2>
 <p>You are calling <code>installed.packages()</code> to check if a package is installed.</p>
 </section>
-<section id="solution-6" class="level2">
-<h2 class="anchored" data-anchor-id="solution-6">Solution</h2>
+<section id="solution-7" class="level2">
+<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
 <p>Instead of using <code>installed.packages()</code>, use <code>requireNamespace("pkg")</code> or <code>require("pkg")</code> to find out if packages are available.</p>
-<section id="details-6" class="level3">
-<h3 class="anchored" data-anchor-id="details-6">Details</h3>
+<section id="details-7" class="level3">
+<h3 class="anchored" data-anchor-id="details-7">Details</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -755,7 +795,7 @@ CRAN Review Communication
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You are using <code>installed.packages()</code> in your code. As mentioned in the notes of <code>installed.packages()</code> help page, this can be very slow. Therefore do not use <code>installed.packages()</code>.</p>
 </div>
@@ -777,46 +817,13 @@ CRAN Review Communication
 </section>
 <section id="setting-optionswarn--1" class="level1">
 <h1>Setting <code>options(warn = -1)</code></h1>
-<section id="problem-7" class="level2">
-<h2 class="anchored" data-anchor-id="problem-7">Problem</h2>
-<p>You are setting <code>options(warn = -1)</code>.</p>
-</section>
-<section id="solution-7" class="level2">
-<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
-<p>Consider using <code>suppressWarnings()</code> instead of <code>options(warn = -1)</code> if you absolutely need to suppress warnings.</p>
-<section id="details-7" class="level3">
-<h3 class="anchored" data-anchor-id="details-7">Details</h3>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-CRAN Review Communication
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You are setting <code>options(warn=-1)</code> in your function. This is not allowed. Please rather use <code>suppressWarnings()</code> if really needed.</p>
-</div>
-</div>
-</div>
-<p>CRAN doesn’t allow negative <code>warn</code> options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the <a href="#change-of-options-graphical-parameters-and-working-directory">Change of Options recipe</a>, the submission will be rejected.</p>
-<p>CRAN recommends using <code>suppressWarnings()</code>, which disables warnings only for the specific expression it’s applied to, rather than globally.</p>
-<hr>
-</section>
-</section>
-</section>
-<section id="installing-software" class="level1">
-<h1>Installing Software</h1>
 <section id="problem-8" class="level2">
 <h2 class="anchored" data-anchor-id="problem-8">Problem</h2>
-<p>You are installing software or packages in your functions, examples, tests or vignettes.</p>
+<p>You are setting <code>options(warn = -1)</code>.</p>
 </section>
 <section id="solution-8" class="level2">
 <h2 class="anchored" data-anchor-id="solution-8">Solution</h2>
-<p>Create special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.</p>
+<p>Consider using <code>suppressWarnings()</code> instead of <code>options(warn = -1)</code> if you absolutely need to suppress warnings.</p>
 <section id="details-8" class="level3">
 <h3 class="anchored" data-anchor-id="details-8">Details</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
@@ -830,6 +837,39 @@ CRAN Review Communication
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are setting <code>options(warn=-1)</code> in your function. This is not allowed. Please rather use <code>suppressWarnings()</code> if really needed.</p>
+</div>
+</div>
+</div>
+<p>CRAN doesn’t allow negative <code>warn</code> options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the <a href="#change-of-options-graphical-parameters-and-working-directory">Change of Options recipe</a>, the submission will be rejected.</p>
+<p>CRAN recommends using <code>suppressWarnings()</code>, which disables warnings only for the specific expression it’s applied to, rather than globally.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="installing-software" class="level1">
+<h1>Installing Software</h1>
+<section id="problem-9" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9">Problem</h2>
+<p>You are installing software or packages in your functions, examples, tests or vignettes.</p>
+</section>
+<section id="solution-9" class="level2">
+<h2 class="anchored" data-anchor-id="solution-9">Solution</h2>
+<p>Create special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.</p>
+<section id="details-9" class="level3">
+<h3 class="anchored" data-anchor-id="details-9">Details</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CRAN Review Communication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.</p>
 </div>
@@ -861,17 +901,17 @@ Note
 </section>
 <section id="using-more-than-2-cores" class="level1">
 <h1>Using more than 2 Cores</h1>
-<section id="problem-9" class="level2">
-<h2 class="anchored" data-anchor-id="problem-9">Problem</h2>
+<section id="problem-10" class="level2">
+<h2 class="anchored" data-anchor-id="problem-10">Problem</h2>
 <p>You are using more than 2 CPU cores in your examples, vignettes, tests or during installation.</p>
 </section>
-<section id="solution-9" class="level2">
-<h2 class="anchored" data-anchor-id="solution-9">Solution</h2>
+<section id="solution-10" class="level2">
+<h2 class="anchored" data-anchor-id="solution-10">Solution</h2>
 <p>Make sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the <code>-j</code> flag. <!-- This was recommended by 'aitap' in a discussion on GitHub --></p>
-<section id="details-9" class="level3">
-<h3 class="anchored" data-anchor-id="details-9">Details</h3>
+<section id="details-10" class="level3">
+<h3 class="anchored" data-anchor-id="details-10">Details</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="CRAN Review Communication">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -880,7 +920,7 @@ CRAN Review Communication
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Please ensure that you do not use more than 2 cores in your examples, vignettes, etc.</p>
 </div>
