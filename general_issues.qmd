@@ -6,7 +6,7 @@ format:
     css: style.css
 ---
 
-# Structure of CRAN-Submissions
+<!-- # Structure of CRAN-Submissions -->
 
 <!-- I would add a section about the path of packages when they are submitted to CRAN.
 Where do they end up and who will look at them etc... -->
