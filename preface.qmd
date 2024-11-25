@@ -8,7 +8,9 @@ format:
 
 # Motivation
 
-<!-- add this --> 
+The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the **Writing R Extensions** manual and **CRAN Repository Policy**, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.
+
+The authors delivered a talk on *The CRAN Cookbook* at the virtual [LatinR Conference](https://latinr.org/en/) on November 20, 2024. The recording of the talk is available on [YouTube](https://www.youtube.com/watch?v=3QR1ez6CVTo).
 
 # Introduction
 
@@ -17,8 +19,6 @@ The CRAN Cookbook has been developed as part of a special project grant from the
 1. Educate a diverse cohort of young R developers to acquire the technical knowledge and skills required to participate in the continuous integration of R packages into the R ecosystem.
 2. Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.
 3. Identify common CRAN submission issues and create a framework of "problems" and "solutions" that are easy to implement and discover.
-
-<!-- add more -->
 
 # Prerequisite
 
