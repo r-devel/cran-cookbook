@@ -1,12 +1,12 @@
 ---
 title: "General Issues"
-subtitle: "General issues and helpful notes around CRAN submission best practices."
+subtitle: "The General Issues chapter offers practical tips on CRAN submission best practices, essential file and example structuring, and key meta package requirements."
 format: 
   html:
     css: style.css
 ---
 
-# Structure of CRAN-Submissions
+<!-- # Structure of CRAN-Submissions -->
 
 <!-- I would add a section about the path of packages when they are submitted to CRAN.
 Where do they end up and who will look at them etc... -->

@@ -1,5 +1,6 @@
 ---
 title: "Manuals & Documentation Issues"
+subtitle: "The Manuals & Documentation Issues chapter provides recipes on help documentation files, using **roxygen2**, and creating examples, vignettes, and tests."
 format: 
   html:
     css: style.css
