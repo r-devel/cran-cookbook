@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-623d946cbb11cc8e81678cea30ec8bd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-31a2823bf89caa9a5f58f0c727dfaa0f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -249,7 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<!-- add this -->
+<p>The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the <strong>Writing R Extensions</strong> manual and <strong>CRAN Repository Policy</strong>, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.</p>
+<p>The authors delivered a talk on <em>The CRAN Cookbook</em> at the virtual <a href="https://latinr.org/en/">LatinR Conference</a> on November 20, 2024. The recording of the talk is available on <a href="https://www.youtube.com/watch?v=3QR1ez6CVTo">YouTube</a>.</p>
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
@@ -259,7 +260,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Develop a new documentation solution with a Quarto website that is user-friendly for new R package maintainers on CRAN.</li>
 <li>Identify common CRAN submission issues and create a framework of “problems” and “solutions” that are easy to implement and discover.</li>
 </ol>
-<!-- add more -->
 </section>
 <section id="prerequisite" class="level1">
 <h1>Prerequisite</h1>
@@ -313,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2024-11-25
- pandoc   3.2 @ /opt/quarto/bin/tools/ (via rmarkdown)
+ date     2024-12-01
+ pandoc   3.4 @ /opt/quarto/bin/tools/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  ! package     * version date (UTC) lib source
@@ -600,8 +600,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -712,7 +710,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

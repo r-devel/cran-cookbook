@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-623d946cbb11cc8e81678cea30ec8bd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-31a2823bf89caa9a5f58f0c727dfaa0f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -177,8 +177,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#structure-of-cran-submissions" id="toc-structure-of-cran-submissions" class="nav-link active" data-scroll-target="#structure-of-cran-submissions">Structure of CRAN-Submissions</a></li>
-  <li><a href="#description-length" id="toc-description-length" class="nav-link" data-scroll-target="#description-length">Description Length</a></li>
+  <li><a href="#description-length" id="toc-description-length" class="nav-link active" data-scroll-target="#description-length">Description Length</a></li>
   <li><a href="#structuring-of-examples" id="toc-structuring-of-examples" class="nav-link" data-scroll-target="#structuring-of-examples">Structuring of Examples</a></li>
   <li><a href="#package-size" id="toc-package-size" class="nav-link" data-scroll-target="#package-size">Package Size</a></li>
   <li><a href="#communicating-with-cran" id="toc-communicating-with-cran" class="nav-link" data-scroll-target="#communicating-with-cran">Communicating with CRAN</a></li>
@@ -191,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">General Issues</h1>
-<p class="subtitle lead">General issues and helpful notes around CRAN submission best practices.</p>
+<p class="subtitle lead">The General Issues chapter offers practical tips on CRAN submission best practices, essential file and example structuring, and key meta package requirements.</p>
 </div>
 
 
@@ -208,13 +207,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="structure-of-cran-submissions" class="level1">
-<h1>Structure of CRAN-Submissions</h1>
+<!-- # Structure of CRAN-Submissions -->
 <!-- I would add a section about the path of packages when they are submitted to CRAN.
 Where do they end up and who will look at them etc... -->
 <!-- # Fields of the DESCRIPTION File -->
 <!-- I suggest writing a short overview of the most common and important fields of the DESCRIPTION -->
-</section>
 <section id="description-length" class="level1">
 <h1>Description Length</h1>
 <p>The description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the <a href="https://github.com/tidyverse/tidyverse/blob/main/DESCRIPTION#L8-L12">‘tidyverse’</a> package.</p>
@@ -586,8 +583,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -698,7 +693,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
