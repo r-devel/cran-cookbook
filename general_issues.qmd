@@ -47,7 +47,7 @@ For several reasons, some examples cannot be run as tests. Therefore, CRAN has s
   + They are tested infrequently on CRAN as well and are also executed when calling example()
   
 * **\\dontrun{}:**
-  + Unexecutable examples due to missing information (e.g. API calls where a password is needed)
+  + Unexecutable examples due to missing information (e.g., API calls where a password is needed)
   + Examples which require additional software
   + Never executed, are automatically marked with a comment ("# Not run:") in the Help file. 
   
@@ -61,7 +61,7 @@ For several reasons, some examples cannot be run as tests. Therefore, CRAN has s
   
 * **if(requireNamespace("packagename")){}**
   + Used for examples which need particular packages to run
-  + Those packages should be listed in the Suggests filed of the DESCRIPTION file
+  + Those packages should be listed in the Suggests field of the DESCRIPTION file
   
 * **\\dontshow{}:**
   + Treated similarly to unwrapped examples but are not shown to the user
@@ -77,11 +77,11 @@ All wrappers must still be placed inside the `\examples{}` tag.
 
 ::: {.callout-note title="Examples of CRAN Review Communication" appearance="simple" icon=false collapse=true}
 
-\\dontrun\{\} should only be used if the example really cannot be executed (e.g. because of missing additional software, missing API keys, ...) by the user. That's why wrapping examples in \\dontrun\{\} adds the comment ("# Not run:") as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.
+\\dontrun\{\} should only be used if the example really cannot be executed (e.g., because of missing additional software, missing API keys, ...) by the user. That's why wrapping examples in \\dontrun\{\} adds the comment ("# Not run:") as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.
 
 Please unwrap the examples if they are executable in < 5 sec, or replace \\dontrun\{\} with \\donttest\{\}.
 
-Functions which are supposed to only run interactively (e.g. shiny) should be wrapped in if(interactive()). Please replace \\dontrun\{\} with if(interactive())\{\} if possible, then users can see that the functions are not intended for use in scripts.
+Functions which are supposed to only run interactively (e.g., shiny) should be wrapped in if(interactive()). Please replace \\dontrun\{\} with if(interactive())\{\} if possible, then users can see that the functions are not intended for use in scripts.
 
 All your examples are wrapped in \\donttest\{\} and therefore do not get tested.  
 Please unwrap the examples if that is feasible and if they can be executed in < 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.
