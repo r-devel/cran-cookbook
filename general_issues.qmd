@@ -61,7 +61,7 @@ For several reasons, some examples cannot be run as tests. Therefore, CRAN has s
   
 * **if(requireNamespace("packagename")){}**
   + Used for examples which need particular packages to run
-  + Those packages should be listed in the Suggests filed of the DESCRIPTION file
+  + Those packages should be listed in the Suggests field of the DESCRIPTION file
   
 * **\\dontshow{}:**
   + Treated similarly to unwrapped examples but are not shown to the user
