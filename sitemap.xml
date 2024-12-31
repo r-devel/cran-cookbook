@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://contributor.r-project.org/cran-cookbook/general_issues.html</loc>
-    <lastmod>2024-12-01T13:42:29.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://contributor.r-project.org/cran-cookbook/resources.html</loc>
-    <lastmod>2024-12-01T13:42:29.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://contributor.r-project.org/cran-cookbook/code_issues.html</loc>
-    <lastmod>2024-12-01T13:42:29.910Z</lastmod>
-  </url>
-  <url>
-    <loc>https://contributor.r-project.org/cran-cookbook/description_issues.html</loc>
-    <lastmod>2024-12-01T13:42:29.910Z</lastmod>
-  </url>
-  <url>
     <loc>https://contributor.r-project.org/cran-cookbook/preface.html</loc>
-    <lastmod>2024-12-01T13:42:29.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://contributor.r-project.org/cran-cookbook/docs_issues.html</loc>
-    <lastmod>2024-12-01T13:42:29.910Z</lastmod>
+    <lastmod>2024-12-31T20:40:17.789Z</lastmod>
   </url>
   <url>
     <loc>https://contributor.r-project.org/cran-cookbook/index.html</loc>
-    <lastmod>2024-12-01T13:42:29.914Z</lastmod>
+    <lastmod>2024-12-31T20:40:17.785Z</lastmod>
+  </url>
+  <url>
+    <loc>https://contributor.r-project.org/cran-cookbook/resources.html</loc>
+    <lastmod>2024-12-31T20:40:17.789Z</lastmod>
+  </url>
+  <url>
+    <loc>https://contributor.r-project.org/cran-cookbook/description_issues.html</loc>
+    <lastmod>2024-12-31T20:40:17.784Z</lastmod>
+  </url>
+  <url>
+    <loc>https://contributor.r-project.org/cran-cookbook/docs_issues.html</loc>
+    <lastmod>2024-12-31T20:40:17.784Z</lastmod>
+  </url>
+  <url>
+    <loc>https://contributor.r-project.org/cran-cookbook/code_issues.html</loc>
+    <lastmod>2024-12-31T20:40:17.784Z</lastmod>
+  </url>
+  <url>
+    <loc>https://contributor.r-project.org/cran-cookbook/general_issues.html</loc>
+    <lastmod>2024-12-31T20:40:17.785Z</lastmod>
   </url>
 </urlset>

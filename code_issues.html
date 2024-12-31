@@ -75,8 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-623d946cbb11cc8e81678cea30ec8bd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-31a2823bf89caa9a5f58f0c727dfaa0f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-0a550434fc09a61fdda32aba084338c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-f8242f33253a93ab94b82dd48e3743e7.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -410,7 +410,7 @@ CRAN Review Communication
 </div>
 </div>
 </div>
-<p>Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: <code>set.seed(123)</code>). A good solution for allowing to set a seed is to add an argument <code>seed</code> to your function and set it conditionally.</p>
+<p>Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g., <code>set.seed(123)</code>). A good solution for allowing to set a seed is to add an argument <code>seed</code> to your function and set it conditionally.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(... , <span class="at">seed =</span> <span class="cn">NULL</span>){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(seed)){</span>
@@ -551,17 +551,17 @@ CRAN Review Communication
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Please make sure that you do not change the user’s options, par or working directory. If you really have to do so within functions, please ensure with an <em>immediate</em> call of on.exit() that the settings are reset when the function is exited.<br>
-e.g.:<br>
+e.g.,<br>
 …<br>
 oldpar &lt;- par(no.readonly = TRUE) # code line i<br>
 on.exit(par(oldpar)) # code line i + 1<br>
 …<br>
 par(mfrow=c(2,2)) # somewhere after<br>
 …<br>
-e.g.:<br>
+e.g.,<br>
 If you’re not familiar with the function, please check ?on.exit. This function makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.</p>
 <p>Please always make sure to reset to user’s options(), working directory or par() after you changed it in examples and vignettes and demos.<br>
-e.g.:<br>
+e.g.,<br>
 oldpar &lt;- par(mfrow = c(1,2))<br>
 …<br>
 par(oldpar)</p>
@@ -733,7 +733,7 @@ CRAN Review Communication
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Please do not modify the global environment (e.g.&nbsp;by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.</p>
+<p>Please do not modify the global environment (e.g., by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.</p>
 </div>
 </div>
 </div>

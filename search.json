@@ -1,12 +1,32 @@
 [
   {
-    "objectID": "general_issues.html",
-    "href": "general_issues.html",
-    "title": "General Issues",
+    "objectID": "preface.html",
+    "href": "preface.html",
+    "title": "Preface",
     "section": "",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Description field is intended to be a (one paragraph) description of what the package does and why it may be useful. Please add more details about the package functionality and implemented methods in your Description text.\n\n\n\n\n\nStructuring of Examples\nAs part their documentation most functions have example code in their .Rd-files marked by the \\examples{} tag. Examples serve two major purposes for packages on CRAN.\n\nShow users how to implement the function correctly and what to expect as outcome.\nAllow the CRAN team to perform test on the code.\n\nFor several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.\n\nUnwrapped:\n\nShort examples to show the functionality of the code\nCRAN recommends the use of toy examples on small data sets\nIdeally, also cover some edge cases\n\n\\donttest{}:\n\nLengthy examples, with execution times longer than 5 seconds\nExamples that download data\nThey are tested infrequently on CRAN as well and are also executed when calling example()\n\n\\dontrun{}:\n\nUnexecutable examples due to missing information (e.g. API calls where a password is needed)\nExamples which require additional software\nNever executed, are automatically marked with a comment (“# Not run:”) in the Help file.\n\nif(interactive()){}:\n\nFunctions which only run interactively and cannot be used in scripts\nMost commonly, examples for Shiny Apps and interactive plots\n\ntry():\n\nExamples which are supposed to fail and throw an error\ntry() shows the error message but won’t halt the execution\n\nif(requireNamespace(“packagename”)){}\n\nUsed for examples which need particular packages to run\nThose packages should be listed in the Suggests filed of the DESCRIPTION file\n\n\\dontshow{}:\n\nTreated similarly to unwrapped examples but are not shown to the user\nGreat for setting and resetting options or code purely for tests\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll wrappers must still be placed inside the \\examples{} tag.\n\n\n\n\n\n\n\n\nExamples of CRAN Review Communication\n\n\n\n\n\n\\dontrun{} should only be used if the example really cannot be executed (e.g. because of missing additional software, missing API keys, …) by the user. That’s why wrapping examples in \\dontrun{} adds the comment (“# Not run:”) as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.\nPlease unwrap the examples if they are executable in &lt; 5 sec, or replace \\dontrun{} with \\donttest{}.\nFunctions which are supposed to only run interactively (e.g. shiny) should be wrapped in if(interactive()). Please replace \\dontrun{} with if(interactive()){} if possible, then users can see that the functions are not intended for use in scripts.\nAll your examples are wrapped in \\donttest{} and therefore do not get tested.\nPlease unwrap the examples if that is feasible and if they can be executed in &lt; 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.\n\n\n\n\n\nPackage Size\nIdeally, CRAN packages should be under 5 Mb. There are very few exceptions mostly for a larger inst/ folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every accepted version is saved on CRAN, they are very hesitant.\nIt’s best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.\nAt a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.\n\n\n\n\n\n\nTip\n\n\n\nIf your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the cran-comments.md file.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nA CRAN package should not be larger than 5 MB. Please reduce the size.\n\n\n\n\n\nCommunicating with CRAN\nFor a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC cran-submission@r-project.org in your email communications. See the rules and recommendations on the CRAN Repository Policy. This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file (cran-comments.md).\n\n\n\n\n Back to top",
+    "text": "The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the Writing R Extensions manual and CRAN Repository Policy, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.\nThe authors delivered a talk on The CRAN Cookbook at the virtual LatinR Conference on November 20, 2024. The recording of the talk is available on YouTube.",
     "crumbs": [
-      "General Issues"
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "preface.html#contributors",
+    "href": "preface.html#contributors",
+    "title": "Preface",
+    "section": "Contributors",
+    "text": "Contributors\nThank you to all contributors!\nIf you are looking to make a contribution to the CRAN Cookbook please see our contributors guide.\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Welcome!"
     ]
   },
   {
@@ -20,241 +40,11 @@
     ]
   },
   {
-    "objectID": "code_issues.html",
-    "href": "code_issues.html",
-    "title": "Code Issues",
-    "section": "",
-    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.\n\n\n\nChange the abbreviation to the full words or use a different variable name.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease write TRUE and FALSE instead of T and F. Please don’t use “T” or “F” as vector names.\n\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem",
-    "href": "code_issues.html#problem",
-    "title": "Code Issues",
-    "section": "",
-    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution",
-    "href": "code_issues.html#solution",
-    "title": "Code Issues",
-    "section": "",
-    "text": "Change the abbreviation to the full words or use a different variable name.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease write TRUE and FALSE instead of T and F. Please don’t use “T” or “F” as vector names.\n\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-1",
-    "href": "code_issues.html#problem-1",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nIn your functions, you are setting a the random seed to a specific number which cannot be changed.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-1",
-    "href": "code_issues.html#solution-1",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nRemove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not set a seed to a specific number within a function.\n\n\n\nChanging the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: set.seed(123)). A good solution for allowing to set a seed is to add an argument seed to your function and set it conditionally.\n\nfunction(... , seed = NULL){\n  if(!is.null(seed)){\n    set.seed(seed)\n  }\n  \n  #the rest of your function can be written here.\n  \n}\n\nThis allows users to avoid setting a seed if they change the argument to NULL. Ideally, the argument is already set to NULL per default.\n\n\n\n\n\n\n\nNote\n\n\n\nIn your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-2",
-    "href": "code_issues.html#problem-2",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are using functions, like print() or cat(), to print unsuppressable output to the console.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-2",
-    "href": "code_issues.html#solution-2",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nChange print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou write information messages to the console that cannot be easily suppressed. It is more R like to generate objects that can be used to extract the information a user is interested in, and then print() that object. Instead of print()/cat() rather use message()/warning() or if(verbose)cat(..) (or maybe stop()) if you really have to write text to the console. (except for print, summary, interactive functions)\n\n\n\nInformation messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.\n\n\n\n\n\n\nNote\n\n\n\nPrinting in special functions like print, summary, interactive functions or methods for generic functions is accepted.\n\n\nTo allow users to suppress the console output CRAN recommends two different ways:\n\nexchanging cat()/print() with other generics\n\nmessage(): for information messages and status updates\nwarning(): for warning, will print a “Warning:” before the output\nstop(): for error messages, will print an “Error:” before the output and halt the execution\n\n\nThis allows to use functions like suppressMessages() to avoid unwanted output.\n\nusing an additional function argument\n\ncreate one argument in your function to turn off the console output\nCRAN suggests using verbose, other names are accepted\n\n\nThis example code shows the use of a verbose argument to allow users to suppress printing\n\nfoo &lt;- function(..., verbose = TRUE){\n  # your code\n  if(verbose){\n    print(\"Whatever you want to say!\")\n  }\n  # your code\n}\n\nFunctions can print per default, like the example above, as long as the printing can be turned off (here, by setting verbose = FALSE).\n\n\n\n\n\n\nNote\n\n\n\nprint() and cat() are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like writeLines(). If you are using loggers to document your functions’ process, make sure that users can set their log level such that not messages are displayed.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-3",
-    "href": "code_issues.html#problem-3",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are changing the par(), options() or setwd() in your functions, examples, demos or vignettes without resetting them.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-3",
-    "href": "code_issues.html#solution-3",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nReset the changed options, in your functions by using on.exit() or in examples, demos and vignettes with an additional line of code after the example.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease make sure that you do not change the user’s options, par or working directory. If you really have to do so within functions, please ensure with an immediate call of on.exit() that the settings are reset when the function is exited.\ne.g.:\n…\noldpar &lt;- par(no.readonly = TRUE) # code line i\non.exit(par(oldpar)) # code line i + 1\n…\npar(mfrow=c(2,2)) # somewhere after\n…\ne.g.:\nIf you’re not familiar with the function, please check ?on.exit. This function makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.\nPlease always make sure to reset to user’s options(), working directory or par() after you changed it in examples and vignettes and demos.\ne.g.:\noldpar &lt;- par(mfrow = c(1,2))\n…\npar(oldpar)\n\n\n\nIdeally, the user’s options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. The reason for this rule is this line stated in the CRAN Repository Policy:\n\nThe code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.\n\nResetting options is therefore mainly a Quality-of-Life feature for users of your package.\nThere are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN.\nChanging par(), options() or setwd() all invisibly return the previous values and therefore these can be stored in variables using the assignment operator &lt;- and later be restored by calling the variable name as argument in the respective function.\nFor functions:\nWhen changing options inside one of your package functions, you can use on.exit() for restoring.\n\nfoo &lt;- function(x){\n  \n  # par():\n  oldpar &lt;- par(mfrow = c(2,2))\n  on.exit(par(oldpar))\n  \n  # options():\n  oldop &lt;- options(digits = 3)\n  on.exit(options(oldop))\n  \n  # setwd():\n  oldwd &lt;- setwd(\".\")\n  on.exit(setwd(oldwd))\n  \n  # your code which requires a changed option\n  \n}\n\nThis will reset the par(), options() and setwd(). The use of on.exit() makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. For more information, call ?on.exit() in your console.\nFor demos, examples and vignettes: Since no function is exited when changing options in examples, on.exit() cannot be used. CRAN recommends the following way for restoring options:\n\noldpar &lt;- par(mfrow = c(2,2))\n\n# your code which requires a changed option\n\npar(oldpar)\n\nHere the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the options() and setwd() can be done using the same principle as for par() shown above.\n\n\n\n\n\n\nTip\n\n\n\nIf you need to change more than one option in the same function, example, vignette or demo, you can use oldpar &lt;- par(no.readonly = TRUE) or oldop &lt;- options() to reset all parameters at once. Saving the entire Note, that for par() the no.readonly argument must be set to TRUE or else warnings will be produced.\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe issue described in the recipe, also applies to the use of other function which change some parameters persistently, like Sys.setLanguage.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-4",
-    "href": "code_issues.html#problem-4",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are writing, either by default or within your examples, vignettes, or tests, to the user’s home filespace, including the package directory and the current working directory (getwd()).",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-4",
-    "href": "code_issues.html#solution-4",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nOmit any default path in your functions and write to tempdir() in examples, vignettes or tests.\n\nDetails\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that your functions do not write by default or in your examples/vignettes/tests in the user’s home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().\n\n\n\nThe CRAN Repository Policy states that:\n\nThe code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.\n\nand gives as example:\n\nPackages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.\n\nPackages can write per default to tempdir(), or any other temporary/cache directory, or have no default path at all, as long as the default is not the user’s home filespace.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-5",
-    "href": "code_issues.html#problem-5",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nSome of your code that runs during R CMD check creates files in the temporary directory specified by the environment variable TMPDIR and doesn’t remove them afterwards. As a result, R CMD check gives your package a NOTE complaining about the “detritus in the temp directory”.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-5",
-    "href": "code_issues.html#solution-5",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nIf you use tempfile()/tempdir() as the default destination for functions called in your examples or tests, unlink() the resulting files as part of the test. In the \\examples{} section of your help files, clean-up actions can be wrapped in \\dontshow{} for aesthetic reasons. If you launch a browser, ‘Calibre’, ‘Python’ code or other software, and it creates temporary files, find out where they are and remove them once the code is done with them.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: for detritus in the temp directory, Result: NOTE\n  Found the following files/directories:\n   ‘this_is_detritus382e569a7712’\n\n\nThe code responsible for the detritus may include your own tests and examples creating files under tempdir(), child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package find and remove temporary files created by its auto-gradient feature.\nA package that uses the ‘testthat’ test suite will benefit from the self-cleaning functions withr::local_tempfile() and withr::local_tempdir() to work with temporary files. Even without ‘testthat’, the ‘withr’ package has no external strong dependencies and can be used independently.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-6",
-    "href": "code_issues.html#problem-6",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are writing per default to the global environment, .GlobalEnv, the user’s workspace.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-6",
-    "href": "code_issues.html#solution-6",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nOmit any default writing to the global environment.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not modify the global environment (e.g. by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.\n\n\n\nThe .GlobalEnv is the main workspace of users. It can also be accessed by globalenv(). Writing to the global environment is forbidden for CRAN packages.\nSometimes package maintainers use the operator &lt;&lt;-. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the .GlobalEnv. To avoid writing to the global environment, the variable must be defined in a parent environment.\n\nfoo &lt;- function(){\n  \n  # defines the variable in the foo()-function environment\n  var &lt;- NULL\n  \n  foo1 &lt;- function(){\n    \n    # redefines var but only in the foo() environment as it is the parent of foo1()\n    var &lt;&lt;- \"redefined\"\n  }\n  \n  # calls the foo1() function to redefine var\n  foo1()\n  return(var)\n}\n\nPart of the .GlobalEnv is the .Random.seed which should not be changed at all.\nExcepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the .GlobalEnv.\n\n\n\n\n\n\nNote\n\n\n\nCalls of rm(list = ls()) to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions rm(list = ls()) can be used, as the active environment is then the function environment instead of the global environment.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-7",
-    "href": "code_issues.html#problem-7",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are calling installed.packages() to check if a package is installed.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-7",
-    "href": "code_issues.html#solution-7",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this recipe.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-8",
-    "href": "code_issues.html#problem-8",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are setting options(warn = -1).",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-8",
-    "href": "code_issues.html#solution-8",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-9",
-    "href": "code_issues.html#problem-9",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are installing software or packages in your functions, examples, tests or vignettes.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-9",
-    "href": "code_issues.html#solution-9",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nCreate special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.\n\n\n\nPackages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.\nTo ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:\n\ndevtools::install_github()\nreticulate::install_python()\n\nThe corresponding help file should also state that software will be installed.\n\n\n\n\n\n\nNote\n\n\n\nEven if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this recipe.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#problem-10",
-    "href": "code_issues.html#problem-10",
-    "title": "Code Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are using more than 2 CPU cores in your examples, vignettes, tests or during installation.",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
-    "objectID": "code_issues.html#solution-10",
-    "href": "code_issues.html#solution-10",
-    "title": "Code Issues",
-    "section": "Solution",
-    "text": "Solution\nMake sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the -j flag. \n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that you do not use more than 2 cores in your examples, vignettes, etc.\n\n\n\nCRAN checks run on big, multi-core computers, running many R CMD check processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: whether package can be installed, Result: NOTE\n  Installation took CPU time 6.9 times elapsed time\n\nCheck: examples, Result: NOTE\n  Examples with CPU time &gt; 2.5 times elapsed time\n\n\nAutomatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.\nSomething that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the -j flag which originated from GNU Make (for more information, see their manual).",
-    "crumbs": [
-      "Code Issues"
-    ]
-  },
-  {
     "objectID": "description_issues.html",
     "href": "description_issues.html",
     "title": "DESCRIPTION File Issues",
     "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
     "crumbs": [
       "DESCRIPTION File Issues"
     ]
@@ -274,7 +64,7 @@
     "href": "description_issues.html#solution",
     "title": "DESCRIPTION File Issues",
     "section": "",
-    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
     "crumbs": [
       "DESCRIPTION File Issues"
     ]
@@ -380,31 +170,11 @@
     ]
   },
   {
-    "objectID": "preface.html",
-    "href": "preface.html",
-    "title": "Preface",
-    "section": "",
-    "text": "The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the Writing R Extensions manual and CRAN Repository Policy, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.\nThe authors delivered a talk on The CRAN Cookbook at the virtual LatinR Conference on November 20, 2024. The recording of the talk is available on YouTube.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "preface.html#contributors",
-    "href": "preface.html#contributors",
-    "title": "Preface",
-    "section": "Contributors",
-    "text": "Contributors\nThank you to all contributors!\nIf you are looking to make a contribution to the CRAN Cookbook please see our contributors guide.\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
     "objectID": "docs_issues.html",
     "href": "docs_issues.html",
     "title": "Manuals & Documentation Issues",
     "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g. \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
     "crumbs": [
       "Manuals & Documentation Issues"
     ]
@@ -424,7 +194,7 @@
     "href": "docs_issues.html#solution",
     "title": "Manuals & Documentation Issues",
     "section": "",
-    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g. \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
     "crumbs": [
       "Manuals & Documentation Issues"
     ]
@@ -470,13 +240,243 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
+    "objectID": "code_issues.html",
+    "href": "code_issues.html",
+    "title": "Code Issues",
     "section": "",
-    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.\n\n\n\nChange the abbreviation to the full words or use a different variable name.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease write TRUE and FALSE instead of T and F. Please don’t use “T” or “F” as vector names.\n\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
     "crumbs": [
-      "Welcome!"
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem",
+    "href": "code_issues.html#problem",
+    "title": "Code Issues",
+    "section": "",
+    "text": "You are writing the abbreviated forms of TRUE and FALSE, T and F or you are using T or F as names.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution",
+    "href": "code_issues.html#solution",
+    "title": "Code Issues",
+    "section": "",
+    "text": "Change the abbreviation to the full words or use a different variable name.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease write TRUE and FALSE instead of T and F. Please don’t use “T” or “F” as vector names.\n\n\n\nIn R, T and F are variables being set to TRUE and FALSE, respectively. However, those variables can be redefined by the user since these are not reserved words as TRUE and FALSE are (see the R Language Definition for more details). This can result in unexpected code behavior as users of your package might have variables named T/F.\n\n\n\nThe first example shows that you cannot overwrite TRUE:\n\nTRUE &lt;- \"Not TRUE anymore\"\n\nError in TRUE &lt;- \"Not TRUE anymore\": invalid (do_set) left-hand side to assignment\n\nprint(TRUE)\n\n[1] TRUE\n\n\nThis throws an error as TRUE is a reserved word and the value of TRUE does not change.\nT (and F) on the other hand can be set to a different value:\n\nT &lt;- \"Not TRUE anymore\"\n\nprint(T)\n\n[1] \"Not TRUE anymore\"\n\n\nTo avoid any unexpected behaviors and inconsistencies, CRAN reviewers will ask you to write the reserved words, TRUE and FALSE instead of their abbreviated forms. For the same reason, T or F should not be used as variable names in your code, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-1",
+    "href": "code_issues.html#problem-1",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nIn your functions, you are setting a the random seed to a specific number which cannot be changed.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-1",
+    "href": "code_issues.html#solution-1",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the code that sets the seed. If you want to set it specifically in your functions, users should be able to set no seed if they want.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not set a seed to a specific number within a function.\n\n\n\nChanging the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g., set.seed(123)). A good solution for allowing to set a seed is to add an argument seed to your function and set it conditionally.\n\nfunction(... , seed = NULL){\n  if(!is.null(seed)){\n    set.seed(seed)\n  }\n  \n  #the rest of your function can be written here.\n  \n}\n\nThis allows users to avoid setting a seed if they change the argument to NULL. Ideally, the argument is already set to NULL per default.\n\n\n\n\n\n\n\nNote\n\n\n\nIn your examples, vignettes, demos and tests setting a seed is not only allowed but also recommended to ensure reproducible results.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-2",
+    "href": "code_issues.html#problem-2",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using functions, like print() or cat(), to print unsuppressable output to the console.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-2",
+    "href": "code_issues.html#solution-2",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nChange print()/cat() to message(), warning(), stop(), or wrap them in if(verbose){}.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou write information messages to the console that cannot be easily suppressed. It is more R like to generate objects that can be used to extract the information a user is interested in, and then print() that object. Instead of print()/cat() rather use message()/warning() or if(verbose)cat(..) (or maybe stop()) if you really have to write text to the console. (except for print, summary, interactive functions)\n\n\n\nInformation messages, like loop counts or status updates, can clutter the console. While some users prefer this display, others appreciate less information on their console. The use of printing functions for console output is not forbidden on CRAN. However, this output must be suppressable by users.\n\n\n\n\n\n\nNote\n\n\n\nPrinting in special functions like print, summary, interactive functions or methods for generic functions is accepted.\n\n\nTo allow users to suppress the console output CRAN recommends two different ways:\n\nexchanging cat()/print() with other generics\n\nmessage(): for information messages and status updates\nwarning(): for warning, will print a “Warning:” before the output\nstop(): for error messages, will print an “Error:” before the output and halt the execution\n\n\nThis allows to use functions like suppressMessages() to avoid unwanted output.\n\nusing an additional function argument\n\ncreate one argument in your function to turn off the console output\nCRAN suggests using verbose, other names are accepted\n\n\nThis example code shows the use of a verbose argument to allow users to suppress printing\n\nfoo &lt;- function(..., verbose = TRUE){\n  # your code\n  if(verbose){\n    print(\"Whatever you want to say!\")\n  }\n  # your code\n}\n\nFunctions can print per default, like the example above, as long as the printing can be turned off (here, by setting verbose = FALSE).\n\n\n\n\n\n\nNote\n\n\n\nprint() and cat() are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like writeLines(). If you are using loggers to document your functions’ process, make sure that users can set their log level such that not messages are displayed.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-3",
+    "href": "code_issues.html#problem-3",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are changing the par(), options() or setwd() in your functions, examples, demos or vignettes without resetting them.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-3",
+    "href": "code_issues.html#solution-3",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nReset the changed options, in your functions by using on.exit() or in examples, demos and vignettes with an additional line of code after the example.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease make sure that you do not change the user’s options, par or working directory. If you really have to do so within functions, please ensure with an immediate call of on.exit() that the settings are reset when the function is exited.\ne.g.,\n…\noldpar &lt;- par(no.readonly = TRUE) # code line i\non.exit(par(oldpar)) # code line i + 1\n…\npar(mfrow=c(2,2)) # somewhere after\n…\ne.g.,\nIf you’re not familiar with the function, please check ?on.exit. This function makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.\nPlease always make sure to reset to user’s options(), working directory or par() after you changed it in examples and vignettes and demos.\ne.g.,\noldpar &lt;- par(mfrow = c(1,2))\n…\npar(oldpar)\n\n\n\nIdeally, the user’s options are not changed at all. If they really have to be altered, restoring the previous values of user options is mandatory for CRAN packages. The reason for this rule is this line stated in the CRAN Repository Policy:\n\nThe code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.\n\nResetting options is therefore mainly a Quality-of-Life feature for users of your package.\nThere are different ways of resetting for functions, and examples, demos or vignettes which are recommended by CRAN.\nChanging par(), options() or setwd() all invisibly return the previous values and therefore these can be stored in variables using the assignment operator &lt;- and later be restored by calling the variable name as argument in the respective function.\nFor functions:\nWhen changing options inside one of your package functions, you can use on.exit() for restoring.\n\nfoo &lt;- function(x){\n  \n  # par():\n  oldpar &lt;- par(mfrow = c(2,2))\n  on.exit(par(oldpar))\n  \n  # options():\n  oldop &lt;- options(digits = 3)\n  on.exit(options(oldop))\n  \n  # setwd():\n  oldwd &lt;- setwd(\".\")\n  on.exit(setwd(oldwd))\n  \n  # your code which requires a changed option\n  \n}\n\nThis will reset the par(), options() and setwd(). The use of on.exit() makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. For more information, call ?on.exit() in your console.\nFor demos, examples and vignettes: Since no function is exited when changing options in examples, on.exit() cannot be used. CRAN recommends the following way for restoring options:\n\noldpar &lt;- par(mfrow = c(2,2))\n\n# your code which requires a changed option\n\npar(oldpar)\n\nHere the code will only reset the options if the example runs without breaking. Therefore, try to keep the code between setting and resetting as concise as possible. Restoring the options() and setwd() can be done using the same principle as for par() shown above.\n\n\n\n\n\n\nTip\n\n\n\nIf you need to change more than one option in the same function, example, vignette or demo, you can use oldpar &lt;- par(no.readonly = TRUE) or oldop &lt;- options() to reset all parameters at once. Saving the entire Note, that for par() the no.readonly argument must be set to TRUE or else warnings will be produced.\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe issue described in the recipe, also applies to the use of other function which change some parameters persistently, like Sys.setLanguage.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-4",
+    "href": "code_issues.html#problem-4",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are writing, either by default or within your examples, vignettes, or tests, to the user’s home filespace, including the package directory and the current working directory (getwd()).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-4",
+    "href": "code_issues.html#solution-4",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nOmit any default path in your functions and write to tempdir() in examples, vignettes or tests.\n\nDetails\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that your functions do not write by default or in your examples/vignettes/tests in the user’s home filespace (including the package directory and getwd()). This is not allowed by CRAN policies. Please omit any default path in writing functions. In your examples/vignettes/tests you can write to tempdir().\n\n\n\nThe CRAN Repository Policy states that:\n\nThe code and examples provided in a package should never do anything which might be regarded as malicious or anti-social.\n\nand gives as example:\n\nPackages should not write in the user’s home filespace (including clipboards), nor anywhere else on the file system apart from the R session’s temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up). Installing into the system’s R installation (e.g., scripts to its bin directory) is not allowed.\n\nPackages can write per default to tempdir(), or any other temporary/cache directory, or have no default path at all, as long as the default is not the user’s home filespace.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-5",
+    "href": "code_issues.html#problem-5",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nSome of your code that runs during R CMD check creates files in the temporary directory specified by the environment variable TMPDIR and doesn’t remove them afterwards. As a result, R CMD check gives your package a NOTE complaining about the “detritus in the temp directory”.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-5",
+    "href": "code_issues.html#solution-5",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nIf you use tempfile()/tempdir() as the default destination for functions called in your examples or tests, unlink() the resulting files as part of the test. In the \\examples{} section of your help files, clean-up actions can be wrapped in \\dontshow{} for aesthetic reasons. If you launch a browser, ‘Calibre’, ‘Python’ code or other software, and it creates temporary files, find out where they are and remove them once the code is done with them.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: for detritus in the temp directory, Result: NOTE\n  Found the following files/directories:\n   ‘this_is_detritus382e569a7712’\n\n\nThe code responsible for the detritus may include your own tests and examples creating files under tempdir(), child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package find and remove temporary files created by its auto-gradient feature.\nA package that uses the ‘testthat’ test suite will benefit from the self-cleaning functions withr::local_tempfile() and withr::local_tempdir() to work with temporary files. Even without ‘testthat’, the ‘withr’ package has no external strong dependencies and can be used independently.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-6",
+    "href": "code_issues.html#problem-6",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are writing per default to the global environment, .GlobalEnv, the user’s workspace.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-6",
+    "href": "code_issues.html#solution-6",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nOmit any default writing to the global environment.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not modify the global environment (e.g., by using &lt;&lt;-) in your functions. This is not allowed by the CRAN policies.\n\n\n\nThe .GlobalEnv is the main workspace of users. It can also be accessed by globalenv(). Writing to the global environment is forbidden for CRAN packages.\nSometimes package maintainers use the operator &lt;&lt;-. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the .GlobalEnv. To avoid writing to the global environment, the variable must be defined in a parent environment.\n\nfoo &lt;- function(){\n  \n  # defines the variable in the foo()-function environment\n  var &lt;- NULL\n  \n  foo1 &lt;- function(){\n    \n    # redefines var but only in the foo() environment as it is the parent of foo1()\n    var &lt;&lt;- \"redefined\"\n  }\n  \n  # calls the foo1() function to redefine var\n  foo1()\n  return(var)\n}\n\nPart of the .GlobalEnv is the .Random.seed which should not be changed at all.\nExcepted from this rule are ‘shiny’ packages which build interactive web apps. They sometimes need to modify the .GlobalEnv.\n\n\n\n\n\n\nNote\n\n\n\nCalls of rm(list = ls()) to remove variables of the current environment, should not be used in examples, vignettes or demos. In functions rm(list = ls()) can be used, as the active environment is then the function environment instead of the global environment.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-7",
+    "href": "code_issues.html#problem-7",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are calling installed.packages() to check if a package is installed.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-7",
+    "href": "code_issues.html#solution-7",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nInstead of using installed.packages(), use requireNamespace(\"pkg\") or require(\"pkg\") to find out if packages are available.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are using installed.packages() in your code. As mentioned in the notes of installed.packages() help page, this can be very slow. Therefore do not use installed.packages().\n\n\n\ninstalled.packages() outputs a matrix with details of all packages which are installed in the specified libraries. This can be used to check if a specific package is installed. As mentioned in the help file of the installed.packages() function, it can be very slow under certain circumstances.\n\nThis needs to read several files per installed package, which will be slow on Windows and on some network-mounted file systems. It will be slow when thousands of packages are installed, …\n\nTherefore, do not use installed.packages() in CRAN packages.\nThe help file also lists different solutions and the respective, alternative functions.\n\n… so do not use it to find out if a named package is installed (use find.package or system.file) nor to find out if a package is usable (call requireNamespace or require and check the return value) nor to find details of a small number of packages (use packageDescription).\n\nIdeally, use requireNamespace(\"pkg\") or require(\"pkg\"), both return FALSE if a package isn’t available, and throw an error conditionally. For more details on package installations in your code see this recipe.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-8",
+    "href": "code_issues.html#problem-8",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are setting options(warn = -1).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-8",
+    "href": "code_issues.html#solution-8",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nConsider using suppressWarnings() instead of options(warn = -1) if you absolutely need to suppress warnings.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nYou are setting options(warn=-1) in your function. This is not allowed. Please rather use suppressWarnings() if really needed.\n\n\n\nCRAN doesn’t allow negative warn options. This setting will turn off all warning messages. Even if the settings are correctly restored, as explained in the Change of Options recipe, the submission will be rejected.\nCRAN recommends using suppressWarnings(), which disables warnings only for the specific expression it’s applied to, rather than globally.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-9",
+    "href": "code_issues.html#problem-9",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are installing software or packages in your functions, examples, tests or vignettes.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-9",
+    "href": "code_issues.html#solution-9",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nCreate special functions for the purpose of installing software and don’t install it in examples, tests, or vignettes.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.\n\n\n\nPackages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.\nTo ensure shorter check times, those functions should not be called within tests, vignettes or examples. The name of function which install software should ideally indicate that, for example:\n\ndevtools::install_github()\nreticulate::install_python()\n\nThe corresponding help file should also state that software will be installed.\n\n\n\n\n\n\nNote\n\n\n\nEven if it is made clear that installations will happen, the function shouldn’t write to the user’s home file space, as mentioned in this recipe.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#problem-10",
+    "href": "code_issues.html#problem-10",
+    "title": "Code Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using more than 2 CPU cores in your examples, vignettes, tests or during installation.",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "code_issues.html#solution-10",
+    "href": "code_issues.html#solution-10",
+    "title": "Code Issues",
+    "section": "Solution",
+    "text": "Solution\nMake sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the -j flag. \n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that you do not use more than 2 cores in your examples, vignettes, etc.\n\n\n\nCRAN checks run on big, multi-core computers, running many R CMD check processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: whether package can be installed, Result: NOTE\n  Installation took CPU time 6.9 times elapsed time\n\nCheck: examples, Result: NOTE\n  Examples with CPU time &gt; 2.5 times elapsed time\n\n\nAutomatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.\nSomething that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the -j flag which originated from GNU Make (for more information, see their manual).",
+    "crumbs": [
+      "Code Issues"
+    ]
+  },
+  {
+    "objectID": "general_issues.html",
+    "href": "general_issues.html",
+    "title": "General Issues",
+    "section": "",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘tidyverse’ package.\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Description field is intended to be a (one paragraph) description of what the package does and why it may be useful. Please add more details about the package functionality and implemented methods in your Description text.\n\n\n\n\n\nStructuring of Examples\nAs part their documentation most functions have example code in their .Rd-files marked by the \\examples{} tag. Examples serve two major purposes for packages on CRAN.\n\nShow users how to implement the function correctly and what to expect as outcome.\nAllow the CRAN team to perform test on the code.\n\nFor several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.\n\nUnwrapped:\n\nShort examples to show the functionality of the code\nCRAN recommends the use of toy examples on small data sets\nIdeally, also cover some edge cases\n\n\\donttest{}:\n\nLengthy examples, with execution times longer than 5 seconds\nExamples that download data\nThey are tested infrequently on CRAN as well and are also executed when calling example()\n\n\\dontrun{}:\n\nUnexecutable examples due to missing information (e.g., API calls where a password is needed)\nExamples which require additional software\nNever executed, are automatically marked with a comment (“# Not run:”) in the Help file.\n\nif(interactive()){}:\n\nFunctions which only run interactively and cannot be used in scripts\nMost commonly, examples for Shiny Apps and interactive plots\n\ntry():\n\nExamples which are supposed to fail and throw an error\ntry() shows the error message but won’t halt the execution\n\nif(requireNamespace(“packagename”)){}\n\nUsed for examples which need particular packages to run\nThose packages should be listed in the Suggests field of the DESCRIPTION file\n\n\\dontshow{}:\n\nTreated similarly to unwrapped examples but are not shown to the user\nGreat for setting and resetting options or code purely for tests\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll wrappers must still be placed inside the \\examples{} tag.\n\n\n\n\n\n\n\n\nExamples of CRAN Review Communication\n\n\n\n\n\n\\dontrun{} should only be used if the example really cannot be executed (e.g., because of missing additional software, missing API keys, …) by the user. That’s why wrapping examples in \\dontrun{} adds the comment (“# Not run:”) as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.\nPlease unwrap the examples if they are executable in &lt; 5 sec, or replace \\dontrun{} with \\donttest{}.\nFunctions which are supposed to only run interactively (e.g., shiny) should be wrapped in if(interactive()). Please replace \\dontrun{} with if(interactive()){} if possible, then users can see that the functions are not intended for use in scripts.\nAll your examples are wrapped in \\donttest{} and therefore do not get tested.\nPlease unwrap the examples if that is feasible and if they can be executed in &lt; 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.\n\n\n\n\n\nPackage Size\nIdeally, CRAN packages should be under 5 Mb. There are very few exceptions mostly for a larger inst/ folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every accepted version is saved on CRAN, they are very hesitant.\nIt’s best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.\nAt a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.\n\n\n\n\n\n\nTip\n\n\n\nIf your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the cran-comments.md file.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nA CRAN package should not be larger than 5 MB. Please reduce the size.\n\n\n\n\n\nCommunicating with CRAN\nFor a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC cran-submission@r-project.org in your email communications. See the rules and recommendations on the CRAN Repository Policy. This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file (cran-comments.md).\n\n\n\n\n Back to top",
+    "crumbs": [
+      "General Issues"
     ]
   }
 ]
