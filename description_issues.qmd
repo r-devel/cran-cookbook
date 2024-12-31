@@ -14,7 +14,7 @@ The automatic spell check has flagged a software name as incorrect and results i
 
 ## Solution
 
-All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g.: 'ggplot2', 'Python', etc.
+All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., 'ggplot2', 'Python', etc.
 
 ### Details
 

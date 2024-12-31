@@ -68,7 +68,7 @@ Please do not set a seed to a specific number within a function.
 
 :::
 
-Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g.: `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
+Changing the seed is not necessarily forbidden. However, users should be able to control which seed to use. Therefore, avoid code that changes the seed without user consent (e.g., `set.seed(123)`). A good solution for allowing to set a seed is to add an argument `seed` to your function and set it conditionally. 
 
 ```{r, eval = FALSE}
 function(... , seed = NULL){
@@ -174,18 +174,18 @@ Reset the changed options, in your functions by using [`on.exit()`](https://stat
 
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
 Please make sure that you do not change the user's options, par or working directory. If you really have to do so within functions, please ensure with an *immediate* call of on.exit() that the settings are reset when the function is exited.  
-e.g.:  
+e.g.,  
 ...  
 oldpar <- par(no.readonly = TRUE) # code line i  
 on.exit(par(oldpar)) # code line i + 1  
 ...  
 par(mfrow=c(2,2)) # somewhere after  
 ...  
-e.g.:  
+e.g.,  
 If you're not familiar with the function, please check ?on.exit. This function makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function.  
 
 Please always make sure to reset to user's options(), working directory or par() after you changed it in examples and vignettes and demos.  
-e.g.:  
+e.g.,  
 oldpar <- par(mfrow = c(1,2))  
 ...  
 par(oldpar)  
@@ -342,7 +342,7 @@ Omit any default writing to the global environment.
 
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
 
-Please do not modify the global environment (e.g. by using <<-) in your functions. This is not allowed by the CRAN policies.
+Please do not modify the global environment (e.g., by using <<-) in your functions. This is not allowed by the CRAN policies.
 
 :::
 
