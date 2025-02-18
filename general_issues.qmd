@@ -17,7 +17,7 @@ Where do they end up and who will look at them etc... -->
 
 # Description Length
 
-The description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package's purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ['tidyverse'](https://github.com/tidyverse/tidyverse/blob/main/DESCRIPTION#L8-L12) package.
+The description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package's purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ['ranger'](https://github.com/imbs-hl/ranger/blob/af66626cbe5eadcc4cdf6cc3daeb74e9d90b204f/DESCRIPTION#L10-L15) package.
 
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon=false collapse=true}
 
