@@ -27,11 +27,11 @@ The Description field is intended to be a (one paragraph) description of what th
 
 # Structuring of Examples 
 
-As part their documentation most functions have example code in their .Rd-files marked by the `\examples{}` tag. 
+As part of their documentation most functions have example code in their .Rd-files marked by the `\examples{}` tag. 
 Examples serve two major purposes for packages on CRAN.
 
 1. Show users how to implement the function correctly and what to expect as outcome.
-2. Allow the CRAN team to perform test on the code.
+2. Allow the CRAN team to perform regular testing of the code.
 
 For several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.
 
@@ -98,7 +98,7 @@ At a upper limit of the package tarball the CRAN policy states 10 Mb. It is reco
 
 :::callout-tip
 
-If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
+If your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD check. You can explain why the size is okay by providing details in the [cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html) file.
 
 :::
 
@@ -111,5 +111,5 @@ A CRAN package should not be larger than 5 MB. Please reduce the size.
 
 # Communicating with CRAN
 
-For a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC `cran-submission@r-project.org` in your email communications. See the rules and recommendations on the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html). This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file ([cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html)).
+For a smooth review process and to provide CRAN volunteers with helpful context on any issues, it's recommended to CC `cran-submissions@r-project.org` in your email communications. See the rules and recommendations on the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html). This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file ([cran-comments.md](https://usethis.r-lib.org/reference/use_cran_comments.html)).
 
