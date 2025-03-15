@@ -55,7 +55,5 @@ This cookbook is a Quarto website. To learn more about Quarto websites visit <ht
 if (!requireNamespace("devtools", quietly = TRUE)) {
     install.packages("devtools")
 }
-library(devtools)
-
 devtools::session_info()
 ```
