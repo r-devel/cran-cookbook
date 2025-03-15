@@ -1,12 +1,252 @@
 [
   {
+    "objectID": "description_issues.html",
+    "href": "description_issues.html",
+    "title": "DESCRIPTION File Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem",
+    "href": "description_issues.html#problem",
+    "title": "DESCRIPTION File Issues",
+    "section": "",
+    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution",
+    "href": "description_issues.html#solution",
+    "title": "DESCRIPTION File Issues",
+    "section": "",
+    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-1",
+    "href": "description_issues.html#problem-1",
+    "title": "DESCRIPTION File Issues",
+    "section": "Problem",
+    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-1",
+    "href": "description_issues.html#solution-1",
+    "title": "DESCRIPTION File Issues",
+    "section": "Solution",
+    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always explain all acronyms in the description text.\n\n\n\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-2",
+    "href": "description_issues.html#problem-2",
+    "title": "DESCRIPTION File Issues",
+    "section": "Problem",
+    "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-2",
+    "href": "description_issues.html#solution-2",
+    "title": "DESCRIPTION File Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe LICENSE file is only needed if you have additional restrictions to the license which you have not? In that case omit the file and its reference in the DESCRIPTION file.\nLicense components with restrictions and base license permitting such: GPL-3 + file LICENSE\nWe do not need “+ file LICENSE” and the file as these are part of R. This is only needed in case of attribution requirements or other possible restrictions. Hence please omit it.\n\n\n\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-3",
+    "href": "description_issues.html#problem-3",
+    "title": "DESCRIPTION File Issues",
+    "section": "Problem",
+    "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-3",
+    "href": "description_issues.html#solution-3",
+    "title": "DESCRIPTION File Issues",
+    "section": "Solution",
+    "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Title field should be in title case. Current version is:\n‘This is my title’\nIn title case that is:\n‘This is My Title’\n\n\n\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-4",
+    "href": "description_issues.html#problem-4",
+    "title": "DESCRIPTION File Issues",
+    "section": "Problem",
+    "text": "Problem\nYou have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-4",
+    "href": "description_issues.html#solution-4",
+    "title": "DESCRIPTION File Issues",
+    "section": "Solution",
+    "text": "Solution\nAdd the Authors@R field in the DESCRIPTION file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nAuthor field differs from that derived from Authors@R.\nNo Authors@R field in DESCRIPTION.\n  Please add one, modifying\n    Authors@R: c(person(given = “Alice”,\n      family = “Developer”,\n      role = c(“aut”, “cre”),\n      email = “alice.developer@some.domain.net”),\n    person(given = “Bob”,\n      family = “Dev”,\n      role = “aut”),\n    )\n  as necessary.\n\n\n\nYou can find more roles in the help documentation by running ?utils::person. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.\n\nAuthors@R: person(\"Jane\", \"Smith\", email = \"chef@cran-cookbook.com\",\n  role = c(\"aut\", \"cre\"), ORCID = \"&lt;USER-ORCID&gt;\")\n\n\n\n\n\n\n\nNote\n\n\n\nThe Maintainer and Author fields are automatically generated, so you don’t need to add them manually.\nIf your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#problem-5",
+    "href": "description_issues.html#problem-5",
+    "title": "DESCRIPTION File Issues",
+    "section": "Problem",
+    "text": "Problem\nThe reference link in the Description field is incorrectly formatted or isn’t clickable.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
+    "objectID": "description_issues.html#solution-5",
+    "href": "description_issues.html#solution-5",
+    "title": "DESCRIPTION File Issues",
+    "section": "Solution",
+    "text": "Solution\nRemove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nIf there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form\nauthors (year) &lt;doi:…&gt;\nauthors (year, ISBN:…)\nor if those are not available: &lt;https:…&gt;\nwith no space after ‘doi:’, ‘https:’ and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: “Title”)\n\n\n\nIdeally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ‘GA’ package:\nDescription: Flexible general-purpose toolbox implementing genetic algorithms (GAs) for stochastic optimisation. Binary, real-valued, and permutation representations are available to optimize a fitness function, i.e. a function provided by users depending on their objective function. Several genetic operators are available and can be combined to explore the best settings for the current task. Furthermore, users can define new genetic operators and easily evaluate their performances. Local search using general-purpose optimisation algorithms can be applied stochastically to exploit interesting regions. GAs can be run sequentially or in parallel, using an explicit master-slave parallelisation or a coarse-grain islands approach. For more details see Scrucca (2013) &lt;doi:10.18637/jss.v053.i04&gt; and Scrucca (2017) &lt;doi:10.32614/RJ-2017-008&gt;.\n\n\n\n\n\n\nTip\n\n\n\nIncluding a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the cran-comments.md file to provide additional references or information.",
+    "crumbs": [
+      "DESCRIPTION File Issues"
+    ]
+  },
+  {
     "objectID": "general_issues.html",
     "href": "general_issues.html",
     "title": "General Issues",
     "section": "",
-    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘ranger’ package.\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Description field is intended to be a (one paragraph) description of what the package does and why it may be useful. Please add more details about the package functionality and implemented methods in your Description text.\n\n\n\n\n\nStructuring of Examples\nAs part their documentation most functions have example code in their .Rd-files marked by the \\examples{} tag. Examples serve two major purposes for packages on CRAN.\n\nShow users how to implement the function correctly and what to expect as outcome.\nAllow the CRAN team to perform test on the code.\n\nFor several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.\n\nUnwrapped:\n\nShort examples to show the functionality of the code\nCRAN recommends the use of toy examples on small data sets\nIdeally, also cover some edge cases\n\n\\donttest{}:\n\nLengthy examples, with execution times longer than 5 seconds\nExamples that download data\nThey are tested infrequently on CRAN as well and are also executed when calling example()\n\n\\dontrun{}:\n\nUnexecutable examples due to missing information (e.g., API calls where a password is needed)\nExamples which require additional software\nNever executed, are automatically marked with a comment (“# Not run:”) in the Help file.\n\nif(interactive()){}:\n\nFunctions which only run interactively and cannot be used in scripts\nMost commonly, examples for Shiny Apps and interactive plots\n\ntry():\n\nExamples which are supposed to fail and throw an error\ntry() shows the error message but won’t halt the execution\n\nif(requireNamespace(“packagename”)){}\n\nUsed for examples which need particular packages to run\nThose packages should be listed in the Suggests field of the DESCRIPTION file\n\n\\dontshow{}:\n\nTreated similarly to unwrapped examples but are not shown to the user\nGreat for setting and resetting options or code purely for tests\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll wrappers must still be placed inside the \\examples{} tag.\n\n\n\n\n\n\n\n\nExamples of CRAN Review Communication\n\n\n\n\n\n\\dontrun{} should only be used if the example really cannot be executed (e.g., because of missing additional software, missing API keys, …) by the user. That’s why wrapping examples in \\dontrun{} adds the comment (“# Not run:”) as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.\nPlease unwrap the examples if they are executable in &lt; 5 sec, or replace \\dontrun{} with \\donttest{}.\nFunctions which are supposed to only run interactively (e.g., shiny) should be wrapped in if(interactive()). Please replace \\dontrun{} with if(interactive()){} if possible, then users can see that the functions are not intended for use in scripts.\nAll your examples are wrapped in \\donttest{} and therefore do not get tested.\nPlease unwrap the examples if that is feasible and if they can be executed in &lt; 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.\n\n\n\n\n\nPackage Size\nIdeally, CRAN packages should be under 5 Mb. There are very few exceptions mostly for a larger inst/ folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every accepted version is saved on CRAN, they are very hesitant.\nIt’s best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.\nAt a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.\n\n\n\n\n\n\nTip\n\n\n\nIf your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD Check. You can explain why the size is okay by providing details in the cran-comments.md file.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nA CRAN package should not be larger than 5 MB. Please reduce the size.\n\n\n\n\n\nCommunicating with CRAN\nFor a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC cran-submission@r-project.org in your email communications. See the rules and recommendations on the CRAN Repository Policy. This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file (cran-comments.md).\n\n\n\n\n Back to top",
+    "text": "Description Length\nThe description field in the DESCRIPTION file should be a short paragraph (2+ sentences) on the package’s purpose, motivation and may include further references to the package documentation website. You can also consider the Description length to be similar to a blurb or synopsis written on the inside jacket of a book - brief but informative. A good example of this description length is included in the ‘ranger’ package.\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Description field is intended to be a (one paragraph) description of what the package does and why it may be useful. Please add more details about the package functionality and implemented methods in your Description text.\n\n\n\n\n\nStructuring of Examples\nAs part of their documentation most functions have example code in their .Rd-files marked by the \\examples{} tag. Examples serve two major purposes for packages on CRAN.\n\nShow users how to implement the function correctly and what to expect as outcome.\nAllow the CRAN team to perform regular testing of the code.\n\nFor several reasons, some examples cannot be run as tests. Therefore, CRAN has several wrappers to structure them. The following list gives a short overview of the most common ones and when to use them.\n\nUnwrapped:\n\nShort examples to show the functionality of the code\nCRAN recommends the use of toy examples on small data sets\nIdeally, also cover some edge cases\n\n\\donttest{}:\n\nLengthy examples, with execution times longer than 5 seconds\nExamples that download data\nThey are tested infrequently on CRAN as well and are also executed when calling example()\n\n\\dontrun{}:\n\nUnexecutable examples due to missing information (e.g., API calls where a password is needed)\nExamples which require additional software\nNever executed, are automatically marked with a comment (“# Not run:”) in the Help file.\n\nif(interactive()){}:\n\nFunctions which only run interactively and cannot be used in scripts\nMost commonly, examples for Shiny Apps and interactive plots\n\ntry():\n\nExamples which are supposed to fail and throw an error\ntry() shows the error message but won’t halt the execution\n\nif(requireNamespace(“packagename”)){}\n\nUsed for examples which need particular packages to run\nThose packages should be listed in the Suggests field of the DESCRIPTION file\n\n\\dontshow{}:\n\nTreated similarly to unwrapped examples but are not shown to the user\nGreat for setting and resetting options or code purely for tests\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll wrappers must still be placed inside the \\examples{} tag.\n\n\n\n\n\n\n\n\nExamples of CRAN Review Communication\n\n\n\n\n\n\\dontrun{} should only be used if the example really cannot be executed (e.g., because of missing additional software, missing API keys, …) by the user. That’s why wrapping examples in \\dontrun{} adds the comment (“# Not run:”) as a warning for the user. Does not seem necessary. Please replace \\dontrun with \\donttest.\nPlease unwrap the examples if they are executable in &lt; 5 sec, or replace \\dontrun{} with \\donttest{}.\nFunctions which are supposed to only run interactively (e.g., shiny) should be wrapped in if(interactive()). Please replace \\dontrun{} with if(interactive()){} if possible, then users can see that the functions are not intended for use in scripts.\nAll your examples are wrapped in \\donttest{} and therefore do not get tested.\nPlease unwrap the examples if that is feasible and if they can be executed in &lt; 5 sec for each Rd file or create additionally small toy examples to allow automatic testing.\n\n\n\n\n\nPackage Size\nIdeally, CRAN packages should be under 5 Mb. There are very few exceptions mostly for a larger inst/ folder (and these will trigger flags for every future submission). They must be approved by a CRAN team member and since every accepted version is saved on CRAN, they are very hesitant.\nIt’s best to minimize the package size. Large datasets can be hosted externally, such as on GitHub, and downloaded when necessary. Consider placing them in a separate data package that requires less frequent updates.\nAt a upper limit of the package tarball the CRAN policy states 10 Mb. It is recommended to include third-party source software within the package. If that requires larger tarballs, a modestly increased limit can be requested at submission.\n\n\n\n\n\n\nTip\n\n\n\nIf your package exceeds the recommended 5 Mb limit, it will generate a NOTE in the R CMD check. You can explain why the size is okay by providing details in the cran-comments.md file.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nA CRAN package should not be larger than 5 MB. Please reduce the size.\n\n\n\n\n\nCommunicating with CRAN\nFor a smooth review process and to provide CRAN volunteers with helpful context on any issues, it’s recommended to CC cran-submissions@r-project.org in your email communications. See the rules and recommendations on the CRAN Repository Policy. This way, any available team member can respond. Additionally, include any updates or explanations related to your package in the submission comments file (cran-comments.md).\n\n\n\n\n Back to top",
     "crumbs": [
       "General Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html",
+    "href": "docs_issues.html",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem",
+    "href": "docs_issues.html#problem",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution",
+    "href": "docs_issues.html#solution",
+    "title": "Manuals & Documentation Issues",
+    "section": "",
+    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-1",
+    "href": "docs_issues.html#problem-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem\nThe CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-1",
+    "href": "docs_issues.html#solution-1",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nSince you are using ‘roxygen2’, please make sure to add a @return-tag in the corresponding .R-file and re-roxygenize() your .Rd-files.\n\n\n\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#problem-2",
+    "href": "docs_issues.html#problem-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Problem",
+    "text": "Problem\nAutomatic CRAN tests give a NOTE saying the overall checktime of your package is too long.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "docs_issues.html#solution-2",
+    "href": "docs_issues.html#solution-2",
+    "title": "Manuals & Documentation Issues",
+    "section": "Solution",
+    "text": "Solution\nReduce the length and quantity of your examples, vignettes and tests.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: Overall checktime, Result: NOTE\n  Overall checktime 20 min &gt; 10 min\n\n\nUnwrapped examples, vignettes and tests of packages are run frequently on CRAN’s test servers. The overall time it takes to run all of them should therefore be less than 10 minutes in total.\nWrite vignettes and tests with fewer iterations, run them on small toy data or provide precomputed results. Focus on writing sensible test and documentation, retaining high code coverage instead of disabling test or removing examples.",
+    "crumbs": [
+      "Manuals & Documentation Issues"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Additional Resources",
+    "section": "",
+    "text": "Writing R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Additional Resources"
+    ]
+  },
+  {
+    "objectID": "preface.html",
+    "href": "preface.html",
+    "title": "Preface",
+    "section": "",
+    "text": "The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the Writing R Extensions manual and CRAN Repository Policy, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.\nThe authors delivered a talk on The CRAN Cookbook at the virtual LatinR Conference on November 20, 2024. The recording of the talk is available on YouTube.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "preface.html#contributors",
+    "href": "preface.html#contributors",
+    "title": "Preface",
+    "section": "Contributors",
+    "text": "Contributors\nThank you to all contributors!\nIf you are looking to make a contribution to the CRAN Cookbook please see our contributors guide.\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
+    "crumbs": [
+      "Preface"
     ]
   },
   {
@@ -237,246 +477,6 @@
     "text": "Solution\nMake sure that you set the maximum number of cores used to 2 in examples, vignettes or tests. During installation, many modern build systems use the -j flag. \n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease ensure that you do not use more than 2 cores in your examples, vignettes, etc.\n\n\n\nCRAN checks run on big, multi-core computers, running many R CMD check processes in parallel. Every process is allowed to use a maximum of 2 CPU cores to exercise parallel code in examples and unit tests. When using more than 2 cores, your package will get a NOTE from CRAN checks, saying that it took more CPU time than elapsed time.\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: whether package can be installed, Result: NOTE\n  Installation took CPU time 6.9 times elapsed time\n\nCheck: examples, Result: NOTE\n  Examples with CPU time &gt; 2.5 times elapsed time\n\n\nAutomatic tests will generate a NOTE if more than 2 cores are used in examples, vignettes, tests, or during installation. It’s best to provide an option for setting the number of cores in any function, with the default ideally set to fewer than 2 cores.\nSomething that ran as part of the installation process might have started more than two child processes (or threads) at the same time. The solution for this is specific to the build system your package is using. Many modern build systems however, can use the -j flag which originated from GNU Make (for more information, see their manual).",
     "crumbs": [
       "Code Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html",
-    "href": "description_issues.html",
-    "title": "DESCRIPTION File Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.\n\n\n\nAll references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem",
-    "href": "description_issues.html#problem",
-    "title": "DESCRIPTION File Issues",
-    "section": "",
-    "text": "The automatic spell check has flagged a software name as incorrect and results in a NOTE.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution",
-    "href": "description_issues.html#solution",
-    "title": "DESCRIPTION File Issues",
-    "section": "",
-    "text": "All references to names of software, packages and API names in the description section of the DESCRIPTION file should be wrapped in single quotes. e.g., ‘ggplot2’, ‘Python’, etc.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: –&gt; ‘python’\nPlease note that package names are case sensitive.\n\n\n\nWords in single quotes are not flagged by the automatic spell check and may be used when appropriate to include references to software names only.\nThe description section in the DESCRIPTION file of the ‘readr’ package provides an example which uses single quotes around the package name and file extensions:\nDescription: The goal of 'readr' is to provide a fast and friendly way to\n    read rectangular data (like 'csv', 'tsv', and 'fwf').  It is designed\n    to flexibly parse many types of data found in the wild, while still\n    cleanly failing when data unexpectedly changes.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-1",
-    "href": "description_issues.html#problem-1",
-    "title": "DESCRIPTION File Issues",
-    "section": "Problem",
-    "text": "Problem\nYou are using acronyms in your DESCRIPTION file or they are flagged by the automatic spell check.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-1",
-    "href": "description_issues.html#solution-1",
-    "title": "DESCRIPTION File Issues",
-    "section": "Solution",
-    "text": "Solution\nDocument all non-obvious acronyms in the cran-comments.md file to facilitate the CRAN team review.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease always explain all acronyms in the description text.\n\n\n\nMost acronyms that are not widely known should be explained. For example, you don’t have to explain OLS, SEO, or DNA but explanations should be provided for: MEFM or OCCDS. If you are unsure of the acronyms common knowledge, please document all acronyms in the package.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-2",
-    "href": "description_issues.html#problem-2",
-    "title": "DESCRIPTION File Issues",
-    "section": "Problem",
-    "text": "Problem\nSome licenses do not need to be added verbatim, instead they are referenced in the DESCRIPTION file and the CRAN template is added to the package. You can find the template at the CRAN website.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-2",
-    "href": "description_issues.html#solution-2",
-    "title": "DESCRIPTION File Issues",
-    "section": "Solution",
-    "text": "Solution\nRemove the reference + file LICENSE and delete the LICENSE file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe LICENSE file is only needed if you have additional restrictions to the license which you have not? In that case omit the file and its reference in the DESCRIPTION file.\nLicense components with restrictions and base license permitting such: GPL-3 + file LICENSE\nWe do not need “+ file LICENSE” and the file as these are part of R. This is only needed in case of attribution requirements or other possible restrictions. Hence please omit it.\n\n\n\nMost licenses don’t need an additional file as these are part of R. The list of which licenses that do require an additional file can be accessed within R by searching for Note: this is a template, needs + file LICENSE:\npath_licenses &lt;- list.files(path = R.home(), \"license.db\", full.names = TRUE, recursive = TRUE)\nlicenses_doc &lt;- as.data.frame(read.dcf(path_licenses))\nIf an additional file is needed, it should only specify the author and year for a MIT file or year, copyright holder, and organization for a BSD file.\n\n\n\n\n\n\nTip\n\n\n\nLicenses should be FOSS, or allowed by R.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-3",
-    "href": "description_issues.html#problem-3",
-    "title": "DESCRIPTION File Issues",
-    "section": "Problem",
-    "text": "Problem\nThe package Title field in the DESCRIPTION file is not in Title Case and the first letter of some or all of the words in the title are lowercase.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-3",
-    "href": "description_issues.html#solution-3",
-    "title": "DESCRIPTION File Issues",
-    "section": "Solution",
-    "text": "Solution\nThe package Title field in the DESCRIPTION file must be in Title Case, except words like “a”, “the” or “of”.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nThe Title field should be in title case. Current version is:\n‘This is my title’\nIn title case that is:\n‘This is My Title’\n\n\n\nDetermining Title Case automatically can be challenging due to word significance being only known by the package author. The function toTitleCase() can assist with transforming sentences into Title Case from the ‘tools’ package.\n\ntools::toTitleCase(\"web application framework for R\")\n\n[1] \"Web Application Framework for R\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nThere are some exceptions to using Title Case for quoting longer works like book titles and shorter works like research papers.\nIt is also not recommended to mention package names in the Title.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-4",
-    "href": "description_issues.html#problem-4",
-    "title": "DESCRIPTION File Issues",
-    "section": "Problem",
-    "text": "Problem\nYou have not properly declared the authors, maintainers and copyright holders in the Authors@R section of the DESCRIPTION file.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-4",
-    "href": "description_issues.html#solution-4",
-    "title": "DESCRIPTION File Issues",
-    "section": "Solution",
-    "text": "Solution\nAdd the Authors@R field in the DESCRIPTION file.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nAuthor field differs from that derived from Authors@R.\nNo Authors@R field in DESCRIPTION.\n  Please add one, modifying\n    Authors@R: c(person(given = “Alice”,\n      family = “Developer”,\n      role = c(“aut”, “cre”),\n      email = “alice.developer@some.domain.net”),\n    person(given = “Bob”,\n      family = “Dev”,\n      role = “aut”),\n    )\n  as necessary.\n\n\n\nYou can find more roles in the help documentation by running ?utils::person. Make sure the provided email address is actively monitored, as it will be the primary point of contact with CRAN for future updates and fixes.\n\nAuthors@R: person(\"Jane\", \"Smith\", email = \"chef@cran-cookbook.com\",\n  role = c(\"aut\", \"cre\"), ORCID = \"&lt;USER-ORCID&gt;\")\n\n\n\n\n\n\n\nNote\n\n\n\nThe Maintainer and Author fields are automatically generated, so you don’t need to add them manually.\nIf your package uses the older approach of specifying Maintainer and Author separately in the DESCRIPTION file, it won’t be rejected for that reason alone. However, this method is discouraged, and any manual modifications that differ from the auto-generated fields will result in automatic rejection by CRAN.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#problem-5",
-    "href": "description_issues.html#problem-5",
-    "title": "DESCRIPTION File Issues",
-    "section": "Problem",
-    "text": "Problem\nThe reference link in the Description field is incorrectly formatted or isn’t clickable.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "description_issues.html#solution-5",
-    "href": "description_issues.html#solution-5",
-    "title": "DESCRIPTION File Issues",
-    "section": "Solution",
-    "text": "Solution\nRemove the space after &lt;doi:…&gt; or &lt;https:…&gt; to enable the reference link. Write the reference in the form: Authors (year) &lt;doi:…&gt;.\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nIf there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form\nauthors (year) &lt;doi:…&gt;\nauthors (year, ISBN:…)\nor if those are not available: &lt;https:…&gt;\nwith no space after ‘doi:’, ‘https:’ and angle brackets for auto-linking. (If you want to add a title as well please put it in quotes: “Title”)\n\n\n\nIdeally, each package should include at least one reference in the description text to help users further explore the theory behind the package. These references should be formatted as shown in the ‘GA’ package:\nDescription: Flexible general-purpose toolbox implementing genetic algorithms (GAs) for stochastic optimisation. Binary, real-valued, and permutation representations are available to optimize a fitness function, i.e. a function provided by users depending on their objective function. Several genetic operators are available and can be combined to explore the best settings for the current task. Furthermore, users can define new genetic operators and easily evaluate their performances. Local search using general-purpose optimisation algorithms can be applied stochastically to exploit interesting regions. GAs can be run sequentially or in parallel, using an explicit master-slave parallelisation or a coarse-grain islands approach. For more details see Scrucca (2013) &lt;doi:10.18637/jss.v053.i04&gt; and Scrucca (2017) &lt;doi:10.32614/RJ-2017-008&gt;.\n\n\n\n\n\n\nTip\n\n\n\nIncluding a reference in the Description field is optional, and your package will not be archived if one is missing. You can also use the cran-comments.md file to provide additional references or information.",
-    "crumbs": [
-      "DESCRIPTION File Issues"
-    ]
-  },
-  {
-    "objectID": "preface.html",
-    "href": "preface.html",
-    "title": "Preface",
-    "section": "",
-    "text": "The CRAN Cookbook was created to address common issues in R package submissions and re-submissions to CRAN, which often cause delays or package archiving. While solutions are available in the Writing R Extensions manual and CRAN Repository Policy, they can be difficult for maintainers to interpret and apply quickly. By offering user-friendly guidance, the cookbook aims to empower maintainers to resolve problems efficiently, streamline the submission process, and improve the feedback loop with the CRAN Team. Ultimately, this resource seeks to build confidence and the knowledge base of package maintainers.\nThe authors delivered a talk on The CRAN Cookbook at the virtual LatinR Conference on November 20, 2024. The recording of the talk is available on YouTube.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "preface.html#contributors",
-    "href": "preface.html#contributors",
-    "title": "Preface",
-    "section": "Contributors",
-    "text": "Contributors\nThank you to all contributors!\nIf you are looking to make a contribution to the CRAN Cookbook please see our contributors guide.\n\nLluís Revilla (@llrs)\nIvan Krylov (@aitap)",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "Welcome to the CRAN Cookbook, your go-to guide for solving common (and often recurring) issues spotted by CRAN volunteers during package submissions and re-submissions. Here, you’ll find practical “recipes” organized by different parts of the package structure (e.g., issues with the DESCRIPTION file can be found in the Description chapter). The CRAN Cookbook is curated by Jasmine Daly and Beni Altmann, with guidance from a steering committee of experts: Heather Turner, Bettina Grün, and Gwynn Gebeyehu. We encourage contributions from the community!\n\n\n\n\n\n\nExpand To Learn More About the Writers & Steering Committee\n\n\n\n\n\n\nWriters\n\nJasmine Daly (@jasdumas): Principal Consultant & Founder of Daly Analytics, maintainer of 2 CRAN packages.\nBeni Altmann (@Baltmann01): Student, assistant member of the CRAN Team working on CRAN submissions.\n\n\n\nSteering Committee\n\nHeather Turner (@hturner): member of the R Foundation, former R Journal Editor, maintainer of 4 CRAN packages, has run several workshops on R package development.\nBettina Grün (@bettinagruen): member of the R Foundation, Journal of Statistical Software Editor-in-Chief, former R Journal Editor, maintainer of 5 CRAN packages, manager of the two assistants on the CRAN Team working on CRAN submissions.\nGwynn Gebeyehu (@nzgwynn) data scientist, former lecturer and academic researcher, has experience of technical writing for range of audiences. R user since 2002 with package development experience.\n\n\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Welcome!"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html",
-    "href": "docs_issues.html",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.\n\n\n\nOften it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#problem",
-    "href": "docs_issues.html#problem",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Every .Rd file should have an \\value-tag stating what the output of the function is. Even if nothing is returned, the \\value-tag is necessary for CRAN.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#solution",
-    "href": "docs_issues.html#solution",
-    "title": "Manuals & Documentation Issues",
-    "section": "",
-    "text": "Often it is enough to simply add the missing \\value-tags. If the function doesn’t return anything, write that as your \\value-tag.\n\n\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nPlease add \\value to .Rd files regarding exported methods and explain the functions results in the documentation. Please write about the structure of the output (class) and also what the output means. (If a function does not return a value, please document that too, e.g., \\value{No return value, called for side effects} or similar)\n\n\n\nCRAN wants a \\value-tag for every .Rd-file containing info about the structure of the output (class) and also what the output means.\nAdding a short explanation for each function helps users understand effects of the function call. This prevents unexpected outputs and helps to create a better workflow when using the function.\nThe only exception are .Rd-files for data sets, marked with the \\docType{data}-tag. Since these are no functions, no \\value-tag is necessary.\nSometimes functions don’t return one specific value but are rather called for their side effects. In that case the \\value-tag should state this.\n\\value{No return value, called for side effects}\nWhen using ‘roxygen2’ to render the .Rd-files, an @return-tag must be added in the corresponding .R-file. This will create the \\value-tag automatically when rendering.\n#' @return What your function returns.\nFor more details on ‘roxygen2’ check the ‘roxygen2’ section.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#problem-1",
-    "href": "docs_issues.html#problem-1",
-    "title": "Manuals & Documentation Issues",
-    "section": "Problem",
-    "text": "Problem\nThe CRAN team rejected your package for issues regarding the manuals a second time, even if you already changed them according to their suggestions.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#solution-1",
-    "href": "docs_issues.html#solution-1",
-    "title": "Manuals & Documentation Issues",
-    "section": "Solution",
-    "text": "Solution\nImplement your changes in the corresponding .R-files instead of the .Rd-files. Before resubmitting render the .Rd-files again using roxygenize().\n\nDetails\n\n\n\n\n\n\nCRAN Review Communication\n\n\n\n\n\nSince you are using ‘roxygen2’, please make sure to add a @return-tag in the corresponding .R-file and re-roxygenize() your .Rd-files.\n\n\n\nIf you decide to render your manuals with ‘roxygen2’, the .Rd-files can be render using the function roxygenize(). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the ‘roxygen2’-section of .R-files will not transfer to the .Rd-files without a re-rendering.\n\n\n\n\n\n\nTip\n\n\n\nTo avoid this mistake, make sure to always call roxygenize() before submitting your package.\n\n\nIf you want to know more on how to use ‘roxygen2’ to create your manuals, take a look at their website.\n\n\n\n\n\n\nNote\n\n\n\nWhen using ‘devtools’, the function devtools::document() acts as a wrapper for roxygenize() and can be used to render the .Rd-files.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#problem-2",
-    "href": "docs_issues.html#problem-2",
-    "title": "Manuals & Documentation Issues",
-    "section": "Problem",
-    "text": "Problem\nAutomatic CRAN tests give a NOTE saying the overall checktime of your package is too long.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "docs_issues.html#solution-2",
-    "href": "docs_issues.html#solution-2",
-    "title": "Manuals & Documentation Issues",
-    "section": "Solution",
-    "text": "Solution\nReduce the length and quantity of your examples, vignettes and tests.\n\nDetails\n\n\n\n\n\n\nCRAN NOTE\n\n\n\nCheck: Overall checktime, Result: NOTE\n  Overall checktime 20 min &gt; 10 min\n\n\nUnwrapped examples, vignettes and tests of packages are run frequently on CRAN’s test servers. The overall time it takes to run all of them should therefore be less than 10 minutes in total.\nWrite vignettes and tests with fewer iterations, run them on small toy data or provide precomputed results. Focus on writing sensible test and documentation, retaining high code coverage instead of disabling test or removing examples.",
-    "crumbs": [
-      "Manuals & Documentation Issues"
-    ]
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Additional Resources",
-    "section": "",
-    "text": "Writing R Extensions\nCRAN Repository Policy\nChecklist for CRAN submissions\n“R Packages” by Hadley Wickham and Jennifer Bryan\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Additional Resources"
     ]
   }
 ]
