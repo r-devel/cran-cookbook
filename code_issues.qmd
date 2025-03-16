@@ -125,7 +125,7 @@ To allow users to suppress the console output CRAN recommends two different ways
 
   * exchanging `cat()`/`print()` with other generics
     - [`message()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html): for information messages and status updates 
-    - [`warning()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html): for warning, will print a "Warning: " before the output
+    - [`warning()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html): for warnings, will print a "Warning: " before the output
     - [`stop()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html): for error messages, will print an "Error: " before the output and halt the execution
     
 This allows to use functions like `suppressMessages()` to avoid unwanted output.  
@@ -152,7 +152,7 @@ Functions can print per default, like the example above, as long as the printing
 :::{.callout-note}
 
 `print()` and `cat()` are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like `writeLines()`. 
-If you are using loggers to document your functions' process, make sure that users can set their log level such that not messages are displayed.
+If you are using loggers to document your functions' process, make sure that users can set their log level such that messages are not displayed.
 
 :::
 
@@ -255,8 +255,8 @@ Here the code will only reset the options if the example runs without breaking. 
 
 :::{.callout-tip}
 
-If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. Saving the entire 
-Note, that for `par()` the `no.readonly` argument must be set to `TRUE` or else warnings will be produced.
+If you need to change more than one option in the same function, example, vignette or demo, you can use `oldpar <- par(no.readonly = TRUE)` or `oldop <- options()` to reset all parameters at once. 
+Note that, in this case, for `par()` the `no.readonly` argument must be set to `TRUE` or else warnings will be produced.
 
 :::
 
@@ -322,7 +322,7 @@ Check: for detritus in the temp directory, Result: NOTE\
 &emsp;&emsp;  ‘this\_is\_detritus382e569a7712’
 :::
 
-The code responsible for the detritus may include your own tests and examples creating files under `tempdir()`, child processes, or 'Python' code launched using 'reticulate'. For example, R packages that use the 'tensorflow' 'Python' package [find and remove temporary files created by its auto-gradient feature](https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13).
+The code responsible for the detritus may include your own tests and examples creating files under `tempdir()`, child processes, or 'Python' code launched using 'reticulate'. For example, R packages that use the 'tensorflow' 'Python' package may use the following to [find and remove temporary files created by its auto-gradient feature](https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13).
 
 A package that uses the 'testthat' test suite will benefit from [the self-cleaning functions `withr::local_tempfile()` and `withr::local_tempdir()`](https://r-pkgs.org/testing-design.html#sec-tests-files-where-write) to work with temporary files. Even without 'testthat', the 'withr' package has no external strong dependencies and can be used independently.
 
@@ -348,7 +348,7 @@ Please do not modify the global environment (e.g., by using <<-) in your functio
 
 The `.GlobalEnv` is the main workspace of users. It can also be accessed by `globalenv()`. Writing to the global environment is forbidden for CRAN packages. 
 
-Sometimes package maintainers use the operator `<<-`. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the `.GlobalEnv`. 
+Sometimes package maintainers use the operator `<<-`. This operator not only evaluates the expression in the environment it is called in, but checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the `.GlobalEnv`. 
 To avoid writing to the global environment, the variable must be defined in a parent environment. 
 
 ```{r eval=FALSE}
@@ -453,7 +453,7 @@ Create special functions for the purpose of installing software and don't instal
 ### Details
 
 ::: {.callout-note title="CRAN Review Communication" appearance="simple" icon="false" collapse="true"}
-Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.
+Please do not install packages in your functions, examples or vignettes. This can make the functions, examples and CRAN-check very slow.
 :::
 
 Packages should usually not be installed within functions, especially since dependencies should already be listed in the DESCRIPTION. For external software this is typically the same. However, if the purpose of your package is to connect to specific APIs or provides easier installation for some programs, installing software or packages is allowed on CRAN.
