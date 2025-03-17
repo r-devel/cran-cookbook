@@ -64,7 +64,7 @@ Since you are using 'roxygen2', please make sure to add a @return-tag in the cor
 
 :::
 
-If you decide to render your manuals with ['roxygen2'](https://cran.r-project.org/web/packages/roxygen2/index.html), the .Rd-files can be render using the function [`roxygenize()`](https://roxygen2.r-lib.org/reference/roxygenize.html). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the 'roxygen2'-section of .R-files will not transfer to the .Rd-files without a re-rendering.
+If you decide to render your manuals with ['roxygen2'](https://cran.r-project.org/web/packages/roxygen2/index.html), the .Rd-files can be rendered using the function [`roxygenize()`](https://roxygen2.r-lib.org/reference/roxygenize.html). If changes are implemented directly in the .Rd-file, they will be overwritten during the next render. Similarly, changes in the 'roxygen2'-section of .R-files will not transfer to the .Rd-files without a re-rendering.
 
 ::: callout-tip
 To avoid this mistake, make sure to **always** call `roxygenize()` before submitting your package.
