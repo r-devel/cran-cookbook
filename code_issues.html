@@ -487,7 +487,7 @@ Note
 <li>exchanging <code>cat()</code>/<code>print()</code> with other generics
 <ul>
 <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/message.html"><code>message()</code></a>: for information messages and status updates</li>
-<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html"><code>warning()</code></a>: for warning, will print a “Warning:” before the output</li>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/warning.html"><code>warning()</code></a>: for warnings, will print a “Warning:” before the output</li>
 <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html"><code>stop()</code></a>: for error messages, will print an “Error:” before the output and halt the execution</li>
 </ul></li>
 </ul>
@@ -520,7 +520,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>print()</code> and <code>cat()</code> are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like <code>writeLines()</code>. If you are using loggers to document your functions’ process, make sure that users can set their log level such that not messages are displayed.</p>
+<p><code>print()</code> and <code>cat()</code> are not the only functions which can write output onto the console. The issue described in the recipe, also applies to the use of other printing function like <code>writeLines()</code>. If you are using loggers to document your functions’ process, make sure that users can set their log level such that messages are not displayed.</p>
 </div>
 </div>
 <hr>
@@ -616,7 +616,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you need to change more than one option in the same function, example, vignette or demo, you can use <code>oldpar &lt;- par(no.readonly = TRUE)</code> or <code>oldop &lt;- options()</code> to reset all parameters at once. Saving the entire Note, that for <code>par()</code> the <code>no.readonly</code> argument must be set to <code>TRUE</code> or else warnings will be produced.</p>
+<p>If you need to change more than one option in the same function, example, vignette or demo, you can use <code>oldpar &lt;- par(no.readonly = TRUE)</code> or <code>oldop &lt;- options()</code> to reset all parameters at once. Note that, in this case, for <code>par()</code> the <code>no.readonly</code> argument must be set to <code>TRUE</code> or else warnings will be produced.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -704,7 +704,7 @@ CRAN NOTE
    ‘this_is_detritus382e569a7712’</p>
 </div>
 </div>
-<p>The code responsible for the detritus may include your own tests and examples creating files under <code>tempdir()</code>, child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package <a href="https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13">find and remove temporary files created by its auto-gradient feature</a>.</p>
+<p>The code responsible for the detritus may include your own tests and examples creating files under <code>tempdir()</code>, child processes, or ‘Python’ code launched using ‘reticulate’. For example, R packages that use the ‘tensorflow’ ‘Python’ package may use the following to <a href="https://github.com/cran/vetiver/blob/35b24768cf0e84fab96610e001bba377dc777953/tests/testthat/setup.R#L13">find and remove temporary files created by its auto-gradient feature</a>.</p>
 <p>A package that uses the ‘testthat’ test suite will benefit from <a href="https://r-pkgs.org/testing-design.html#sec-tests-files-where-write">the self-cleaning functions <code>withr::local_tempfile()</code> and <code>withr::local_tempdir()</code></a> to work with temporary files. Even without ‘testthat’, the ‘withr’ package has no external strong dependencies and can be used independently.</p>
 <hr>
 </section>
@@ -738,7 +738,7 @@ CRAN Review Communication
 </div>
 </div>
 <p>The <code>.GlobalEnv</code> is the main workspace of users. It can also be accessed by <code>globalenv()</code>. Writing to the global environment is forbidden for CRAN packages.</p>
-<p>Sometimes package maintainers use the operator <code>&lt;&lt;-</code>. This operator not only evaluates the expression in the environment it is called in, checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the <code>.GlobalEnv</code>. To avoid writing to the global environment, the variable must be defined in a parent environment.</p>
+<p>Sometimes package maintainers use the operator <code>&lt;&lt;-</code>. This operator not only evaluates the expression in the environment it is called in, but checks parent environments for an existing definition of the variable. If such a variable is found then its value is redefined, otherwise assignment takes place in the <code>.GlobalEnv</code>. To avoid writing to the global environment, the variable must be defined in a parent environment.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -872,7 +872,7 @@ CRAN Review Communication
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Please do not install packages in your functions, examples or vignette. This can make the functions, examples and cran-check very slow.</p>
+<p>Please do not install packages in your functions, examples or vignettes. This can make the functions, examples and CRAN-check very slow.</p>
 </div>
 </div>
 </div>
