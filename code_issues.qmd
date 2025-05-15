@@ -212,19 +212,13 @@ When changing options inside one of your package functions, you can use [`on.exi
 
 foo <- function(x){
   
-  # par():
-  oldpar <- par(mfrow = c(2,2))
-  on.exit(par(oldpar))
+  # Store
+  old <- par(mfrow = c(2,2))
   
-  # options():
-  oldop <- options(digits = 3)
-  on.exit(options(oldop))
+  # Restore
+  on.exit(par(old))
   
-  # setwd():
-  oldwd <- setwd(".")
-  on.exit(setwd(oldwd))
-  
-  # your code which requires a changed option
+  # your code which requires a changed par()
   
 }
 
@@ -232,8 +226,21 @@ foo <- function(x){
 
 ```
 
-This will reset the `par()`, `options()` and `setwd()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
+This code will reset the `par()`. The use of [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) makes it possible to restore options before exiting a function even if the function breaks. Therefore it needs to be called immediately after the option change within a function. 
 For more information, call [`?on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) in your console. 
+
+:::{.callout-warning}
+
+When using [`on.exit()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/on.exit.html) to reset more than one type of option you need to set the `add = TRUE` on all but the first call.
+
+e.g.: 
+```
+on.exit(par(oldpar))
+on.exit(options(oldop), add = TRUE)
+
+```
+
+:::
 
 
 **For demos, examples and vignettes**:
