@@ -179,7 +179,7 @@ You can find more roles in the help documentation by running `?utils::person`. M
 
 ```{r, eval=FALSE}
 Authors@R: person("Jane", "Smith", email = "chef@cran-cookbook.com",
-  role = c("aut", "cre"), ORCID = "<USER-ORCID>")
+  role = c("aut", "cre"), comment = c(ORCID = "<USER-ORCID>"))
 ```
 
 
